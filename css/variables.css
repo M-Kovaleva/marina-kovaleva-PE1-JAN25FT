@@ -1,0 +1,58 @@
+:root {
+  /* Primary colors */
+  --color-primary: #1C1C1C;
+
+  /* Secondary colors */
+  --color-secondary: #F1E9DD;
+
+  /* Accent colors */
+  --color-accent: #C6A664;
+
+  /* Background Colors */
+  --color-backround: #F8F6F2;
+
+  /* Secondary text Colors */
+  --color-secondary-text: #6F6F6F;
+
+  /* Buttons CTA Colors */
+  --color-button-cta: #A1332A;
+  
+
+  /* Spacing */
+  --spacing-0: 0px; /* No spacing */
+  --spacing-8: 8px; /* Small padding/margin */
+  --spacing-16: 16px; /* General padding/margin */
+  --spacing-24: 24px; /* Medium Section padding */
+  --spacing-32: 36px; /* Large Section padding */
+  --spacing-48: 48px; /* Small Section margin*/
+  --spacing-64: 64px; /* Medium Section margin/
+  --spacing-80: 80px; /* Lrge Section margin*/
+
+  /* Typography */
+  --font-primary: "Playfair Display", Arial, sans-serif;
+  --font-secondary: "Inter", Helvetica, sans-serif;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Headings */
+  --font-size-h1: 4rem;
+  --font-size-h2: 1.5rem;
+  --font-size-h3: 1.25rem;
+
+  /* Body text */
+  --font-size-body-desktop: 1,125rem;
+  --font-size-bodi-mobile: 1rem;
+
+  /* Line height & letter spacing */
+  --line-height: 1.5;
+  --letter-spacing: 0.5px;
+
+  /* Components */
+  --font-size-button-desktop: 1,5rem;
+  --button-padding: 19px 0;
+  --border-radius: 6px;
+}
