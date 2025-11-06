@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo - Cart Page</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <script src="https://kit.fontawesome.com/83b00f3480.js" crossorigin="anonymous"></script>
+    <script src="js/cart.js" defer ></script>
+
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <div class="container">
+                <div class="header-container">
+                    <nav>
+                        <ul class="nav-bar">
+                            <li class="logo"><a href="index.html"><img src="logo/Logo-gold.png" alt="modo shop logo" title="Modo shop home page"></a></li>
+                            <input type="checkbox" id="check" tabindex="0"/>
+                            <div class="menu">
+                                <li class="logo"><img src="logo/Logo-black.png" alt="modo shop logo"></li>
+                                <li><a href="index.html">Catalog</a></li>
+                                <li><a href="#####">About</a></li>
+                                <li><a href="####">Contact</a></li>
+                                <li><a href="index.html" class="cta-button">Shop now</a></li>
+                                <label for="check" class="close-menu" aria-label="Close menu" title="Close menu"><i class="fas fa-times"></i></label>
+                            </div>
+                            <div class="icons">
+                                <a href="#" aria-label="#" title="#"><i class="#"></i></a>  
+                                <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>  
+                            </div>
+                            <label for="check" class="open-menu" aria-label="Open menu" title="Open menu"><i class="fas fa-bars"></i></label>   
+                        </ul>
+                    </nav>                
+                </div>
+            </div>
+        </header>
+        <main class="main-content">
+            <section id="cart-container" class="cart-container">
+                    <div class="nav-page">
+                        <a href="index.html">Catalog ></a>
+                        <a href="cart.html" class="active">Cart</a>
+                    </div>
+                    <div class="nav-actions">
+                        <a href="index.html" class="active">Keep shopping</a>
+                    </div>
+                <div class="cart-content">
+                    <h1>Shopping cart</h1>
+                    <div class="loader" id="loader"></div>
+                    <div id="cart-empty" hidden>Your cart is empty.</div>
+                    <div class="cart-box">
+                        <div id="cart-items" class="cart-list"></div>
+                        <div class="cart-summary">
+                            <div>Items: <span id="cart-count">0</span></div>
+                            <div class="cart-total">Subtotal: $<span id="cart-total">0</span></div>
+                            <a id="checkout-button" class="cta-button" href="checkout.html">Place order</a>
+                            <div id="cart-error" class="error" hidden></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+        </main>

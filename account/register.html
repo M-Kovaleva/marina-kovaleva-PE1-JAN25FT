@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Register Page</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/register.css">
+    <script src="https://kit.fontawesome.com/83b00f3480.js" crossorigin="anonymous"></script>
+    <script src="js/register.js" defer ></script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <header class="page-header">
+            <div class="container">
+                <div class="header-container">
+                    <nav>
+                        <ul class="nav-bar">
+                            <li class="logo"><a href="index.html"><img src="logo/Logo-gold.png" alt="modo shop logo" title="Modo shop home page"></a></li>
+                            <input type="checkbox" id="check" tabindex="0"/>
+                            <div class="menu">
+                                <li class="logo"><img src="logo/Logo-black.png" alt="modo shop logo"></li>
+                                <li><a href="index.html">Catalog</a></li>
+                                <li><a href="####">About</a></li>
+                                <li><a href="#####">Contact</a></li>
+                                <li><a href="index.html" class="cta-button">Shop now</a></li>
+                                <label for="check" class="close-menu" aria-label="Close menu" title="Close menu"><i class="fas fa-times"></i></label>
+                            </div>
+                            <div class="icons">
+                                <a href="#" aria-label="#" title="#"><i class="#"></i></a>  
+                                <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>  
+                            </div>
+                            <label for="check" class="open-menu" aria-label="Open menu" title="Open menu"><i class="fas fa-bars"></i></label>   
+                        </ul>
+                    </nav>                
+                </div>
+            </div>
+        </header>
+        <main class="main-content">
+             <div class="error__container">
+        <div id="error__block" class="error error__block" hidden>
+            <div class="error__icon">
+                <img src="#">
+            </div>
+            <div class="error__text">
+                <p class="error__title" id="global-error-title"></p>
+                <p class="error__message" id="global-error-message"></p>
+            </div>
+            <button id="close__error__button" class="error__close">
+                <img src="#" alt="Close error message">
+            </button>
+        </div>
+    </div>
+    <main class="main-signup">
+        <section class="signup__card">
+            <h1 class="signup__title">Sign up</h1>
+            <form id="signup-form" class="signup-form" data-role="signup-form" novalidate>
+    
+                <div class="signup-form__group"> 
+                    <label class="signup-form__label" for="signup-email">e-mail</label>
+                    <input
+                        id="signup-email"
+                        class="signup-form__input"
+                        type="email"
+                        placeholder="example@mail.com"
+                        required
+                        data-testid="signup-email"    
+                    />
+                    <span class="signup__error-message" id="email-error"></span>
+                </div>
+
+                <div class="signup-form__group">
+                    <label class="signup-form__label" for="password">Password</label>
+                    <input
+                        id="password"
+                        class="signup-form__input"
+                        type="password"
+                        placeholder="Choose password"
+                        required
+                        data-testid="signup-password"
+                    />
+                    <span class="signup__error-message" id="password-error"></span>
+                </div>
+
+                <div class="signup-form__group">
+                    <label class="signup-form__label" for="confirm-password">Confirm password</label>
+                    <input
+                        id="confirm-password"
+                        class="signup-form__input"
+                        type="password"
+                        placeholder="Repeat password"
+                        required
+                        data-testid="signup-confirm-password"
+                    />
+                    <span class="signup__error-message" id="confirm-password-error"></span>
+                </div>
+                <div class="signup-form__group signup-form__group--checkbox">
+                    <label class="signup-form__checkbox-label">
+                        <input
+                            id="signup-news"
+                            class="signup-form__checkbox"
+                            type="checkbox"
+                            name="subscribe"
+                            value="yes"
+                         data-testid="signup-subscribe"
+                        />
+                        Email me with news and offers
+                    </label>
+                <button type="submit" class="signup__button--submit" data-testid="signup-submit">Submit</button>
+            </form>
+        </section>
+    </main>
+        </main>
