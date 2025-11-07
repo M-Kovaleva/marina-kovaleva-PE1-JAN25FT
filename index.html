@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modo - Product Feed Page</title>
@@ -12,8 +12,8 @@
     <script src="https://kit.fontawesome.com/83b00f3480.js" crossorigin="anonymous"></script>
     <script src="js/index.js" defer ></script>
 
-</head>
-<body>
+    </head>
+    <body>
     <div class="page-wrapper">
         <header class="page-header">
             <div class="container">
@@ -43,30 +43,20 @@
         <main class="main-content">
             <section class="hero">
                 <h1>Luxurious gifts<br/>for every<br/>occasion</h1>
-            
                 <a href="product.html" aria-label="product page" title="Product Page" class="cta-button">Shop now</a>
             </section>
-            <section class="filters">
-                <div class="filter">
-                    <form id="filters-form">
-                        <label>
-                            Gender:
-                            <select name="gender" id="filter-gender">
-                                <option value="">All</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </label>
-                        <button class="button" type="submit">Apply</button>
-                        <button class="button" type="reset" id="filters-reset">Reset</button>
-                    </form>
+            <section class="filter">
+                <div class="category">
+                    <button class="category-btn">All</button>
+                    <button class="category-btn">Fashion</button>
+                    <button class="category-btn">Beauty</button>
+                    <button class="category-btn">Electronics</button>
+                    <button class="category-btn">Lifestyle</button>
                 </div>
                 <div class="loader" id="loader"></div>
                 <div id="products-error" class="error"></div>
                 <div id="container" class="container"></div>
-    
             </section>
-               
             <section id="products" class="products">
                 <h2>Catalog</h2>
             </section>
@@ -85,12 +75,12 @@
                 </section>
         </main>
         <footer class="footer">
-            <p>© Modo</p>
+            <p>Copyright &copy; 2024</p>
             <div class="social-icons">
                 <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </footer>
     </div>
-</body>
+    </body>
 </html>

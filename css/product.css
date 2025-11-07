@@ -1,0 +1,9 @@
+@import url("variables.css");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+.product-price .old-price {
+  text-decoration: line-through;
+  color: var(--color-secondary-text);
+  margin-right: 8px;
+}
+
