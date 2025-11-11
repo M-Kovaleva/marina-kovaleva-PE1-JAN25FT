@@ -35,21 +35,21 @@ function renderProducts(products) {
         const image = document.createElement("img")
         const content = document.createElement("div")
         const title = document.createElement("h2")
-        //const description = document.createElement("p")
         const price = document.createElement("p")
         const anchor = document.createElement("a")
+
         card.className = 'card'
         image.className = 'card-image'
         content.className = 'card-content"'
         title.className = 'card-title'
         price.className = 'card-price'
-        //description. className = 'description'
+
 
         image.src = product.image.url
         image.alt = product.image.alt
         title.textContent = product.title
         price.textContent = product.price
-        //description.textContent = product.description
+
          //Sale
         if (product.discountedPrice < product.price) {
         price.innerHTML = `
@@ -63,7 +63,6 @@ function renderProducts(products) {
         anchor.href = `product.html?id=${product.id}`
     
         content.appendChild(title)
-        //content.appendChild(description)
         content.appendChild(price)
         card.appendChild(image)
         card.appendChild(content)
@@ -72,16 +71,16 @@ function renderProducts(products) {
     })
 }    
 
-// Filter
+// Filter by category
 const categoryButtons = document.querySelectorAll(".category-btn")
 categoryButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
     const category = btn.textContent.trim().toLowerCase()
 
     // Remove active class for all buttons
-    //categoryButtons.forEach((b) => b.classList.remove("active"))
+    categoryButtons.forEach((b) => b.classList.remove("active"))
     // Add active class for current button
-    //btn.classList.add("active")
+    btn.classList.add("active")
 
     // If "All" is selected, all products will be shown
     if (category === "all") {
@@ -105,6 +104,37 @@ categoryButtons.forEach((btn) => {
     }
   })
 })
+// Search by tags
+const tagSearchInput = document.querySelector("#tag-search");
+const searchBtn = document.querySelector("#search-btn");
+
+function searchByTag() {
+  const query = tagSearchInput.value.trim().toLowerCase();
+
+  if (!query) {
+    errorContainer.hidden = true;
+    renderProducts(allProducts);
+    return;
+  }
+
+  const filteredProducts = allProducts.filter((product) =>
+    product.tags.some((tag) => tag.toLowerCase().includes(query))
+  );
+
+  if (filteredProducts.length === 0) {
+    errorContainer.textContent = `No products found for tag: "${query}".`;
+    errorContainer.hidden = false;
+    container.innerHTML = "";
+  } else {
+    errorContainer.hidden = true;
+    renderProducts(filteredProducts);
+  }
+}
+
+searchBtn.addEventListener("click", searchByTag);
+tagSearchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") searchByTag();
+});
 
 //Loader
 function showLoader() {
@@ -125,4 +155,25 @@ if (productsSection) {
     productsSection.scrollIntoView({ behavior: "smooth" })
   })
 }*/
+
+//Carusel
+const image = [
+    "./Images/3-headphones-beats.jpg",
+    "./Images/16-smartwatch.jpg",
+    "./Images/8-perfume-pink-candy.jpg",
+]
+const slider = document.querySelector("#slider")
+const prevBtn = document.querySelector("#btn-prev")
+const nextBtn = document.querySelector("#btn-next")
+const setupSlider = () => {
+    ImageTrackList.forEach((imageUrl, index) => {
+        const img = document.createElement("img")
+        img.src = imageUrl
+        img.dataset.index = index
+        img.alt = `slide ${index + 1}`
+        slider.appendChild(img)
+    })
+}
+
+
 fetchAndCreateProducts()

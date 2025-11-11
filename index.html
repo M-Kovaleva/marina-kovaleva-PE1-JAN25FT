@@ -15,7 +15,7 @@
     </head>
     <body>
     <div class="page-wrapper">
-        <header class="page-header">
+         <header class="page-header">
             <div class="container">
                 <div class="header-container">
                     <nav>
@@ -27,13 +27,12 @@
                                 <li><a href="index.html">Catalog</a></li>
                                 <li><a href="####">About</a></li>
                                 <li><a href="#####">Contact</a></li>
-                                <li><a href="index.html" class="cta-button">Shop now</a></li>
+                                <li><a href="account/login.html">Login</a></li>
                                 <label for="check" class="close-menu" aria-label="Close menu" title="Close menu"><i class="fas fa-times"></i></label>
                             </div>
-                            <div class="icons">
-                                <a href="#" aria-label="#" title="#"><i class="#"></i></a>  
+                             <!--<div class="icons">
                                 <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>  
-                            </div>
+                            </div> -->
                             <label for="check" class="open-menu" aria-label="Open menu" title="Open menu"><i class="fas fa-bars"></i></label>   
                         </ul>
                     </nav>                
@@ -44,6 +43,11 @@
             <section class="hero">
                 <h1>Luxurious gifts<br/>for every<br/>occasion</h1>
                 <a href="product.html" aria-label="product page" title="Product Page" class="cta-button">Shop now</a>
+                <div class="slider-container">
+                    <div class="slider" id="slider"></div>
+                    <button class="prev" id="btn-prev">◀︎</button>
+                    <button class="next" id="btn-pnext">▶︎</button>
+                </div>
             </section>
             <section class="filter">
                 <div class="category">
@@ -53,6 +57,14 @@
                     <button class="category-btn">Electronics</button>
                     <button class="category-btn">Lifestyle</button>
                 </div>
+                <div class="search-bar">
+                    <input
+                    type="text"
+                    id="tag-search"
+                    aria-label="Search products by tag"
+                    />
+                    <button id="search-btn" class="search-btn">Search</button>
+                </div>
                 <div class="loader" id="loader"></div>
                 <div id="products-error" class="error"></div>
                 <div id="container" class="container"></div>
@@ -61,7 +73,6 @@
                 <h2>Catalog</h2>
             </section>
             <section class="new-product">
-                    
                     <div class="new-product-item">
                         <div class="new-product-item-content">
                             <h3 tabindex="0">New product</h3>

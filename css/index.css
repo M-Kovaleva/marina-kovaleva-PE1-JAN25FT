@@ -7,4 +7,13 @@
   margin-right: 8px;
 }
 
+.slider-container{
+    position:relative;
+    width: 800px;
+}
+
+.slider{
+    display: flex;
+}
+
 
