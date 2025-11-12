@@ -88,9 +88,23 @@ async function fetchAndCreateProducts() {
     goToCartBtn.href = "cart.html"
     goToCartBtn.textContent = "Go to cart"
 
+    // Show "Go to cart" only for logged users
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+        goToCartBtn.style.display = "none"; // hide
+    } else {
+        goToCartBtn.style.display = "inline-block"; // show
+    }
+
+    // проверка логина и показ модального окна
     addButton.addEventListener("click", () => {
-      addToCart(product);
-      showToast(`${product.title} added to cart`);
+        const user = JSON.parse(localStorage.getItem("user")); // проверка логина
+        if (!user) {
+            openAuthModal(); // показываем модалку только при отсутствии user
+        } else {
+            addToCart(product);
+            showToast(`1 × ${product.title} added to cart ✅`);
+        }
     })
 
     productDiv.appendChild(image)
@@ -142,6 +156,24 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 }
+// Login/Register modal window
+const authModal = document.getElementById("auth-modal")
+const closeModalBtn = document.getElementById("close-modal")
+
+function openAuthModal() {
+  authModal.style.display = "flex"  // show
+  document.body.style.overflow = "hidden"
+}
+
+function closeAuthModal() {
+  authModal.style.display = "none" // hide
+  document.body.style.overflow = "auto"
+}
+
+closeModalBtn.addEventListener("click", closeAuthModal)
+window.addEventListener("click", (e) => {
+  if (e.target === authModal) closeAuthModal()
+})
 
 function showLoader() {
   loader.style.display = "block";

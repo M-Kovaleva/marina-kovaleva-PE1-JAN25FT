@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account Register Page</title>
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/register.css">
     <script src="https://kit.fontawesome.com/83b00f3480.js" crossorigin="anonymous"></script>
-    <script src="../js/register.js" defer ></script>
-
+    <script src="../js/register.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
@@ -20,108 +19,110 @@
                 <div class="header-container">
                     <nav>
                         <ul class="nav-bar">
-                            <li class="logo"><a href="../index.html"><img src="../logo/Logo-gold.png" alt="modo shop logo" title="Modo shop home page"></a></li>
-                            <input type="checkbox" id="check" tabindex="0"/>
+                            <li class="logo"><a href="../index.html"><img src="../logo/Logo-gold.png" alt="modo shop logo"></a></li>
+                            <input type="checkbox" id="check" tabindex="0" />
                             <div class="menu">
                                 <li class="logo"><img src="../logo/Logo-black.png" alt="modo shop logo"></li>
                                 <li><a href="../index.html">Catalog</a></li>
-                                <li><a href="####">About</a></li>
-                                <li><a href="#####">Contact</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
                                 <li><a href="../index.html" class="cta-button">Shop now</a></li>
-                                <label for="check" class="close-menu" aria-label="Close menu" title="Close menu"><i class="fas fa-times"></i></label>
+                                <label for="check" class="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></label>
                             </div>
                             <div class="icons">
-                                <a href="#" aria-label="#" title="#"><i class="#"></i></a>  
-                                <a href="../cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>  
+                                <a href="../cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
                             </div>
-                            <label for="check" class="open-menu" aria-label="Open menu" title="Open menu"><i class="fas fa-bars"></i></label>   
+                            <label for="check" class="open-menu" aria-label="Open menu"><i class="fas fa-bars"></i></label>
                         </ul>
-                    </nav>                
+                    </nav>
                 </div>
             </div>
         </header>
-        <main class="main-content">
-             <div class="error__container">
-        <div id="error__block" class="error error__block" hidden>
-            <div class="error__icon">
-                <img src="#">
-            </div>
-            <div class="error__text">
-                <p class="error__title" id="global-error-title"></p>
-                <p class="error__message" id="global-error-message"></p>
-            </div>
-            <button id="close__error__button" class="error__close">
-                <img src="#" alt="Close error message">
-            </button>
-        </div>
-    </div>
-    <main class="main-signup">
-        <section class="signup__card">
-            <h1 class="signup__title">Sign up</h1>
-            <form id="signup-form" class="signup-form" data-role="signup-form" novalidate>
-    
-                <div class="signup-form__group"> 
-                    <label class="signup-form__label" for="signup-email">e-mail</label>
-                    <input
-                        id="signup-email"
-                        class="signup-form__input"
-                        type="email"
-                        placeholder="example@mail.com"
-                        required
-                        data-testid="signup-email"    
-                    />
-                    <span class="signup__error-message" id="email-error"></span>
-                </div>
 
-                <div class="signup-form__group">
-                    <label class="signup-form__label" for="password">Password</label>
-                    <input
-                        id="password"
-                        class="signup-form__input"
-                        type="password"
-                        placeholder="Choose password"
-                        required
-                        data-testid="signup-password"
-                    />
-                    <span class="signup__error-message" id="password-error"></span>
-                </div>
-
-                <div class="signup-form__group">
-                    <label class="signup-form__label" for="confirm-password">Confirm password</label>
-                    <input
-                        id="confirm-password"
-                        class="signup-form__input"
-                        type="password"
-                        placeholder="Repeat password"
-                        required
-                        data-testid="signup-confirm-password"
-                    />
-                    <span class="signup__error-message" id="confirm-password-error"></span>
-                </div>
-                <div class="signup-form__group signup-form__group--checkbox">
-                    <label class="signup-form__checkbox-label">
+        <main class="main-signup">
+            <section class="signup__card">
+                <h1 class="signup__title">Sign up</h1>
+                <form id="signup-form" class="signup-form" novalidate>
+                    
+                    <!-- Username -->
+                    <div class="signup-form__group">
+                        <label class="signup-form__label" for="signup-name">Name</label>
                         <input
-                            id="signup-news"
-                            class="signup-form__checkbox"
-                            type="checkbox"
-                            name="subscribe"
-                            value="yes"
-                         data-testid="signup-subscribe"
+                            id="signup-name"
+                            class="signup-form__input"
+                            type="text"
+                            placeholder="Your username (letters, numbers, _)"
+                            required
                         />
-                        Email me with news and offers
-                    </label>
-                <button type="submit" class="signup__button--submit" data-testid="signup-submit">Submit</button>
-            </form>
-        </section>
-    </main>
-    <footer class="footer">
+                        <span class="signup__error-message" id="name-error"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="signup-form__group">
+                        <label class="signup-form__label" for="signup-email">Email</label>
+                        <input
+                            id="signup-email"
+                            class="signup-form__input"
+                            type="email"
+                            placeholder="your.name@stud.noroff.no"
+                            required
+                        />
+                        <span class="signup__error-message" id="email-error"></span>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="signup-form__group">
+                        <label class="signup-form__label" for="password">Password</label>
+                        <input
+                            id="password"
+                            class="signup-form__input"
+                            type="password"
+                            placeholder="At least 8 characters"
+                            minlength="8"
+                            required
+                        />
+                        <span class="signup__error-message" id="password-error"></span>
+                    </div>
+                    <div class="login__have__account">
+                        <a href="./login.html" class="login__have__account__link">Login</a>
+                    </div>
+                    <button type="submit" class="signup__button--submit">Register</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="footer">
             <p>Copyright &copy; 2024</p>
             <div class="social-icons">
-                <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </footer>
     </div>
+
+    <!-- Failed Sign Up Modal -->
+    <div id="email-modal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span id="close-email-modal" class="close-modal">&times;</span>
+            <h2>Failed Sign Up!</h2>
+            <p>Email already registered.</p>
+            <div class="auth-buttons">
+                <a href="../account/login.html" class="auth-btn login-btn">Log in</a>
+                <a href="../account/register.html" class="auth-btn register-btn">Try another email</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Sign Up Modal -->
+    <div id="success-modal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span id="close-success-modal" class="close-modal">&times;</span>
+            <h2>Successful Sign Up!</h2>
+            <p>Your account has been created successfully.</p>
+            <div class="auth-buttons">
+                <a href="../account/login.html" class="auth-btn login-btn">Go to Login</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-        
