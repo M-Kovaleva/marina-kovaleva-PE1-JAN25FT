@@ -18,15 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
         toastMobile.hidden = true
         toastDesktop.hidden = true
     }
+
     closeToastButtons.forEach(btn => {
         btn.addEventListener("click", closeToast)
     })
+
     window.addEventListener("click", (e) => {
         if (e.target === toastMobile || e.target === toastDesktop) {
             closeToast();
         }
     })
-    // Errors
+    // Validation
     function showError(id, message) {
         const span = document.getElementById(id)
         span.textContent = message
@@ -35,12 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".login__error-message").forEach(el => el.textContent = "")
         document.querySelectorAll(".login-form__input").forEach(el => el.classList.remove("login__input--error"))
     }
-    // Login basic logoc
+    // Submit form
     form.addEventListener("submit", async (e) => {
         e.preventDefault()
         clearErrors()
+
         const emailValue = emailInput.value.trim()
         const passwordValue = passwordInput.value.trim()
+
         let isValid = true
         // Email validation
         if (!emailValue) {
@@ -69,14 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
             })
             const data = await response.json()
+
             if (response.ok) {
                 localStorage.setItem("accessToken", data.data.accessToken || "")
                 localStorage.setItem("user", JSON.stringify({
                     id: data.data.id,
                     name: data.data.name,
                     email: data.data.email
-                }));
-                showToast();
+                }))
+                showToast()
                 // After 2s redirect to index page
                 setTimeout(() => {
                     closeToast()

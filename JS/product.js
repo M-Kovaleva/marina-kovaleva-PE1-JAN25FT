@@ -85,7 +85,6 @@ async function fetchAndCreateProducts() {
     } else {
         goToCartBtn.style.display = "inline-block"; // show
     }
-    
     // Login/Register modal window
     addButton.addEventListener("click", () => {
         const user = JSON.parse(localStorage.getItem("user"))
@@ -96,11 +95,9 @@ async function fetchAndCreateProducts() {
             showToast(`1 × ${product.title} added to cart ✅`)
         }
     })
-
     // При нажатии копируем ссылку с product ID
     shareButton.addEventListener("click", async () => {
         const shareUrl = `${window.location.origin}${window.location.pathname}?id=${product.id}`
-  
   // Попробуем использовать нативное API браузера, если доступно
         if (navigator.share) {
             try {

@@ -17,7 +17,7 @@ async function fetchAndCreateProducts() {
         const data = await responce.json()
         //await new Promise(res => setTimeout(res, 2000)) // Check loader
         allProducts = data.data
-
+        
     renderProducts(allProducts)
   } catch (error) {
     errorContainer.textContent = "Failed to load items. Try again later."
@@ -43,23 +43,19 @@ function renderProducts(products) {
         content.className = 'card-content"'
         title.className = 'card-title'
         price.className = 'card-price'
-
-
         image.src = product.image.url
         image.alt = product.image.alt
         title.textContent = product.title
         price.textContent = product.price
-
-         //Sale
+        //Sale
         if (product.discountedPrice < product.price) {
         price.innerHTML = `
             <span class="old-price">$${product.price}</span>
             <span class="new-price">$${product.discountedPrice}</span>
         `
         } else {
-            price.textContent = `$${product.price}`;
+            price.textContent = `$${product.price}`
         }
-
         anchor.href = `product.html?id=${product.id}`
     
         content.appendChild(title)
@@ -70,7 +66,6 @@ function renderProducts(products) {
         container.appendChild(anchor)
     })
 }    
-
 // Filter by category
 const categoryButtons = document.querySelectorAll(".category-btn")
 categoryButtons.forEach((btn) => {
@@ -105,29 +100,29 @@ categoryButtons.forEach((btn) => {
   })
 })
 // Search by tags
-const tagSearchInput = document.querySelector("#tag-search");
-const searchBtn = document.querySelector("#search-btn");
+const tagSearchInput = document.querySelector("#tag-search")
+const searchBtn = document.querySelector("#search-btn")
 
 function searchByTag() {
-  const query = tagSearchInput.value.trim().toLowerCase();
+  const query = tagSearchInput.value.trim().toLowerCase()
 
   if (!query) {
-    errorContainer.hidden = true;
-    renderProducts(allProducts);
-    return;
+    errorContainer.hidden = true
+    renderProducts(allProducts)
+    return
   }
 
   const filteredProducts = allProducts.filter((product) =>
     product.tags.some((tag) => tag.toLowerCase().includes(query))
-  );
+  )
 
   if (filteredProducts.length === 0) {
-    errorContainer.textContent = `No products found for tag: "${query}".`;
-    errorContainer.hidden = false;
-    container.innerHTML = "";
+    errorContainer.textContent = `No products found for tag: "${query}".`
+    errorContainer.hidden = false
+    container.innerHTML = ""
   } else {
-    errorContainer.hidden = true;
-    renderProducts(filteredProducts);
+    errorContainer.hidden = true
+    renderProducts(filteredProducts)
   }
 }
 
@@ -174,6 +169,4 @@ const setupSlider = () => {
         slider.appendChild(img)
     })
 }
-
-
 fetchAndCreateProducts()
