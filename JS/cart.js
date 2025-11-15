@@ -38,13 +38,11 @@ function renderCart() {
       const itemDiv = document.createElement("div")
       const img = document.createElement("img")
       const title = document.createElement("h3")
-      const size = document.createElement("p")
       const price = document.createElement("p")
       const removeBtn = document.createElement("span")
       
       itemDiv.className = "cart-item"
       img.className = "cart-item-image"
-      size.className = "cart-item-size"
       title.className = "cart-item-title"
       price.className = "cart-item-price"
       removeBtn.className = "remove-link"
@@ -53,7 +51,6 @@ function renderCart() {
       img.src = item.image.url
       img.alt = item.image.alt
       title.textContent = item.title
-      size.textContent = `Size: ${item.size}`
       price.textContent = `$${item.price}`
       removeBtn.textContent = "Remove"
       
@@ -61,7 +58,7 @@ function renderCart() {
         removeFromCart(index)
       })
 
-      itemDiv.append(img, title, size, price, removeBtn)
+      itemDiv.append(img, title, price, removeBtn)
       cartItemsContainer.appendChild(itemDiv)
 
       total += item.price
@@ -99,6 +96,6 @@ function hideLoader() {
 }
 
 checkoutButton.addEventListener("click", () => {
-  localStorage.removeItem("cart")
+  window.location.href = "checkout.html";
 });
 renderCart()
