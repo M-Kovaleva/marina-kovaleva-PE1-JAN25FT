@@ -58,30 +58,67 @@
                                 <fieldset tabindex="0">
                                     <legend>Contact information</legend>
                                     <label for="email">e-mail</label>
-                                    <input type="email" id="email" class="form__input" required>
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        class="form__input" 
+                                        required
+                                    >
+                                    <span class="checkout__error-message" id="email-error"></span>
+
                                     <label for="name">First name</label>
                                     <input type="text" id="name" class="form__input" required>
-                                    <label for="lastname">Surname</label>
+                                    <span class="checkout__error-message" id="name-error"></span>
+
+                                    <label for="surname">Surname</label>
                                     <input type="text" id="surname" class="form__input" required>
+                                    <span class="checkout__error-message" id="surname-error"></span>
+
                                     <label for="address">Address</label>
                                     <input type="text" id="address" class="form__input" required>
+                                    <span class="checkout__error-message" id="address-error"></span>
+
                                     <label for="city">City</label>
                                     <input type="text" id="city" class="form__input" required>
+                                    <span class="checkout__error-message" id="city-error"></span>
+
                                     <label for="post">Post</label>
                                     <input type="text" id="post" class="form__input" required>
+                                    <span class="checkout__error-message" id="post-error"></span>
+
                                     <label for="country">Country</label>
                                     <input type="text" id="country" class="form__input" required>
+                                    <span class="checkout__error-message" id="country-error"></span>
+
                                     <label for="code">Code</label>
                                     <input type="text" id="code" class="form__input" required>
+                                    <span class="checkout__error-message" id="code-error"></span>
+
                                     <label for="phone">Phone</label>
                                     <input type="tel" id="phone" class="form__input" required>
+                                    <span class="checkout__error-message" id="phone-error"></span>
                                 </fieldset>
                                 <fieldset tabindex="0">
                                     <legend>Delivery</legend>
+                                    <div id="delivery-info" class="delivery-info">
+                                        <p><strong>Address:</strong> <span id="d-address">—</span></p>
+                                        <p><strong>City / Post:</strong> <span id="d-city-post">—</span></p>
+                                        <p><strong>Country:</strong> <span id="d-country">—</span></p>
+                                        <p><strong>Phone:</strong> <span id="d-phone">—</span></p>
+                                        <p><strong>Delivery price:</strong> $50</p>
+                                    </div>
                                 </fieldset>
+
                                 <fieldset class="pay-method" tabindex="0">
                                     <legend>Payment</legend>
-                                    <input type="radio" id="card" name="payment" value="card" class="form__input" required>
+                                    <input 
+                                        type="radio" 
+                                        id="card" 
+                                        name="payment" 
+                                        value="card" 
+                                        class="form__input" 
+                                        required
+                                    >
                                     <label for="card">Credit/Debit Card</label>
                                     <input type="radio" id="paypal" name="payment" value="paypal" class="form__input" required>
                                     <label for="paypal">PayPal</label>
@@ -92,9 +129,10 @@
                             <div class="price-total" tabindex="0">
                                 <h2 >Total:</h2>
                                 <h2 class="price">#</h2>
-                            </div>   
+                            </div>
+                            <div id="form-error" class="error" hidden></div>
                             <div class="cta-section">
-                                <a href="success.html" class="cta-button">Pay order</a>
+                                <a id="pay-btn" href="success.html" class="cta-button">Pay order</a>
                             </div>  
                         </div>
                         <div class="checkout-info-content-right">
