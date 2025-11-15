@@ -124,6 +124,9 @@
                                     <label for="paypal">PayPal</label>
                                     <input type="radio" id="google-pay" name="payment" value="google-pay" class="form__input" required>
                                     <label for="google-pay">Google Pay</label>
+
+
+                                    <span class="checkout__error-message" id="payment-error"></span>
                                 </fieldset>
                             </form>
                             <div class="price-total" tabindex="0">
@@ -165,6 +168,17 @@
                 <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </footer>
+    </div>
+    <!-- Empty Cart Modal -->
+    <div id="empty-cart-modal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span id="close-empty-cart-modal" class="close-modal">&times;</span>
+            <h2>Your cart is empty</h2>
+            <p>Please add some products before checking out.</p>
+            <div class="auth-buttons">
+                <a href="index.html" class="auth-btn">Continue Shopping</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
