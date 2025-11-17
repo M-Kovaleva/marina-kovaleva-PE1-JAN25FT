@@ -17,7 +17,7 @@ async function fetchAndCreateProducts() {
         const data = await responce.json()
         //await new Promise(res => setTimeout(res, 2000)) // Check loader
         allProducts = data.data
-        
+
     renderProducts(allProducts)
   } catch (error) {
     errorContainer.textContent = "Failed to load items. Try again later."
@@ -126,10 +126,10 @@ function searchByTag() {
   }
 }
 
-searchBtn.addEventListener("click", searchByTag);
+searchBtn.addEventListener("click", searchByTag)
 tagSearchInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") searchByTag();
-});
+  if (e.key === "Enter") searchByTag()
+})
 
 //Loader
 function showLoader() {
@@ -152,7 +152,7 @@ if (productsSection) {
 }*/
 
 //Carusel
-const image = [
+/*const image = [
     "./Images/3-headphones-beats.jpg",
     "./Images/16-smartwatch.jpg",
     "./Images/8-perfume-pink-candy.jpg",
@@ -168,5 +168,52 @@ const setupSlider = () => {
         img.alt = `slide ${index + 1}`
         slider.appendChild(img)
     })
+}*/
+// --- CAROUSEL ---
+
+const images = [
+    "./Images/12-toy-car.jpg",
+    "./Images/6-glasses-gold.jpg",
+    "./Images/2-shoes-pink.jpg",
+];
+
+const slider = document.querySelector("#slider")
+const prevBtn = document.querySelector("#btn-prev")
+const nextBtn = document.querySelector("#btn-next")
+
+let currentIndex = 0
+let slides = []
+
+// Создаем изображения
+function setupSlider() {
+    images.forEach((src, i) => {
+        const img = document.createElement("img")
+        img.src = src
+        img.alt = `Slide ${i + 1}`
+        if (i === 0) img.classList.add("active")
+        slider.appendChild(img)
+        slides.push(img)
+    })
 }
+
+setupSlider()
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"))
+    slides[index].classList.add("active")
+}
+
+// Prev
+prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length
+    showSlide(currentIndex)
+})
+
+// Next
+nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length
+    showSlide(currentIndex)
+})
+
+
 fetchAndCreateProducts()

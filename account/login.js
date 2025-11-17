@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("click", (e) => {
         if (e.target === toastMobile || e.target === toastDesktop) {
-            closeToast();
+            closeToast()
         }
     })
     // Validation
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!passwordValue) {
             showError("login-password-error", "Password is required")
             passwordInput.classList.add("login__input--error")
-            isValid = false;
+            isValid = false
         }
         if (!isValid) return
         try {

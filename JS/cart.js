@@ -21,15 +21,15 @@ function renderCart() {
     cartItemsContainer.replaceChildren()
 
     if (cart.length === 0) {
-      cartEmpty.hidden = false;
+      cartEmpty.hidden = false
       cartCount.textContent = "0"
       cartTotal.textContent = "0"
       checkoutButton.style.display = "none"
-      hideLoader();
-      return;
+      hideLoader()
+      return
     }
 
-    cartEmpty.hidden = true;
+    cartEmpty.hidden = true
     let total = 0
     let count = 0
     /*throw new Error("Test error in renderCart")//error checking*/
@@ -96,6 +96,6 @@ function hideLoader() {
 }
 
 checkoutButton.addEventListener("click", () => {
-  window.location.href = "checkout.html";
-});
+  window.location.href = "checkout.html"
+})
 renderCart()

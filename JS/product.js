@@ -57,7 +57,7 @@ async function fetchAndCreateProducts() {
     description.textContent = product.description
     // Rviews
     if (product.reviews && product.reviews.length > 0) {
-      reviewsContainer.innerHTML = ""; // clean
+      reviewsContainer.innerHTML = "" // clean
       product.reviews.forEach((review) => {
         const reviewCard = document.createElement("div")
         reviewCard.className = "review-card"
@@ -81,9 +81,9 @@ async function fetchAndCreateProducts() {
     // Show "Go to cart" only for logged users
     const user = JSON.parse(localStorage.getItem("user"))
     if (!user) {
-        goToCartBtn.style.display = "none"; // hide
+        goToCartBtn.style.display = "none" // hide
     } else {
-        goToCartBtn.style.display = "inline-block"; // show
+        goToCartBtn.style.display = "inline-block" // show
     }
     // Login/Register modal window
     addButton.addEventListener("click", () => {
@@ -143,7 +143,7 @@ function addToCart(product) {
         ? product.discountedPrice
         : product.price,
     image: product.image,
-  });
+  })
   localStorage.setItem("cart", JSON.stringify(cart))
 }
 // Pop-up message

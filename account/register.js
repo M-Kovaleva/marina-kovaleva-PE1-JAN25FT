@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("click", (e) => {
     if (e.target === emailModal) closeModal(emailModal)
     if (e.target === successModal) {
-      closeModal(successModal);
+      closeModal(successModal)
       window.location.href = "./account/login.html"
     }
   })
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false
     }
 
-    if (!isValid) return;
+    if (!isValid) return
     // Sending POST request to API
     const requestOptions = {
       method: "POST",
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch("https://v2.api.noroff.dev/auth/register", requestOptions)
-      
+
       if (response.status === 201) {
         const data = await response.json()
     
