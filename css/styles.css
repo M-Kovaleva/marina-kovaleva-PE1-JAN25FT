@@ -23,6 +23,32 @@ body{
     height: 100vh;
 }
 
+.page-header{
+    background-color: var(--color-primary);
+}    
+.page-main{
+    background-color: var(--color-backround);
+    flex-grow: 1;
+}
+.page-footer{
+    background-color: var(--color-primary);
+}
+
+.container{
+    background-color: var(--color-primary);
+    height: 100%;
+    max-width: 120rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.header {
+    background-color: var(--color-primary);
+}
+.page-main .container{
+    background-color: var(--color-backround);
+}
+
 h1{
     font-family: var(--font-primary);
     font-weight: var(--font-weight-bold);
