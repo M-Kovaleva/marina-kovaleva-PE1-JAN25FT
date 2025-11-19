@@ -40,7 +40,7 @@ function renderProducts(products) {
 
         card.className = 'card'
         image.className = 'card-image'
-        content.className = 'card-content"'
+        content.className = 'card-content'
         title.className = 'card-title'
         price.className = 'card-price'
         image.src = product.image.url
@@ -141,79 +141,103 @@ function hideLoader() {
     container.style.display = "grid"
 }
 
-//Scroll
-/*const catalogBtn = document.querySelector(".cta-button")
-const productsSection = document.querySelector("#products")
+//Scroll to the catalog
+const heroCatalogBtn = document.querySelector(".hero .cta-button")
+const catalogHeading = document.querySelector("#products h2")
 
-if (productsSection) {
-    catalogBtn.addEventListener("click", () => {
-    productsSection.scrollIntoView({ behavior: "smooth" })
-  })
-}*/
-
-//Carusel
-/*const image = [
-    "./Images/3-headphones-beats.jpg",
-    "./Images/16-smartwatch.jpg",
-    "./Images/8-perfume-pink-candy.jpg",
-]
-const slider = document.querySelector("#slider")
-const prevBtn = document.querySelector("#btn-prev")
-const nextBtn = document.querySelector("#btn-next")
-const setupSlider = () => {
-    ImageTrackList.forEach((imageUrl, index) => {
-        const img = document.createElement("img")
-        img.src = imageUrl
-        img.dataset.index = index
-        img.alt = `slide ${index + 1}`
-        slider.appendChild(img)
-    })
-}*/
-// --- CAROUSEL ---
-
-const images = [
-    "./Images/12-toy-car.jpg",
-    "./Images/6-glasses-gold.jpg",
-    "./Images/2-shoes-pink.jpg",
-];
-
-const slider = document.querySelector("#slider")
-const prevBtn = document.querySelector("#btn-prev")
-const nextBtn = document.querySelector("#btn-next")
-
-let currentIndex = 0
-let slides = []
-
-// Создаем изображения
-function setupSlider() {
-    images.forEach((src, i) => {
-        const img = document.createElement("img")
-        img.src = src
-        img.alt = `Slide ${i + 1}`
-        if (i === 0) img.classList.add("active")
-        slider.appendChild(img)
-        slides.push(img)
+if (heroCatalogBtn && catalogHeading) {
+    heroCatalogBtn.addEventListener("click", () => {
+        catalogHeading.scrollIntoView({ behavior: "smooth", block: "start" })
     })
 }
 
-setupSlider()
+//Login/Logout in the Header
+document.addEventListener("DOMContentLoaded", () => {
+    const authLink = document.getElementById("auth-link")
 
-function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove("active"))
-    slides[index].classList.add("active")
+    function updateAuthLink() {
+        const token = localStorage.getItem("accessToken")
+
+        if (token) {
+            // User logged in → change Login → Logout
+            authLink.textContent = "Logout"
+            authLink.href = "#"
+            authLink.addEventListener("click", logout)
+        }
+    }
+
+    function logout(e) {
+        e.preventDefault()
+
+        // Remove all auth data & cart
+        localStorage.removeItem("accessToken")
+        localStorage.removeItem("user")
+        localStorage.removeItem("cart")
+
+        // Reload page
+        window.location.reload()
+    }
+
+    updateAuthLink()
+})
+
+//Carulsell
+async function createCarousel() {
+    try {
+        const res = await fetch(API_URL)
+        const data = await res.json()
+        const products = data.data
+
+        // Take last 3 products
+        const latest = products.slice(-3)
+        const track = document.querySelector(".carousel-track")
+
+        latest.forEach((product) => {
+            const slide = document.createElement("div")
+            slide.className = "carousel-slide"
+
+            slide.innerHTML = `
+                <img src="${product.image.url}" alt="${product.image.alt}">
+                <h3 class="carousel-title">${product.title}</h3>
+                <a href="product.html?id=${product.id}">Read more</a>
+            `
+
+            track.appendChild(slide)
+        })
+
+        initCarousel()
+    } catch (error) {
+        console.log("Carousel error:", error)
+    }
 }
 
-// Prev
-prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length
-    showSlide(currentIndex)
-})
+function initCarousel() {
+    const slides = document.querySelectorAll(".carousel-slide")
+    const prev = document.querySelector(".carousel-btn.prev")
+    const next = document.querySelector(".carousel-btn.next")
 
-// Next
-nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % slides.length
-    showSlide(currentIndex)
-})
+    let index = 0
 
+    function updateCarousel() {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index)
+        })
+    }
+
+    next.addEventListener("click", () => {
+        index = (index + 1) % slides.length // loop
+        updateCarousel()
+    })
+
+    prev.addEventListener("click", () => {
+        index = (index - 1 + slides.length) % slides.length // loop backwards
+        updateCarousel()
+    })
+
+    // Show the first slide
+    updateCarousel()
+}
+// Run carousel after page load
+createCarousel()
 
 fetchAndCreateProducts()

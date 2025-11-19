@@ -20,20 +20,11 @@
                 <div class="header-container">
                     <nav>
                         <ul class="nav-bar">
-                            <li class="logo"><a href="index.html"><img src="logo/Logo-gold.png" alt="modo shop logo" title="Modo shop home page"></a></li>
-                            <input type="checkbox" id="check" tabindex="0"/>
-                            <div class="menu">
-                                <li class="logo"><img src="logo/Logo-black.png" alt="modo shop logo"></li>
-                                <li><a href="index.html">Catalog</a></li>
-                                <li><a href="####">About</a></li>
-                                <li><a href="#####">Contact</a></li>
-                                <li><a href="account/login.html">Login</a></li>
-                                <label for="check" class="close-menu" aria-label="Close menu" title="Close menu"><i class="fas fa-times"></i></label>
-                            </div>
-                             <!--<div class="icons">
+                            <li class="logo"><a href="index.html"><img src="logo/Logo-gold.png" alt="modo shop logo" title="Modo shop home page"></a></li>                   
+                            <li><a id="auth-link" href="account/login.html">Login</a></li>
+                            <div class="icons">
                                 <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>  
-                            </div> -->
-                            <label for="check" class="open-menu" aria-label="Open menu" title="Open menu"><i class="fas fa-bars"></i></label>   
+                            </div>  
                         </ul>
                     </nav>                
                 </div>
@@ -43,20 +34,19 @@
             <div class="container">
                 <section class="hero">
                 <h1>Luxurious gifts<br/>for every<br/>occasion</h1>
-                <a href="product.html" aria-label="product page" title="Product Page" class="cta-button">Shop now</a>
-                <!-- КАРУСЕЛЬ -->
-                <div class="slider-container">
-                    <div class="slider" id="slider"></div>
+                <button aria-label="product page" title="Product Page" class="cta-button">Catalog</button>
+                </section>
+                <section class="carousel-section">
+                    <h2>Latest Products</h2>
 
-                    <button class="prev" id="btn-prev">◀︎</button>
-                    <button class="next" id="btn-next">▶︎</button>
-                </div>
-                <!-- MOBILE SLIDER -->
-                <div class="mobile-slider">
-                    <img src="./Images/12-toy-car.jpg" alt="slide">
-                    <img src="./Images/6-glasses-gold.jpg" alt="slide">
-                    <img src="./Images/2-shoes-pink.jpg" alt="slide">
-                </div>
+                    <div class="carousel">
+                        <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>
+                        <div class="carousel-track"></div>
+                        <button class="carousel-btn next" aria-label="Next">&#10095;</button>
+                    </div>
+                </section>
+            <section id="products" class="products">
+                <h2>Catalog</h2>
             </section>
             <section class="filter">
                 <div class="category">
@@ -79,7 +69,7 @@
                 <div id="container" class="container"></div>
             </section>
             <section id="products" class="products">
-                <h2>Catalog</h2>
+              
             </section>
             <section class="new-product">
                     <div class="new-product-item">

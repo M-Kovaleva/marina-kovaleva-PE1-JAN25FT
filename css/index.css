@@ -6,87 +6,85 @@
   color: var(--color-secondary-text);
   margin-right: 8px;
 }
-.slider-container {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    height: 400px;
-    margin: 20px auto 0;
-    overflow: hidden;
-    border-radius: 12px;
+/* === CAROUSEL === */
+
+.carousel-section {
+  margin-top: 80px;
+  text-align: center;
 }
 
-/* Все картинки накладываются друг на друга */
-.slider {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 20px auto;
+  overflow: hidden;
 }
 
-.slider img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+.carousel-track {
+  position: relative;
+   height: 900px; /* фиксированная высота для слайдов */
 }
 
-/* Активное изображение */
-.slider img.active {
-    opacity: 1;
+
+
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
-.slider-container button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.7);
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 8px 14px;
-    border-radius: 5px;
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-#btn-prev {
-    left: 10px;
-}
-#btn-next {
-    right: 10px;
-}
-/* MOBILE SCROLL SLIDER (по умолчанию скрыт) */
-.mobile-slider {
-    display: none;
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
 }
 
-/* Показываем ТОЛЬКО на телефонах */
-@media (max-width: 700px) {
+.carousel-title {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
 
-    /* Десктопный fade-slider скрываем */
-    .slider-container {
-        display: none;
-    }
+.carousel a {
+  display: inline-block;
+  padding: 8px 14px;
+  margin-top: 10px;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
 
-    /* Включаем мобильный */
-    .mobile-slider {
-        display: flex;
-        gap: 12px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding: 10px;
-        border-radius: 12px;
-    }
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+  color: #333;
+  z-index: 10; /* <-- добавлено */
+}
 
-    .mobile-slider img {
-        width: 85%;
-        flex-shrink: 0;
-        border-radius: 12px;
-        scroll-snap-align: center;
-    }
 
-    /* Скролл без полосы */
-    .mobile-slider::-webkit-scrollbar {
-        display: none;
-    }
+.carousel-btn.prev {
+  left: 0;
+}
+
+.carousel-btn.next {
+  right: 0;
 }
