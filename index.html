@@ -14,64 +14,63 @@
 
     </head>
     <body>
-    <div class="wrapper">
-         <header class="header">
-            <div class="container">
-                <div class="header-container">
-                    <nav>
-                        <ul class="nav-bar">
-                            <li class="logo"><a href="index.html"><img src="logo/Logo-gold.png" alt="modo shop logo" title="Modo shop home page"></a></li>                   
-                            <li><a id="auth-link" href="account/login.html">Login</a></li>
-                            <div class="icons">
-                                <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>  
-                            </div>  
-                        </ul>
-                    </nav>                
-                </div>
-            </div>
-        </header>
-        <main class="page-main">
-            <div class="container">
-                <section class="hero">
-                <h1>Luxurious gifts<br/>for every<br/>occasion</h1>
-                <button aria-label="product page" title="Product Page" class="cta-button">Catalog</button>
-                </section>
-                <section class="carousel-section">
-                    <h2>Latest Products</h2>
-
-                    <div class="carousel">
-                        <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>
-                        <div class="carousel-track"></div>
-                        <button class="carousel-btn next" aria-label="Next">&#10095;</button>
+        <div class="wrapper">
+            <header class="header">
+                <div class="container">
+                    <div class="header-container">
+                       <a href="index.html" class="logo"><img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page"></a>  
+                        <nav class="nav">
+                            <ul class="nav-links">            
+                                <li>
+                                    <a id="auth-link" href="account/login.html">Login</a>
+                                </li>
+                                <li>
+                                    <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </li>
+                            </ul>
+                        </nav>                
                     </div>
+                </div>
+            </header>
+            <main class="page-main">
+                <div class="container">
+                    <div class="hero">
+                        <h1>Luxurious gifts<br/>for every<br/>occasion</h1>
+                        <button aria-label="product page" title="Product Page" class="cta-button">Catalog</button>
+                    </div>
+                    <div class="carousel-section">
+                        <h2>Latest Products</h2>
+                        <div class="carousel">
+                            <button class="carousel-btn prev" aria-label="Previous">&#10094;</button>
+                            <div class="carousel-track"></div>
+                            <button class="carousel-btn next" aria-label="Next">&#10095;</button>
+                        </div>
+                    </div>
+                <section id="products" class="products">
+                    <h2>Catalog</h2>
                 </section>
-            <section id="products" class="products">
-                <h2>Catalog</h2>
-            </section>
-            <section class="filter">
-                <div class="category">
-                    <button class="category-btn">All</button>
-                    <button class="category-btn">Fashion</button>
-                    <button class="category-btn">Beauty</button>
-                    <button class="category-btn">Electronics</button>
-                    <button class="category-btn">Lifestyle</button>
-                </div>
-                <div class="search-bar">
-                    <input
-                    type="text"
-                    id="tag-search"
-                    aria-label="Search products by tag"
-                    />
-                    <button id="search-btn" class="search-btn">Search</button>
-                </div>
-                <div class="loader" id="loader"></div>
-                <div id="products-error" class="error"></div>
-                <div id="container" class="container"></div>
-            </section>
-            <section id="products" class="products">
-              
-            </section>
-            <section class="new-product">
+                <section class="filter">
+                    <div class="category">
+                        <button class="category-btn">All</button>
+                        <button class="category-btn">Fashion</button>
+                        <button class="category-btn">Beauty</button>
+                        <button class="category-btn">Electronics</button>
+                        <button class="category-btn">Lifestyle</button>
+                    </div>
+                    <div class="search-bar">
+                        <input
+                            type="text"
+                            id="tag-search"
+                            aria-label="Search products by tag"
+                            placeholder="fashion"
+                        />
+                        <button id="search-btn" class="search-btn">Search</button>
+                    </div>
+                    <div class="loader" id="loader"></div>
+                    <div id="products-error" class="error"></div>
+                    <div id="container" class="container"></div>
+                </section>
+                <section class="new-product">
                     <div class="new-product-item">
                         <div class="new-product-item-content">
                             <h3 tabindex="0">New product</h3>
@@ -83,22 +82,19 @@
                         <img src="#" alt="#"/>
                     </div>
                 </section>
-            </div>
-            
-        </main>
-       <footer class="page-footer">
-            <div class="container">
-                <div class="footer-container">
-                    <p>Copyright &copy; 2024</p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </main>
+            <footer class="page-footer">
+                <div class="container">
+                    <div class="footer-container">
+                        <p>Copyright &copy; 2024</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-                
-            
-        </footer>
-    </div>
+            </footer>
+        </div>
     </body>
 </html>

@@ -1,6 +1,106 @@
 @import url("variables.css");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  font-family: 'Playfair Display', serif;
+}
+
+/*.header-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 15px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}*/
+.header-container {
+    display: flex;
+    flex-direction: row;  
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* === NAVIGATION === */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--color-backround);
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-button-links-desktop);
+  padding: 8px 16px;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.nav-links li a:hover {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.nav-links li a i {
+  font-size: 1.2rem;
+  color: var();
+}
+
+/* === RESPONSIVE === */
+/*@media (max-width: 1024px) {
+  .header-container {
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+}*/
+
+/*@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}*/
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px;
+  }
+
+  .nav-links li a {
+    font-size: var(--font-size-button-links-mobile);
+  }
+}
+
 .card-price .old-price {
   text-decoration: line-through;
   color: var(--color-secondary-text);
@@ -23,7 +123,7 @@
 
 .carousel-track {
   position: relative;
-   height: 900px; /* фиксированная высота для слайдов */
+  height: auto;
 }
 
 

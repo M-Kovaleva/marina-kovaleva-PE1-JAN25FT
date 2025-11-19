@@ -52,7 +52,8 @@
   --letter-spacing: 0.5px;
 
   /* Components */
-  --font-size-button-desktop: 1,5rem;
+  --font-size-button-links-desktop: 1,5rem;
+  --font-size-button-links-mobile: 1rem;
   --button-padding: 19px 0;
   --border-radius: 6px;
 }
