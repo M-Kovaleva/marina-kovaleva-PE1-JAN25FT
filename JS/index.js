@@ -181,63 +181,66 @@ document.addEventListener("DOMContentLoaded", () => {
     updateAuthLink()
 })
 
-//Carulsell
-async function createCarousel() {
-    try {
-        const res = await fetch(API_URL)
-        const data = await res.json()
-        const products = data.data
+// Carusell
+function initLatestCarousel() {
+    if (!allProducts.length) return
 
-        // Take last 3 products
-        const latest = products.slice(-3)
-        const track = document.querySelector(".carousel-track")
+    const slidesContainer = document.querySelector(".carousel-slides")
+    slidesContainer.innerHTML = ""
 
-        latest.forEach((product) => {
-            const slide = document.createElement("div")
-            slide.className = "carousel-slide"
+    const firstThree = allProducts.slice(0, 3)
 
-            slide.innerHTML = `
-                <img src="${product.image.url}" alt="${product.image.alt}">
-                <h3 class="carousel-title">${product.title}</h3>
-                <a href="product.html?id=${product.id}">Read more</a>
-            `
+    firstThree.forEach((product, index) => {
+        const slide = document.createElement("div")
+        slide.className = "carousel-slide"
+        if (index === 0) slide.classList.add("active")
 
-            track.appendChild(slide)
-        })
+        const img = document.createElement("img")
+        img.src = product.image.url
+        img.alt = product.image.alt || product.title
 
-        initCarousel()
-    } catch (error) {
-        console.log("Carousel error:", error)
-    }
-}
+        const title = document.createElement("h3")
+        title.className = "carousel-title"
+        title.textContent = product.title
 
-function initCarousel() {
-    const slides = document.querySelectorAll(".carousel-slide")
-    const prev = document.querySelector(".carousel-btn.prev")
-    const next = document.querySelector(".carousel-btn.next")
+        const btn = document.createElement("a")
+        btn.className = "cta-button"
+        btn.textContent = "View product"
+        btn.href = `product.html?id=${product.id}`
 
-    let index = 0
+        slide.appendChild(img)
+        slide.appendChild(title)
+        slide.appendChild(btn)
 
-    function updateCarousel() {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index)
-        })
-    }
-
-    next.addEventListener("click", () => {
-        index = (index + 1) % slides.length // loop
-        updateCarousel()
+        slidesContainer.appendChild(slide)
     })
 
-    prev.addEventListener("click", () => {
-        index = (index - 1 + slides.length) % slides.length // loop backwards
-        updateCarousel()
+    const slides = slidesContainer.children
+    let currentIndex = 0
+
+    function showSlide(i) {
+        Array.from(slides).forEach(s => s.classList.remove("active"))
+        slides[i].classList.add("active")
+    }
+
+    const nextBtn = document.querySelector(".carousel-btn.next")
+    const prevBtn = document.querySelector(".carousel-btn.prev")
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % slides.length
+        showSlide(currentIndex)
     })
 
-    // Show the first slide
-    updateCarousel()
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length
+        showSlide(currentIndex)
+    })
 }
-// Run carousel after page load
-createCarousel()
+// Launch after all products are loaded
+const originalFetch = fetchAndCreateProducts
+fetchAndCreateProducts = async function () {
+    await originalFetch()
+    initLatestCarousel()
+}
 
 fetchAndCreateProducts()

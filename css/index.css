@@ -1,6 +1,7 @@
 @import url("variables.css");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
+/*Header*/
 .header {
   background-color: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -11,14 +12,6 @@
   font-family: 'Playfair Display', serif;
 }
 
-/*.header-container {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  padding: 15px 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}*/
 .header-container {
     display: flex;
     flex-direction: row;  
@@ -37,7 +30,7 @@
   transform: scale(1.05);
 }
 
-/* === NAVIGATION === */
+/* Header-nav*/
 .nav-links {
   list-style: none;
   display: flex;
@@ -67,30 +60,6 @@
   color: var();
 }
 
-/* === RESPONSIVE === */
-/*@media (max-width: 1024px) {
-  .header-container {
-    padding: 12px 20px;
-  }
-
-  .nav-links {
-    gap: 20px;
-  }
-}*/
-
-/*@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-}*/
-
 @media (max-width: 480px) {
   .logo img {
     height: 40px;
@@ -101,90 +70,118 @@
   }
 }
 
+.card-image{
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
 .card-price .old-price {
   text-decoration: line-through;
   color: var(--color-secondary-text);
   margin-right: 8px;
 }
-/* === CAROUSEL === */
 
-.carousel-section {
-  margin-top: 80px;
-  text-align: center;
+/*Carusell*/
+.latest-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 60px auto;
+    overflow: hidden;
 }
 
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 450px;
-  margin: 20px auto;
-  overflow: hidden;
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 380px;
 }
-
-.carousel-track {
-  position: relative;
-  height: auto;
-}
-
-
-
 
 .carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex; 
+    pointer-events: none; 
 }
 
 .carousel-slide.active {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    display: flex; 
+     pointer-events: auto; 
 }
 
 .carousel-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
 
 .carousel-title {
-  margin: 10px 0;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-.carousel a {
-  display: inline-block;
-  padding: 8px 14px;
-  margin-top: 10px;
-  background: black;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.9rem;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
 }
 
 .carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0 10px;
-  color: #333;
-  z-index: 10; /* <-- добавлено */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-accent);
+    border: none;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+    z-index: 10; 
+
 }
 
+.carousel-btn:hover {
+    background: var(--color-primary);
+}
 
 .carousel-btn.prev {
-  left: 0;
+    left: 10px;
 }
 
 .carousel-btn.next {
-  right: 0;
+    right: 10px;
+}
+
+.carousel-slide .cta-button {
+    margin-top: 10px;
+}
+
+/* Filter */
+.category-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: 2px solid var(--color-accent);
+    border-radius: var(--border-radius);
+    padding: 8px 16px;
+    font-family: var(--font-secondary);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.category-btn.active {
+    background-color: var(--color-accent);
+    color: var(--color-backround);
+    border-color: var(--color-accent);
+}
+
+.category-btn:not(.active):hover {
+    background-color: var(--color-accent);
+    color: var(--color-backround);
 }
