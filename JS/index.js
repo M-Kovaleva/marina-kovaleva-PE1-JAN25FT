@@ -223,18 +223,45 @@ function initLatestCarousel() {
         slides[i].classList.add("active")
     }
 
-    const nextBtn = document.querySelector(".carousel-btn.next")
-    const prevBtn = document.querySelector(".carousel-btn.prev")
+    // Проверяем ширину экрана для мобильной версии
+    if (window.innerWidth <= 480) {
+        let startX = 0
+        let endX = 0
 
-    nextBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % slides.length
-        showSlide(currentIndex)
-    })
+        slidesContainer.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX
+        })
 
-    prevBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length
-        showSlide(currentIndex)
-    })
+        slidesContainer.addEventListener("touchmove", (e) => {
+            endX = e.touches[0].clientX
+        })
+
+        slidesContainer.addEventListener("touchend", () => {
+            const diff = startX - endX
+            if (Math.abs(diff) > 50) { // минимальное смещение для свайпа
+                if (diff > 0) {
+                    currentIndex = (currentIndex + 1) % slides.length
+                } else {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length
+                }
+                showSlide(currentIndex)
+            }
+        })
+    } else {
+        // Десктоп — оставляем кнопки
+        const nextBtn = document.querySelector(".carousel-btn.next")
+        const prevBtn = document.querySelector(".carousel-btn.prev")
+
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % slides.length
+            showSlide(currentIndex)
+        })
+
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length
+            showSlide(currentIndex)
+        })
+    }
 }
 // Launch after all products are loaded
 const originalFetch = fetchAndCreateProducts
@@ -242,5 +269,65 @@ fetchAndCreateProducts = async function () {
     await originalFetch()
     initLatestCarousel()
 }
+// ================= Newsletter email validation (like register page) =================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const emailInput = document.getElementById("sign-up-email")
+  const emailError = document.getElementById("sign-up-email-error")
+  const signupButton = document.querySelector(".sign-up .cta-button")
+
+  function showEmailError(message) {
+    emailError.textContent = message
+    emailInput.classList.add("sign-up-input--error")
+  }
+
+  function clearEmailError() {
+    emailError.textContent = ""
+    emailInput.classList.remove("sign-up-input--error")
+  }
+
+  function validateEmail() {
+    const emailValue = emailInput.value.trim()
+    clearEmailError()
+
+    let isValid = true
+
+    if (!emailValue) {
+      showEmailError("Email is required")
+      isValid = false
+    } else if (!/^[^\s@]+@stud\.noroff\.no$/.test(emailValue)) {
+      showEmailError("Email must be a valid stud.noroff.no email")
+      isValid = false
+    }
+
+    return isValid
+  }
+    function showToast(message) {
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+    }
+
+    signupButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (!validateEmail()) return;
+
+    emailInput.value = "";
+    showToast("You have successfully subscribed to the newsletter ✅");
+    });
+  // Live validation при вводе
+  emailInput.addEventListener("input", clearEmailError)
+})
 
 fetchAndCreateProducts()
