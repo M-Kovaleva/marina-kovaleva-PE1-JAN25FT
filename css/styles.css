@@ -16,47 +16,80 @@ body{
     overscroll-behavior-y: none;
 }
 
-.page-wrapper{
-    background-color: var(--color-backround);
+.wrapper{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    
+    
+}
+.header{
+
+  background-color: var(--color-primary);
+  padding: 0 70px;
+  position: sticky;
+  top: 0;
+  z-index: 999; /* чтобы был поверх контента */
 }
 
-.page-header{
-    background-color: var(--color-primary);
-}    
+
 .page-main{
     background-color: var(--color-backround);
     flex-grow: 1;
+
+}
+.products,.filter{
+  padding: 0 70px;
 }
 .page-footer{
     background-color: var(--color-primary);
+    padding: 0 70px;
 }
 
 .container{
     background-color: var(--color-primary);
-    height: 100%;
     max-width: 120rem;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    padding: var(--spacing-16) 70px;
+    
 }
 /* Desktop small (>= 768px) */
 @media (max-width: 768px) {
-  .container{
-    padding: var(--spacing-16) 55px;
+  .page-footer{
+    padding: 0 55px;
   }
+
+  .header{
+    padding: 0 55px;
+  }
+  .products,.filter{
+  padding: 0 55px;
+}
 }
 @media (max-width: 480px) {
-  .container{
-    padding: var(--spacing-8) 35px;
+  .page-footer{
+    padding: 0 35px;
   }
+
+  .header{
+    padding: 0 35px;
+  }
+  .products,.filter{
+  padding: 0 35px;}
 }
-.header {
-    background-color: var(--color-primary);
+@media (max-width: 350px){
+  .page-footer{
+    padding: 0 20px;
+  }
+
+  .header{
+    padding: 0 20px;
+  }
+  .products,.filter{
+  padding: 0 20px;}
 }
+
 .page-main .container{
     background-color: var(--color-backround);
 }
@@ -144,3 +177,157 @@ main .loader {
 }
 
 
+/* Footer */
+
+
+.footer-container {
+  text-align: center;
+  background: var(--color-primary);
+  color: var(--color-backround);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-container p{
+  color: var(--color-backround);
+
+}
+.footer-container a{
+  color: var(--color-backround);
+  font-size: 1.2rem;
+}
+.footer-container a:hover{
+  color: var(--color-accent);
+
+}
+
+.social-icons{
+  display: flex;
+  gap: var(--spacing-24);
+}
+
+/*Header*/
+
+  
+
+
+.header-container {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-between; 
+  align-items: center;
+
+  background-color: var(--color-primary);
+  color: var(--color-backround);
+  
+
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 50px;        /* фиксируем как у картинки */
+  line-height: 0;      /* убираем влияние текста */
+}
+
+.logo img {
+  display: block;      /* убирает нижний отступ inline-элемента */
+  height: 50px;
+  width: auto;
+}
+
+
+/* Header-nav*/
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-64);
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--color-backround);
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-button-links-desktop);
+  padding: 8px 0;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.nav-links li a:hover {
+  color: var(--color-accent);
+ 
+}
+.nav-links i {
+  font-size: 1.2rem;
+}
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px;
+  }
+  .nav-links{
+    gap: var( --spacing-24);
+  }
+
+  .nav-links li a {
+    font-size: var(--font-size-button-links-mobile);
+  }
+  .carousel-btn {
+    display: none; 
+  }
+
+}
+/* Hero CTA Button - похожа на filter buttons */
+
+.cta-button {
+ max-width: 124px;
+ min-width: clamp(90px, 12vw, 140px);
+
+  height: clamp(36px, 4vw, 48px);
+
+
+
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+    background-color: var(--color-button-cta);
+    color: var(--color-backround);
+    border: 0 solid var(--color-button-cta);
+    border-radius: var(--border-radius);
+   
+    font-family: var(--font-secondary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-button-links-desktop);
+  cursor: pointer;
+  text-align: center;
+    cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+   
+
+
+
+/* Адаптивный размер шрифта как у filter */
+@media (max-width: 480px) {
+  .cta-button {
+    font-size: var(--font-size-button-links-mobile);
+  }
+}
+
+
+.cta-button:hover {
+    color: var(--color-accent);
+
+}
+
+.error{
+  margin-top: 8px;
+}

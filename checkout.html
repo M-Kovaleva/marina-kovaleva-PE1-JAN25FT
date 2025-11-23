@@ -14,34 +14,29 @@
 
 </head>
 <body>
-    <div class="page-wrapper">
-        <header class="page-header">
+    <div class="wrapper">
+        <header class="header">
             <div class="container">
                 <div class="header-container">
-                    <nav>
-                        <ul class="nav-bar">
-                            <li class="logo"><a href="index.html"><img src="logo/Logo-gold.png" alt="modo shop logo" title="Modo shop home page"></a></li>
-                            <input type="checkbox" id="check" tabindex="0"/>
-                            <div class="menu">
-                                <li class="logo"><img src="logo/Logo-black.png" alt="modo shop logo"></li>
-                                <li><a href="index.html">Catalog</a></li>
-                                <li><a href="####">About</a></li>
-                                <li><a href="#####">Contact</a></li>
-                                <li><a href="index.html" class="cta-button">Shop now</a></li>
-                                <label for="check" class="close-menu" aria-label="Close menu" title="Close menu"><i class="fas fa-times"></i></label>
-                            </div>
-                            <div class="icons">
-                                <a href="#" aria-label="#" title="#"><i class="#"></i></a>  
-                                <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>  
-                            </div>
-                            <label for="check" class="open-menu" aria-label="Open menu" title="Open menu"><i class="fas fa-bars"></i></label>   
-                        </ul>
-                    </nav>                
-                </div>
+                        <a href="index.html" class="logo">
+                            <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
+                        </a>  
+                        <nav class="nav">
+                            <ul class="nav-links">            
+                                <li>
+                                    <a id="auth-link" href="account/login.html">Login</a>
+                                </li>
+                                <li>
+                                    <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </li>
+                            </ul>
+                        </nav>                
+                    </div>
             </div>
         </header>
-        <main class="main-content">
-            <section id="cart-container" class="cart-container">
+        <main class="page-main">
+            <div class="container">
+                <section id="cart-container" class="cart-container">
                     <div class="nav-page">
                         <a href="index.html">Catalog ></a>
                         <a href="cart.html" class="active">Cart ></a>
@@ -50,122 +45,136 @@
                     <div class="nav-actions">
                         <a href="index.html" class="active">Keep shopping</a>
                     </div>
-                <div class="checkout-content">
-                    <div class="loader" id="loader"></div>
-                     <div class="checkout-info-content">
-                        <div>
-                            <form class="payment">
-                                <fieldset tabindex="0">
-                                    <legend>Contact information</legend>
-                                    <label for="email">e-mail</label>
-                                    <input 
-                                        type="email" 
-                                        id="email" 
-                                        class="form__input"
-                                        required
-                                    >
-                                    <span class="checkout__error-message" id="email-error"></span>
+                    <div class="checkout-content">
+                        <div class="loader" id="loader"></div>
+                        <div class="checkout-info-content">
+                            <div>
+                                <form class="payment">
+                                    <fieldset tabindex="0">
+                                        <legend>Contact information</legend>
+                                        <label for="email">e-mail</label>
+                                        <input 
+                                            type="email" 
+                                            id="email" 
+                                            class="form__input"
+                                            required
+                                        >
+                                        <span class="checkout__error-message" id="email-error"></span>
 
-                                    <label for="name">First name</label>
-                                    <input type="text" id="name" class="form__input" required>
-                                    <span class="checkout__error-message" id="name-error"></span>
+                                        <label for="name">First name</label>
+                                        <input type="text" id="name" class="form__input" required>
+                                        <span class="checkout__error-message" id="name-error"></span>
 
-                                    <label for="surname">Surname</label>
-                                    <input type="text" id="surname" class="form__input" required>
-                                    <span class="checkout__error-message" id="surname-error"></span>
+                                        <label for="surname">Surname</label>
+                                        <input type="text" id="surname" class="form__input" required>
+                                        <span class="checkout__error-message" id="surname-error"></span>
 
-                                    <label for="address">Address</label>
-                                    <input type="text" id="address" class="form__input" required>
-                                    <span class="checkout__error-message" id="address-error"></span>
+                                        <label for="address">Address</label>
+                                        <input type="text" id="address" class="form__input" required>
+                                        <span class="checkout__error-message" id="address-error"></span>
 
-                                    <label for="city">City</label>
-                                    <input type="text" id="city" class="form__input" required>
-                                    <span class="checkout__error-message" id="city-error"></span>
+                                        <label for="city">City</label>
+                                        <input type="text" id="city" class="form__input" required>
+                                        <span class="checkout__error-message" id="city-error"></span>
 
-                                    <label for="post">Post</label>
-                                    <input type="text" id="post" class="form__input" required>
-                                    <span class="checkout__error-message" id="post-error"></span>
+                                        <label for="post">Post</label>
+                                        <input type="text" id="post" class="form__input" required>
+                                        <span class="checkout__error-message" id="post-error"></span>
 
-                                    <label for="country">Country</label>
-                                    <input type="text" id="country" class="form__input" required>
-                                    <span class="checkout__error-message" id="country-error"></span>
+                                        <label for="country">Country</label>
+                                        <input type="text" id="country" class="form__input" required>
+                                        <span class="checkout__error-message" id="country-error"></span>
 
-                                    <label for="code">Code</label>
-                                    <input type="text" id="code" class="form__input" required>
-                                    <span class="checkout__error-message" id="code-error"></span>
+                                        <label for="code">Code</label>
+                                        <input type="text" id="code" class="form__input" required>
+                                        <span class="checkout__error-message" id="code-error"></span>
 
-                                    <label for="phone">Phone</label>
-                                    <input type="tel" id="phone" class="form__input" required>
-                                    <span class="checkout__error-message" id="phone-error"></span>
-                                </fieldset>
-                                <fieldset tabindex="0">
-                                    <legend>Delivery</legend>
-                                    <div id="delivery-info" class="delivery-info">
-                                        <p><strong>Address:</strong> <span id="d-address">—</span></p>
-                                        <p><strong>City / Post:</strong> <span id="d-city-post">—</span></p>
-                                        <p><strong>Country:</strong> <span id="d-country">—</span></p>
-                                        <p><strong>Phone:</strong> <span id="d-phone">—</span></p>
-                                        <p><strong>Delivery price:</strong> $50</p>
-                                    </div>
-                                </fieldset>
-
-                                <fieldset class="pay-method" tabindex="0">
-                                    <legend>Payment</legend>
-                                    <input 
-                                        type="radio" 
-                                        id="card" 
-                                        name="payment" 
-                                        value="card" 
-                                        class="form__input" 
-                                        required
-                                    >
-                                    <label for="card">Credit/Debit Card</label>
-                                    <input type="radio" id="paypal" name="payment" value="paypal" class="form__input" required>
-                                    <label for="paypal">PayPal</label>
-                                    <input type="radio" id="google-pay" name="payment" value="google-pay" class="form__input" required>
-                                    <label for="google-pay">Google Pay</label>
-
-
-                                    <span class="checkout__error-message" id="payment-error"></span>
-                                </fieldset>
-                            </form>
-                            <div class="price-total" tabindex="0">
-                                <h2 >Total:</h2>
-                                <h2 class="price">#</h2>
-                            </div>
-                            <div id="form-error" class="error" hidden></div>
-                            <div class="cta-section">
-                                <a id="pay-btn" href="success.html" class="cta-button">Pay order</a>
-                            </div>  
-                        </div>
-                        <div class="checkout-info-content-right">
-                            <div class="product-info-content-right">
-                                <div class="cart-box">
-                                    <div id="cart-items" class="cart-list"></div>
-                                    <div class="cart-summary">
-                                        <div>Items: <span id="cart-count">0</span></div>
-                                        <div class="cart-total">Subtotal: $<span id="cart-total">0</span></div>
-                                        <div class="cart-delivery">Delivery price: $50</div>
-                                        <div class="price-total" tabindex="0">
-                                            <h2 >Total:</h2>
-                                            <h2 class="price">#</h2>
-                                        </div>   
-                                        <div id="cart-error" class="error" hidden></div>
-                                    </div>
+                                        <label for="phone">Phone</label>
+                                        <input type="tel" id="phone" class="form__input" required>
+                                        <span class="checkout__error-message" id="phone-error"></span>
+                                    </fieldset>
+                                    <fieldset tabindex="0">
+                                        <legend>Delivery</legend>
+                                        <div id="delivery-info" class="delivery-info">
+                                            <p><strong>Address:</strong> <span id="d-address">—</span></p>
+                                            <p><strong>City / Post:</strong> <span id="d-city-post">—</span></p>
+                                            <p><strong>Country:</strong> <span id="d-country">—</span></p>
+                                            <p><strong>Phone:</strong> <span id="d-phone">—</span></p>
+                                            <p><strong>Delivery price:</strong> $50</p>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="pay-method" tabindex="0">
+                                        <legend>Payment</legend>
+                                        <input 
+                                            type="radio" 
+                                            id="card" 
+                                            name="payment" 
+                                            value="card" 
+                                            class="form__input" 
+                                            required
+                                        >
+                                        <label for="card">Credit/Debit Card</label>
+                                        <input 
+                                            type="radio" 
+                                            id="paypal" 
+                                            name="payment" 
+                                            value="paypal" 
+                                            class="form__input" 
+                                            required
+                                        >
+                                        <label for="paypal">PayPal</label>
+                                        <input 
+                                            type="radio" 
+                                            id="google-pay" 
+                                            name="payment" 
+                                            value="google-pay" 
+                                            class="form__input" 
+                                            required
+                                        >
+                                        <label for="google-pay">Google Pay</label>
+                                        <span class="checkout__error-message" id="payment-error"></span>
+                                    </fieldset>
+                                </form>
+                                <div class="price-total" tabindex="0">
+                                    <h2 >Total:</h2>
+                                    <h2 class="price">#</h2>
                                 </div>
-                            </div>    
-                        </div>   
-                    </div>  
-                
-                </div>
-                
-            </section>  
+                                <div id="form-error" class="error" hidden></div>
+                                <div class="cta-section">
+                                    <a id="pay-btn" href="success.html" class="cta-button">Pay order</a>
+                                </div>  
+                            </div>
+                            <div class="checkout-info-content-right">
+                                <div class="product-info-content-right">
+                                    <div class="cart-box">
+                                        <div id="cart-items" class="cart-list"></div>
+                                        <div class="cart-summary">
+                                            <div>Items: <span id="cart-count">0</span></div>
+                                            <div class="cart-total">Subtotal: $<span id="cart-total">0</span></div>
+                                            <div class="cart-delivery">Delivery price: $50</div>
+                                            <div class="price-total" tabindex="0">
+                                                <h2 >Total:</h2>
+                                                <h2 class="price">#</h2>
+                                            </div>   
+                                            <div id="cart-error" class="error" hidden></div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>   
+                        </div>  
+                    </div>
+                </section>  
+            </div> 
         </main>
-         <footer class="footer">
-            <p>Copyright &copy; 2024</p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="footer-container">
+                    <p>Modo &copy; 2024</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>

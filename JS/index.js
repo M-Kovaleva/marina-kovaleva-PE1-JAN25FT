@@ -4,7 +4,8 @@ const categoryMap = {
     fashion: ["fashion", "shoes", "glasses", "jewelry", "watches", "accessories", "bags", "watch"],
     beauty: ["beauty", "perfume", "skin care", "shampoo"],
     electronics: ["electronics", "audio", "peripherals", "gaming", "computers", "storage", "watch"],
-    lifestyle: ["toy", "wearables", "watch", "watches"]
+    lifestyle: ["toy", "wearables", "watch", "watches"],
+    jewelry: ["jewelry"],
 }
 const errorContainer = document.querySelector("#products-error")
 const API_URL = "https://v2.api.noroff.dev/online-shop"
@@ -141,15 +142,6 @@ function hideLoader() {
     container.style.display = "grid"
 }
 
-//Scroll to the catalog
-const heroCatalogBtn = document.querySelector(".hero .cta-button")
-const catalogHeading = document.querySelector("#products h2")
-
-if (heroCatalogBtn && catalogHeading) {
-    heroCatalogBtn.addEventListener("click", () => {
-        catalogHeading.scrollIntoView({ behavior: "smooth", block: "start" })
-    })
-}
 
 //Login/Logout in the Header
 document.addEventListener("DOMContentLoaded", () => {
@@ -186,82 +178,150 @@ function initLatestCarousel() {
     if (!allProducts.length) return
 
     const slidesContainer = document.querySelector(".carousel-slides")
+    const nextBtn = document.querySelector(".carousel-btn.next")
+    const prevBtn = document.querySelector(".carousel-btn.prev")
+
     slidesContainer.innerHTML = ""
 
-    const firstThree = allProducts.slice(0, 3)
+    const selectedProducts = [
+        allProducts[5],
+        allProducts[1],
+        allProducts[12]
+    ]
 
-    firstThree.forEach((product, index) => {
+    const customImages = [
+        "Images/slide-1-4-bag-red.jpng-removebg-preview.png",
+        "Images/slide-2-12-toy-car.png",
+        "Images/slide-3-15-watch-black-removebg-preview.png"
+    ]
+
+    selectedProducts.forEach((product, index) => {
+        if (!product) return
+
         const slide = document.createElement("div")
         slide.className = "carousel-slide"
         if (index === 0) slide.classList.add("active")
 
         const img = document.createElement("img")
-        img.src = product.image.url
-        img.alt = product.image.alt || product.title
+        img.src = customImages[index]
+        img.alt = product.title
 
-        const title = document.createElement("h3")
-        title.className = "carousel-title"
-        title.textContent = product.title
+        const content = document.createElement("div")
+        content.className = "carousel-content"
 
-        const btn = document.createElement("a")
-        btn.className = "cta-button"
-        btn.textContent = "View product"
-        btn.href = `product.html?id=${product.id}`
+        content.innerHTML = `
+            <h1 class="carousel-hero-title">Luxurious gifts for every occasion</h1>
+            <h2 class="carousel-title">${product.title}</h2>
+            <p class="carousel-description">${product.description}</p>
+            <a class="cta-button" href="product.html?id=${product.id}">See product</a>
+        `
 
-        slide.appendChild(img)
-        slide.appendChild(title)
-        slide.appendChild(btn)
+        const wrapper = document.createElement("div")
+        wrapper.className = "carousel-slide-wrapper"
+        wrapper.append(img, content)
 
+        slide.appendChild(wrapper)
         slidesContainer.appendChild(slide)
     })
 
     const slides = slidesContainer.children
     let currentIndex = 0
+    const dotsContainer = document.querySelector(".carousel-dots")
+    dotsContainer.innerHTML = ""
+
+    // Carousel dots
+    const dots = []
+
+    Array.from(slides).forEach((_, index) => {
+        const dot = document.createElement("span")
+        dot.classList.add("carousel-dot")
+        if (index === 0) dot.classList.add("active")
+
+        dot.addEventListener("click", () => {
+            currentIndex = index
+            showSlide(currentIndex)
+        })
+
+        dotsContainer.appendChild(dot)
+        dots.push(dot)
+    })
 
     function showSlide(i) {
         Array.from(slides).forEach(s => s.classList.remove("active"))
         slides[i].classList.add("active")
+
+        dots.forEach(dot => dot.classList.remove("active"))
+        dots[i].classList.add("active")
     }
 
-    // Проверяем ширину экрана для мобильной версии
-    if (window.innerWidth <= 480) {
-        let startX = 0
-        let endX = 0
+    // Swipe for small desktops
+    let startX = 0
 
-        slidesContainer.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX
-        })
+    function enableSwipe() {
+        nextBtn.style.pointerEvents = "none"
+        prevBtn.style.pointerEvents = "none"
 
-        slidesContainer.addEventListener("touchmove", (e) => {
-            endX = e.touches[0].clientX
-        })
+        slidesContainer.addEventListener("touchstart", touchStart)
+        slidesContainer.addEventListener("touchend", touchEnd)
+    }
 
-        slidesContainer.addEventListener("touchend", () => {
-            const diff = startX - endX
-            if (Math.abs(diff) > 50) { // минимальное смещение для свайпа
-                if (diff > 0) {
-                    currentIndex = (currentIndex + 1) % slides.length
-                } else {
-                    currentIndex = (currentIndex - 1 + slides.length) % slides.length
-                }
-                showSlide(currentIndex)
-            }
-        })
-    } else {
-        // Десктоп — оставляем кнопки
-        const nextBtn = document.querySelector(".carousel-btn.next")
-        const prevBtn = document.querySelector(".carousel-btn.prev")
+    function disableSwipe() {
+        slidesContainer.removeEventListener("touchstart", touchStart)
+        slidesContainer.removeEventListener("touchend", touchEnd)
+    }
 
-        nextBtn.addEventListener("click", () => {
+    function enableButtons() {
+        nextBtn.style.pointerEvents = "auto"
+        prevBtn.style.pointerEvents = "auto"
+    }
+
+    function handleResize() {
+        if (window.innerWidth <= 900) {
+            disableButtonsLogic()
+            enableSwipe()
+        } else {
+            disableSwipe()
+            enableButtonsLogic()
+        }
+    }
+
+    function disableButtonsLogic() {
+        nextBtn.onclick = null
+        prevBtn.onclick = null
+    }
+
+    function enableButtonsLogic() {
+        nextBtn.onclick = () => {
             currentIndex = (currentIndex + 1) % slides.length
             showSlide(currentIndex)
-        })
+        }
 
-        prevBtn.addEventListener("click", () => {
+        prevBtn.onclick = () => {
             currentIndex = (currentIndex - 1 + slides.length) % slides.length
             showSlide(currentIndex)
-        })
+        }
     }
+
+    function touchStart(e) {
+        startX = e.touches[0].clientX
+    }
+
+    function touchEnd(e) {
+        const endX = e.changedTouches[0].clientX
+        const diff = startX - endX
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                currentIndex = (currentIndex + 1) % slides.length
+            } else {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length
+            }
+            showSlide(currentIndex)
+        }
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
 }
 // Launch after all products are loaded
 const originalFetch = fetchAndCreateProducts
@@ -269,8 +329,8 @@ fetchAndCreateProducts = async function () {
     await originalFetch()
     initLatestCarousel()
 }
-// ================= Newsletter email validation (like register page) =================
 
+// Sign up
 document.addEventListener("DOMContentLoaded", () => {
   const emailInput = document.getElementById("sign-up-email")
   const emailError = document.getElementById("sign-up-email-error")
@@ -326,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
     emailInput.value = "";
     showToast("You have successfully subscribed to the newsletter ✅");
     });
-  // Live validation при вводе
+  // Validation
   emailInput.addEventListener("input", clearEmailError)
 })
 

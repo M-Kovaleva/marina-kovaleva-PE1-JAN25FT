@@ -14,90 +14,91 @@
 </head>
 <body>
     <div class="wrapper">
-        <header class="page-header">
+        <header class="header">
             <div class="container">
                 <div class="header-container">
-                    <nav>
-                        <ul class="nav-bar">
-                            <li class="logo"><a href="../index.html"><img src="../logo/Logo-gold.png" alt="modo shop logo"></a></li>
-                            <input type="checkbox" id="check" tabindex="0" />
-                            <div class="menu">
-                                <li class="logo"><img src="../logo/Logo-black.png" alt="modo shop logo"></li>
-                                <li><a href="../index.html">Catalog</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="../index.html" class="cta-button">Shop now</a></li>
-                                <label for="check" class="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></label>
-                            </div>
-                            <div class="icons">
-                                <a href="../cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                            </div>
-                            <label for="check" class="open-menu" aria-label="Open menu"><i class="fas fa-bars"></i></label>
-                        </ul>
-                    </nav>
-                </div>
+                        <a href="../index.html" class="logo">
+                            <img src="../logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
+                        </a>  
+                        <nav class="nav">
+                            <ul class="nav-links">            
+                                <li>
+                                    <a id="auth-link" href="login.html">Login</a>
+                                </li>
+                                <li>
+                                    <a href="../cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                                </li>
+                            </ul>
+                        </nav>                
+                    </div>
             </div>
         </header>
 
-        <main class="main-signup">
-            <section class="signup__card">
-                <h1 class="signup__title">Sign up</h1>
-                <form id="signup-form" class="signup-form" novalidate>
-                    
-                    <!-- Username -->
-                    <div class="signup-form__group">
-                        <label class="signup-form__label" for="signup-name">Name</label>
-                        <input
-                            id="signup-name"
-                            class="signup-form__input"
-                            type="text"
-                            placeholder="username"
-                            required
-                        />
-                        <span class="signup__error-message" id="name-error"></span>
-                    </div>
+        <main class="page-main">
+            <div class="container">
+                    <section class="signup__card">
+                    <h1 class="signup__title">Sign up</h1>
+                    <form id="signup-form" class="signup-form" novalidate>
+                        
+                        <!-- Username -->
+                        <div class="signup-form__group">
+                            <label class="signup-form__label" for="signup-name">Name</label>
+                            <input
+                                id="signup-name"
+                                class="signup-form__input"
+                                type="text"
+                                placeholder="username"
+                                required
+                            />
+                            <span class="signup__error-message" id="name-error"></span>
+                        </div>
 
-                    <!-- Email -->
-                    <div class="signup-form__group">
-                        <label class="signup-form__label" for="signup-email">Email</label>
-                        <input
-                            id="signup-email"
-                            class="signup-form__input"
-                            type="email"
-                            placeholder="example@stud.noroff.no" 
-                            required
-                        />
-                        <span class="signup__error-message" id="email-error"></span>
-                    </div>
+                        <!-- Email -->
+                        <div class="signup-form__group">
+                            <label class="signup-form__label" for="signup-email">Email</label>
+                            <input
+                                id="signup-email"
+                                class="signup-form__input"
+                                type="email"
+                                placeholder="example@stud.noroff.no" 
+                                required
+                            />
+                            <span class="signup__error-message" id="email-error"></span>
+                        </div>
 
-                    <!-- Password -->
-                    <div class="signup-form__group">
-                        <label class="signup-form__label" for="password">Password</label>
-                        <input
-                            id="password"
-                            class="signup-form__input"
-                            type="password"
-                            placeholder="at least 8 characters"
-                            minlength="8"
-                            required
-                        />
-                        <span class="signup__error-message" id="password-error"></span>
-                    </div>
-                    <div class="login__have__account">
-                        <a href="./login.html" class="login__have__account__link">Login</a>
-                    </div>
-                    <button type="submit" class="signup__button--submit">Register</button>
-                </form>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <p>Copyright &copy; 2024</p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <!-- Password -->
+                        <div class="signup-form__group">
+                            <label class="signup-form__label" for="password">Password</label>
+                            <input
+                                id="password"
+                                class="signup-form__input"
+                                type="password"
+                                placeholder="at least 8 characters"
+                                minlength="8"
+                                required
+                            />
+                            <span class="signup__error-message" id="password-error"></span>
+                        </div>
+                        <div class="login__have__account">
+                            <a href="./login.html" class="login__have__account__link">Login</a>
+                        </div>
+                        <button type="submit" class="signup__button--submit">Register</button>
+                    </form>
+                </section>
             </div>
-        </footer>
+            
+        </main>
+        <footer class="page-footer">
+                <div class="container">
+                    <div class="footer-container">
+                        <p>Modo &copy; 2024</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
     </div>
 
     <!-- Failed Sign Up Modal -->
@@ -107,8 +108,8 @@
             <h2>Failed Sign Up!</h2>
             <p>Email already registered.</p>
             <div class="auth-buttons">
-                <a href="../account/login.html" class="auth-btn login-btn">Log in</a>
-                <a href="../account/register.html" class="auth-btn register-btn">Try another email</a>
+                <a href="login.html" class="auth-btn login-btn">Log in</a>
+                <a href="register.html" class="auth-btn register-btn">Try another email</a>
             </div>
         </div>
     </div>
@@ -120,7 +121,7 @@
             <h2>Successful Sign Up!</h2>
             <p>Your account has been created successfully.</p>
             <div class="auth-buttons">
-                <a href="../account/login.html" class="auth-btn login-btn">Go to Login</a>
+                <a href="login.html" class="auth-btn login-btn">Go to Login</a>
             </div>
         </div>
     </div>

@@ -36,45 +36,55 @@
             </header>
             <main class="page-main">
                 <div class="container">
-                    <h1>Our new products</h1>
-                    <section id="latest-carousel" class="latest-carousel">
-                        <button class="carousel-btn prev">❮</button>
-                        <div class="carousel-slides"></div>
-                        <button class="carousel-btn next">❯</button>
-                    </section>
-                    <div class="hero">
-                        <h1>Luxurious gifts<br/>for every<br/>occasion</h1>
-                        <button aria-label="product page" title="Product Page" class="cta-button">Catalog</button>
+                    <div class="hero-carousel-wrapper">
+                        <section id="latest-carousel" class="latest-carousel">
+                            <button class="carousel-btn prev">❮</button>
+                            <div class="carousel-slides"></div>
+                            <div class="carousel-dots"></div>
+                            <button class="carousel-btn next">❯</button>
+                        </section>
                     </div>
                     <section id="products" class="products">
                         <h2>Catalog</h2>
                     </section>
                     <section class="filter">
-                    <div class="category">
-                        <button class="category-btn">All</button>
-                        <button class="category-btn">Fashion</button>
-                        <button class="category-btn">Beauty</button>
-                        <button class="category-btn">Electronics</button>
-                        <button class="category-btn">Lifestyle</button>
-                    </div>
-                    <div class="search-bar">
-                        <input
-                            type="text"
-                            id="tag-search"
-                            aria-label="Search products by tag"
-                            placeholder="fashion"
-                        />
-                        <button id="search-btn" class="search-btn">Search</button>
-                    </div>
+                        <div class="filter-container">
+                            <div class="category">
+                                <button class="category-btn">All</button>
+                                <button class="category-btn">Fashion</button>
+                                <button class="category-btn">Beauty</button>
+                                <button class="category-btn">Electronics</button>
+                                <button class="category-btn">Lifestyle</button>
+                                <button class="category-btn">Jewelry</button>
+                            </div>
+                            <div class="search-bar">
+                                <input
+                                    type="text"
+                                    id="tag-search"
+                                    aria-label="Search products by tag"
+                                    placeholder="bag"
+                                />
+                                <button id="search-btn" class="search-btn">Search</button>
+                            </div>
+                        </div>
                     <div class="loader" id="loader"></div>
                     <div id="products-error" class="error"></div>
                     <div id="container" class="container"></div>
                 </section>
                 <section class="sign-up">
-                    <div class="sign-up-item">
+                        
+                        <div class="sign-up-image-wrapper">
+                            <img src="Images/Untitled_design__27_-removebg-preview.png" class="sign-up-img" alt="#" />
+                        </div>
                         <div class="sign-up-item-content">
-                            <h3 tabindex="0">Register for The Newsletter</h3>
-                            <p tabindex="0">Sign up for our newsletter to get early access to new arrivals, sales, events.<br/>Get 10% off your first order.</p>
+                            <h4 tabindex="0">Register for the newsletter</h4>
+                            <p tabindex="0">
+                                Sign up for our newsletter and be the first to know about our latest arrivals, 
+                                exclusive promotions, special discounts, and upcoming events. Stay connected with us and 
+                                enjoy early access to limited offers, insider updates, and handpicked recommendations created 
+                                just for you.
+                            </p>
+                            <h2 tabindex="0" class="sale">Get 10% off your first order.</h2>
                             <div class="sign-up-form-group">
                                 <label class="sign-up-form-label" for="sign-up-email">Email</label>
                                 <input 
@@ -88,15 +98,14 @@
                                     autocomplete="email"
                                     data-testid="sign-up-email">
                                 
-                                <span class="sign-up-error-message" id="sign-up-email-error"></span>
+                                
+                                <button type="submit" class="cta-button">Sign up</button>
                             </div>
-                            <button type="submit" class="cta-button">Sign up</button>
+                            <span class="sign-up-error-message" id="sign-up-email-error"></span>
+                            
                           
                         </div>
-                    </div>
-                    <div class="sign-up-img">
-                        <img src="#" alt="#"/>
-                    </div>
+                        
                 </section>
                 </div>
             </main>

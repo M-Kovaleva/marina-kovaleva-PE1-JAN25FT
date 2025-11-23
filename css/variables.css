@@ -54,6 +54,6 @@
   /* Components */
   --font-size-button-links-desktop: 1,5rem;
   --font-size-button-links-mobile: 1rem;
-  --button-padding: 19px 0;
+  --button-padding: 8px 16px;
   --border-radius: 6px;
 }
