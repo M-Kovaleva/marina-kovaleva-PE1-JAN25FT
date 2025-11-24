@@ -37,7 +37,7 @@
             <main class="page-main">
                 <div class="container">
                     <div class="hero-carousel-wrapper">
-                        <section id="latest-carousel" class="latest-carousel" aria-label="New products carousel">
+                        <section id="latest-carousel" class="latest-carousel" role="region" aria-label="New products carousel">
                             <button class="carousel-btn prev" aria-label="Previous slide" title="Previous slide">❮</button>
                             <div class="carousel-slides"></div>
                             <div class="carousel-dots"></div>
@@ -50,12 +50,12 @@
                     <section class="filter">
                         <div class="filter-container">
                             <div class="category">
-                                <button class="category-btn">All</button>
-                                <button class="category-btn">Fashion</button>
-                                <button class="category-btn">Beauty</button>
-                                <button class="category-btn">Electronics</button>
-                                <button class="category-btn">Lifestyle</button>
-                                <button class="category-btn">Jewelry</button>
+                                <button class="category-btn" aria-pressed="false">All</button>
+                                <button class="category-btn" aria-pressed="false">Fashion</button>
+                                <button class="category-btn" aria-pressed="false">Beauty</button>
+                                <button class="category-btn" aria-pressed="false">Electronics</button>
+                                <button class="category-btn" aria-pressed="false">Lifestyle</button>
+                                <button class="category-btn" aria-pressed="false">Jewelry</button>
                             </div>
                             <div class="search-bar">
                                 <input
@@ -67,8 +67,8 @@
                                 <button id="search-btn" class="search-btn" aria-label="Search products">Search</button>
                             </div>
                         </div>
-                    <div class="loader" id="loader" aria-label="Loading products"></div>
-                    <div id="products-error" class="error" aria-live="error"></div>
+                    <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading products"></div>
+                    <div id="products-error" class="error" role="alert" aria-live="error"></div>
                     <div id="container" class="container"></div>
                 </section>
                 <section class="sign-up">                       

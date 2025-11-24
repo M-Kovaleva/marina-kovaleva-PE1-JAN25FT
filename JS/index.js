@@ -45,7 +45,7 @@ function renderProducts(products) {
         title.className = 'card-title'
         price.className = 'card-price'
         image.src = product.image.url
-        image.alt = product.image.alt
+        image.alt = product.image.alt || `Image of ${product.title}`
         title.textContent = product.title
         price.textContent = product.price
         //Sale
@@ -74,7 +74,8 @@ const categoryButtons = document.querySelectorAll(".category-btn")
 categoryButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
     const category = btn.textContent.trim().toLowerCase()
-
+categoryButtons.forEach(b => b.setAttribute("aria-pressed", "false"))
+btn.setAttribute("aria-pressed", "true")
     // Remove active class for all buttons
     categoryButtons.forEach((b) => b.classList.remove("active"))
     // Add active class for current button

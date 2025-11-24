@@ -37,16 +37,16 @@
         <main class="page-main">
             <div class="container">
                 <div id="product-container" class="product-container">
-                    <div class="loader" id="loader"></div>
-                    <div id="products-error" class="error"></div>
+                    <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading products"></div>
+                    <div id="products-error" class="error" role="alert" aria-live="error"></div></div>
                     <div class="nav-page">
-                        <nav>
+                        <nav aria-label="Breadcrumb">
                             <a href="index.html">Catalog ></a>
-                            <a href="product.html" class="active">Product page</a>
+                            <a href="product.html" class="active" aria-current="page">Product page</a>
                         </nav>
-                        <a href="index.html" class="active">Keep shopping</a>
+                        <a href="index.html" class="active" aria-label="Continue shopping and return to catalog" title="Back to catalog">Keep shopping</a>
                     </div>
-                    <div class="product-reviews-section" id="product-reviews-section">
+                    <div class="product-reviews-section" id="product-reviews-section" role="region" aria-label="Customer reviews">
                         <h2>Customer Reviews</h2>
                         <div id="reviews-container" class="reviews-container"></div>
                     </div>
@@ -70,10 +70,12 @@
         </footer>
     </div>
     <!-- Login/Register modal window-->
-    <div id="auth-modal" class="auth-modal">
+    <div id="auth-modal" class="auth-modal" role="dialog"
+     aria-modal="true"
+     aria-labelledby="auth-modal-title">
         <div class="auth-modal-content">
             <span id="close-modal" class="close-modal" title="Close"><i class="fa-solid fa-xmark"></i></span>
-            <h2>Login required</h2>
+            <h2 id="auth-modal-title">Login required</h2>
             <p>Please log in to continue shopping.</p>
             <div class="auth-buttons">
                 <a href="account/login.html" class="auth-btn login-btn">Log in</a>

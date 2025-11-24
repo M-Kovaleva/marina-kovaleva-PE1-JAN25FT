@@ -4,6 +4,13 @@ const errorContainer = document.querySelector("#products-error")
 const reviewsContainer = document.querySelector("#reviews-container")
 const reviewsSection = document.querySelector("#product-reviews-section")
 const navPage = document.querySelector(".nav-page")
+const breadcrumbLink = navPage.querySelector('a[aria-current="page"]')
+const params = new URLSearchParams(window.location.search)
+const id = params.get("id")
+
+if (id && breadcrumbLink) {
+  breadcrumbLink.href = `product.html?id=${id}`
+}
 const API_URL = "https://v2.api.noroff.dev/online-shop"
 async function fetchAndCreateProducts() {
   showLoader()
@@ -47,10 +54,11 @@ async function fetchAndCreateProducts() {
     goToCartBtn.className = "active"
     shareButton.className = "share-button"
     image.src = product.image.url
-    image.alt = product.image.alt || product.title
+    image.alt = product.image.alt || `Image of ${product.title}`
     title.textContent = product.title
     tags.textContent = product.tags
     rating.innerHTML = `Rating: ${"⭐".repeat(Math.round(product.rating))} (${product.rating})`
+    rating.setAttribute("aria-label", `Rating ${product.rating} out of 5`)
     price.textContent = product.price
     description.textContent = product.description
     buttonsWrapper.className = "product-buttons-row"
@@ -96,10 +104,15 @@ async function fetchAndCreateProducts() {
       reviewsContainer.innerHTML = `<p>No reviews yet for this product.</p>`
     }
     addButton.textContent = "Add to cart"
+    addButton.setAttribute("aria-label", `Add ${product.title} to cart`)
+    addButton.setAttribute("title", `Add ${product.title} to cart`)
     goToCartBtn.href = "cart.html"
     goToCartBtn.textContent = "Go to cart"
+    goToCartBtn.setAttribute("aria-label", "Go to shopping cart")
+    goToCartBtn.setAttribute("title", "Go to shopping cart")
     shareButton.innerHTML = `<i class="fa-solid fa-share-nodes"></i> Share`
-    shareButton.title = "Share this product"
+    shareButton.setAttribute("aria-label", `Share ${product.title}`)
+    shareButton.setAttribute("title", `Share ${product.title}`)
     // Show "Go to cart" only for logged users
     const user = JSON.parse(localStorage.getItem("user"))
     if (!user) {
@@ -194,6 +207,8 @@ function showToast(message) {
 // Login/Register modal window
 const authModal = document.getElementById("auth-modal")
 const closeModalBtn = document.getElementById("close-modal")
+authModal.setAttribute("tabindex", "-1")
+authModal.focus()
 function openAuthModal() {
   authModal.style.display = "flex"  // show
   document.body.style.overflow = "hidden"
