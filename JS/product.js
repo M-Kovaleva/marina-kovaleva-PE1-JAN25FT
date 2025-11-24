@@ -2,6 +2,8 @@ const container = document.querySelector("#product-container")
 const loader = document.querySelector("#loader")
 const errorContainer = document.querySelector("#products-error")
 const reviewsContainer = document.querySelector("#reviews-container")
+const reviewsSection = document.querySelector("#product-reviews-section")
+const navPage = document.querySelector(".nav-page")
 const API_URL = "https://v2.api.noroff.dev/online-shop"
 async function fetchAndCreateProducts() {
   showLoader()
@@ -27,8 +29,14 @@ async function fetchAndCreateProducts() {
     const addButton = document.createElement("button")
     const goToCartBtn = document.createElement("a")
     const shareButton = document.createElement("button")
-    
-    productDiv.className = "product-details"
+    const imageWrapper = document.createElement("div")
+    const infoWrapper = document.createElement("div")
+    const buttonsWrapper = document.createElement("div")
+    const layoutWrapper = document.createElement("div")
+  
+    productDiv.className = "product-layout"
+    imageWrapper.className = "product-image-wrapper"
+    infoWrapper.className = "product-info"
     image.className = "product-image"
     title.className = "product-title"
     tags.className = "product-tags"
@@ -42,9 +50,23 @@ async function fetchAndCreateProducts() {
     image.alt = product.image.alt || product.title
     title.textContent = product.title
     tags.textContent = product.tags
-    rating.textContent = product.rating
+    rating.innerHTML = `Rating: ${"⭐".repeat(Math.round(product.rating))} (${product.rating})`
     price.textContent = product.price
     description.textContent = product.description
+    buttonsWrapper.className = "product-buttons-row"
+    layoutWrapper.className = "product-layout-wrapper"
+
+    const tagsArray = product.tags || []
+    const tagsContainer = document.createElement("div")
+    tagsContainer.className = "product-tags-container"
+
+    tagsArray.forEach(tag => {
+      const tagBtn = document.createElement("span")
+      tagBtn.className = "product-tag"
+      tagBtn.textContent = tag
+      tagsContainer.appendChild(tagBtn)
+    })
+
     // Sale
     if (product.discountedPrice < product.price) {
         price.innerHTML = `
@@ -95,10 +117,10 @@ async function fetchAndCreateProducts() {
             showToast(`1 × ${product.title} added to cart ✅`)
         }
     })
-    // При нажатии копируем ссылку с product ID
+    // Copy the link with the product ID
     shareButton.addEventListener("click", async () => {
         const shareUrl = `${window.location.origin}${window.location.pathname}?id=${product.id}`
-  // Попробуем использовать нативное API браузера, если доступно
+        // Use the browser's native API if available
         if (navigator.share) {
             try {
                 await navigator.share({
@@ -110,21 +132,28 @@ async function fetchAndCreateProducts() {
                 console.warn("Share canceled or failed:", err)
              }
         } else {
-    // Копируем ссылку в буфер обмена
+    // Copy the link
     navigator.clipboard.writeText(shareUrl)
-    showToast("Product link copied to clipboard 📋")
+    showToast("Product link copied to clipboard.")
   }
 })
-    productDiv.appendChild(image)
-    productDiv.appendChild(title)
-    productDiv.appendChild(tags)
-    productDiv.appendChild(rating)
-    productDiv.appendChild(price)
-    productDiv.appendChild(description)
-    productDiv.appendChild(addButton)
-    productDiv.appendChild(goToCartBtn)
-    productDiv.appendChild(shareButton)
-    container.appendChild(productDiv)
+    imageWrapper.appendChild(image)
+    buttonsWrapper.append(addButton, shareButton)
+    infoWrapper.append(
+      title,
+      tagsContainer,
+      rating,
+      price,
+      description,
+      buttonsWrapper,
+      goToCartBtn
+    )
+    infoWrapper.appendChild(reviewsSection)
+    productDiv.append(imageWrapper, infoWrapper)
+    layoutWrapper.appendChild(productDiv)
+    container.prepend(navPage)
+    container.appendChild(layoutWrapper)
+
   } catch (error) {
     errorContainer.textContent = "Failed to load product. Try again later."
     errorContainer.hidden = false
@@ -146,7 +175,7 @@ function addToCart(product) {
   })
   localStorage.setItem("cart", JSON.stringify(cart))
 }
-// Pop-up message
+// Toast message
 function showToast(message) {
     let toast = document.createElement("div")
     toast.className = "toast"
@@ -183,6 +212,7 @@ function showLoader() {
 }
 function hideLoader() {
   loader.style.display = "none"
-  container.style.display = "grid"
+  container.style.display = "block"
 }
+
 fetchAndCreateProducts()

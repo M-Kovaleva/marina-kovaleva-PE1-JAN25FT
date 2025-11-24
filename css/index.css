@@ -30,6 +30,11 @@
   transition: 0.3s;
   z-index: 10; 
 }
+.carousel-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-backround);
+
+}
 
 .carousel-btn.prev {
   left: 0.1px;
@@ -302,19 +307,13 @@
   background-color: var(--color-secondary);
   margin-top: 80px;
   padding: 24px 0;
-  /*gap: 120px;*/
 }
-h4{
-  font-size: 3rem;
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-semibold);
-}
-/* оба блока по 50% */
+
 .sign-up-item-content,
 .sign-up-img {
   flex: 1 1 50%;
 }
-/* Контент */
+
 .sign-up-item-content {
   display: flex;
   flex-direction: column;
@@ -323,13 +322,13 @@ h4{
   box-sizing: border-box;
 }
 
-/* Заголовок */
 .sign-up-item-content h4 {
   font-size: 3rem;
   font-family: var(--font-primary);
   font-weight: var(--font-weight-semibold);
   margin-bottom: 16px;
 }
+
 .sign-up-image-wrapper {
   flex: 1 1 29%;
   display: flex;
@@ -340,24 +339,12 @@ h4{
 
 .sign-up-img {
   width: 100%;
-  height: auto;          /* сохраняем пропорции */
+  height: auto;         
   max-height: 100%;
-  object-fit: contain;   /* ВАЖНО: без обрезки */
+  object-fit: contain;   
   display: block;
 }
-/*.sign-up-item-content{
-  margin-left: 70px;
-}
-.sign-up-img{
-  
-}*/
 
-/*).sign-up-form-group {
-  display: flex;
-  gap: 8px;
-  margin-top: 16px;
-  align-items: center;
-}
 /* Форма */
 .sign-up-form-group {
   display: flex;
@@ -372,12 +359,12 @@ h4{
   font-size: var(--font-size-body-desktop);
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-regular);
-  
 }
+
 .sign-up-form-group input {
   box-sizing: border-box;
   flex: 1;
-  max-width: 360px;   /* стандартная комфортная ширина для email */
+  max-width: 360px; 
   width: 100%;
   padding: 8px 16px;
   border: 2px solid var(--color-accent);
@@ -389,15 +376,17 @@ h4{
   outline: none;
   transition: border-color 0.3s, background-color 0.3s;
 }
-/* фокус как в поиске */
+
 .sign-up-form-group input:focus {
   border-color: var(--color-accent);
   background-color: var(--color-backround);
 }
+
 .sign-up-form-group input,
 .sign-up-form-group .cta-button {
   height: clamp(36px, 4vw, 48px);
 }
+
 .sign-up-input--error {
   border-color: var(--color-button-cta);
 }
@@ -558,17 +547,54 @@ h4{
     flex-direction: column;
     gap: 16px
   }
+
   .carousel-slide img, .carousel-content {
       max-width: 100%;
   }
+
   .carousel-hero-title {
     margin: 8px 0;
   }
+
   .carousel-description {
     margin: 8px 0;
   }
+
   .carousel-title {
     margin: 8px 0;
   }
 
+}
+
+@media (max-width: 768px) {
+  .sign-up-image-wrapper{
+    margin: 0 55px;
+  }
+  .sign-up-item-content{
+    margin: 0 55px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .sign-up-image-wrapper{
+    margin: 0 35px;
+  }
+  .sign-up-item-content{
+    margin: 0 35px;
+  }
+
+
+  
+}
+
+@media (max-width: 350px){
+   .sign-up-image-wrapper{
+    margin: 0 20px;
+  }
+  .sign-up-item-content{
+    margin: 0 20px;
+  }
+  
 }

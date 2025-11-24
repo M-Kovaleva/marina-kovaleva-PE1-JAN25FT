@@ -58,6 +58,8 @@ function renderProducts(products) {
             price.textContent = `$${product.price}`
         }
         anchor.href = `product.html?id=${product.id}`
+        anchor.setAttribute("aria-label", `View product ${product.title}`)
+        anchor.setAttribute("title", `View details for ${product.title}`)
     
         content.appendChild(title)
         content.appendChild(price)
@@ -363,29 +365,29 @@ document.addEventListener("DOMContentLoaded", () => {
     return isValid
   }
     function showToast(message) {
-    const toast = document.createElement("div");
-    toast.className = "toast";
-    toast.textContent = message;
-    document.body.appendChild(toast);
+    const toast = document.createElement("div")
+    toast.className = "toast"
+    toast.textContent = message
+    document.body.appendChild(toast)
 
     setTimeout(() => {
-        toast.classList.add("show");
-    }, 100);
+        toast.classList.add("show")
+    }, 100)
 
     setTimeout(() => {
-        toast.classList.remove("show");
-        setTimeout(() => toast.remove(), 300);
-    }, 3000);
+        toast.classList.remove("show")
+        setTimeout(() => toast.remove(), 300)
+    }, 3000)
     }
 
     signupButton.addEventListener("click", (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    if (!validateEmail()) return;
+    if (!validateEmail()) return
 
-    emailInput.value = "";
-    showToast("You have successfully subscribed to the newsletter ✅");
-    });
+    emailInput.value = ""
+    showToast("You have successfully subscribed to the newsletter ✅")
+    })
   // Validation
   emailInput.addEventListener("input", clearEmailError)
 })
