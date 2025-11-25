@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         city: document.querySelector("#city"),
         post: document.querySelector("#post"),
         country: document.querySelector("#country"),
+        code: document.querySelector("#code"),
         phone: document.querySelector("#phone"),
     }
 
@@ -86,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         address: document.querySelector("#d-address"),
         cityPost: document.querySelector("#d-city-post"),
         country: document.querySelector("#d-country"),
-        phone: document.querySelector("#d-phone"),
+        codePhone: document.querySelector("#d-code-phone"),
     }
 
     const storedUser = JSON.parse(localStorage.getItem("user"))
@@ -96,10 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateDeliveryInfo() {
-        deliveryFields.address.textContent = fields.address.value || "—"
+        deliveryFields.address.textContent = fields.address.value 
         deliveryFields.cityPost.textContent = (fields.city.value || "") + " " + (fields.post.value || "")
-        deliveryFields.country.textContent = fields.country.value || "—"
-        deliveryFields.phone.textContent = fields.phone.value || "—"
+        deliveryFields.country.textContent = fields.country.value
+        deliveryFields.codePhone.textContent = (fields.code.value || "") + " " + (fields.phone.value || "")
     }
 
     Object.values(fields).forEach(input => {

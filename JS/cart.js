@@ -70,7 +70,7 @@ function renderCart() {
     })
 
     cartCount.textContent = count
-    cartTotal.textContent = total.toFixed(2)
+    cartTotal.textContent = `$${total.toFixed(2)}`
 
     checkoutButton.style.display = count > 0 ? "cta-button" : "none"
 

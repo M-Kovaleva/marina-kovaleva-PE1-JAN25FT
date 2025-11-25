@@ -1,7 +1,7 @@
 @import url("variables.css");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-.auth-modal {
+/*.auth-modal {
   display: none;
   justify-content: center;
   align-items: center;
@@ -42,4 +42,280 @@
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
+}
+
+@import url("variables.css");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+/* ====== ОСНОВНОЙ КОНТЕЙНЕР ====== */
+.cart-container {
+  background-color: var(--color-backround);
+  padding: 0 70px 64px 70px;
+
+}
+
+
+/* ====== СЕТКА CHECKOUT ====== */
+.checkout-content {
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-info-content {
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+  
+  gap: 3rem;
+}
+
+/* Левая часть (форма) */
+.checkout-info-content-left {
+  flex: 2;
+  background: var(--color-backround);
+ 
+ 
+}
+
+/* Правая часть (корзина) */
+.checkout-info-content-right {
+  flex: 1;
+}
+
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+legend {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-h3);
+}
+
+/* INPUTS */
+.form-input {
+  display: flex;
+  max-width: 650px;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-accent);
+  font-family: var(--font-secondary);
+  margin-bottom: 0.5rem;
+ 
+  box-sizing: border-box;
+}
+.form-input:focus{
+  outline: none;
+  border-color:none;
+}
+/* ====== FORM ROWS (First name + Surname in one line) ====== */
+.checkout-form-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 650px;
+}
+
+.checkout-form-row .checkout-form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* чтобы названия полей были в одну строку */
+.checkout-form-group label {
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+
+
+/* ====== DELIVERY INFO ====== */
+.delivery-info p {
+  margin: 0.4rem 0;
+}
+
+/* ====== ERRORS ====== */
+.checkout-error-message {
+  font-size: 0.85rem;
+  color: var(--color-button-cta);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+#payment-error{
+  margin-bottom: 0;
+    display: flex;
+    align-items: center;
+
+  
+}
+/* ====== TOTAL PRICE BLOCK ====== */
+.price-total {
+  display: flex;
+  justify-content: start;
+  gap: 16px;
+  margin-top: 1.5rem;
+  align-items: center;
+  
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: var(--font-secondary);
+ 
+    
+}
+
+.price-total .price {
+  color: var(--color-button-cta);
+ 
+}
+.price-total h2{
+  margin: 0;
+}
+
+
+
+/* ====== CTA BTN ====== */
+.cta-section {
+  margin-top: 2rem;
+
+}
+
+/* ====== RIGHT SIDE CART ====== */
+.product-info-content-right .cart-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-list {
+  display: flex;
+  background: var(--color-backround);
+  border: 2px solid var(--color-accent);
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 150px;
+  align-items: center;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.cart-item-price {
+  color: var(--color-button-cta);
+  font-weight: bold;
+}
+
+/* ====== SUMMARY ====== */
+.cart-summary {
+  margin-top: 1rem;
+  background: var(--color-secondary);
+  border: 2px solid var(--color-accent);
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+
+/* ====== MODAL ====== */
+.auth-modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(3px);
+  background-color: rgba(0,0,0,0.5);
+}
+
+.auth-modal-content {
+  background: var(--color-secondary);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.close-modal {
+  text-align: right;
+  cursor: pointer;
+}
+/* ===== PAYMENT RADIO ALIGNMENT ===== */
+.pay-method {
+  display: flex;
+
+  gap: 10px;
+}
+
+.pay-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* убираем влияние .form-input ТОЛЬКО у радио */
+.pay-method input[type="radio"] {
+  width: auto;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  appearance: auto;
+}
+
+#d-address {
+  display: block;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 0 55px 64px;
+  }
+    .checkout-info-content {
+    flex-direction: column-reverse;
+  }
+  .checkout-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: none;
+  
+ 
+}
+.pay-method {
+
+  flex-direction: column;
+
+}
+.form-input {
+  max-width: none;
+}
+}
+@media (max-width: 480px) {
+  .cart-container {
+    padding: 0 35px 64px;
+  }
+ 
+
+}
+
+@media (max-width: 350px) {
+  .cart-container {
+    padding: 0 20px 64px;
+  }
 }

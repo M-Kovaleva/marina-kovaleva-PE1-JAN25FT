@@ -98,7 +98,7 @@ max-width: 1100px;
 .cart-summary {
 
  flex: 1;
-  background: var(--color-backround);
+  background: var(--color-secondary);
   padding: 16px;
   border-radius: var(--border-radius);
  border: 2px solid var(--color-accent);
@@ -109,6 +109,7 @@ max-width: 1100px;
   border-radius: 10px;
   padding: 2rem;
     margin: 0 0 0 3rem;
+    max-height: 246px;
 }
 
 /* Сумма */
@@ -116,7 +117,9 @@ max-width: 1100px;
   font-size: 1.3rem;
   font-weight: bold;
 }
-
+#cart-total{
+    color: var(--color-button-cta);
+}
 
 /* Пустая корзина */
 /*#cart-empty {

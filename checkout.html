@@ -37,61 +37,89 @@
         <main class="page-main">
             <div class="container">
                 <section id="cart-container" class="cart-container">
-                    <div class="nav-page">
-                        <a href="index.html">Catalog ></a>
-                        <a href="cart.html" class="active">Cart ></a>
-                        <a href="checkout.html" class="active">Checkout</a>
-                    </div>
-                    <div class="nav-actions">
-                        <a href="index.html" class="active">Keep shopping</a>
+
+                        <div class="nav-page">
+                        <nav aria-label="Breadcrumb">
+                            <a href="index.html">Catalog ></a>
+                            <a href="cart.html" aria-current="page">Cart ></a>
+                            <a href="checkout.html" class="active-link" aria-current="page">Checkout </a>
+                        </nav>
+                        <a href="index.html" class="active-link" aria-label="Continue shopping and return to catalog" title="Back to catalog">Keep shopping</a>
                     </div>
                     <div class="checkout-content">
                         <div class="loader" id="loader"></div>
                         <div class="checkout-info-content">
-                            <div>
+                            <div class="checkout-info-content-left">
                                 <form class="payment">
                                     <fieldset tabindex="0">
+                                        
                                         <legend>Contact information</legend>
-                                        <label for="email">e-mail</label>
+                                        <div class="checkout-form-group">
+                                            <label for="email">e-mail</label>
                                         <input 
                                             type="email" 
                                             id="email" 
-                                            class="form__input"
+                                            class="form-input"
                                             required
                                         >
-                                        <span class="checkout__error-message" id="email-error"></span>
+                                        <span class="checkout-error-message" id="email-error"></span>
+                                        </div>
+                                        
 
-                                        <label for="name">First name</label>
-                                        <input type="text" id="name" class="form__input" required>
-                                        <span class="checkout__error-message" id="name-error"></span>
+                                        <div class="checkout-form-row">
+                                            <div class="checkout-form-group">
+                                                <label for="name">First name</label>
+                                            <input type="text" id="name" class="form-input" required>
+                                            <span class="checkout-error-message" id="name-error"></span>
+                                            </div>
+                                            <div class="checkout-form-group">
+                                                <label for="surname">Surname</label>
+                                            <input type="text" id="surname" class="form-input" required>
+                                            <span class="checkout-error-message" id="surname-error"></span>
+                                            </div>
 
-                                        <label for="surname">Surname</label>
-                                        <input type="text" id="surname" class="form__input" required>
-                                        <span class="checkout__error-message" id="surname-error"></span>
+                                        </div>
 
                                         <label for="address">Address</label>
-                                        <input type="text" id="address" class="form__input" required>
-                                        <span class="checkout__error-message" id="address-error"></span>
+                                        <input type="text" id="address" class="form-input" required>
+                                        <span class="checkout-error-message" id="address-error"></span>
 
-                                        <label for="city">City</label>
-                                        <input type="text" id="city" class="form__input" required>
-                                        <span class="checkout__error-message" id="city-error"></span>
+                                        <div class="checkout-form-row">
+                                            <div class="checkout-form-group">
+                                                <label for="city">City</label>
+                                            <input type="text" id="city" class="form-input" required>
+                                            <span class="checkout-error-message" id="city-error"></span>
+                                            </div>
+                                            <div class="checkout-form-group">
+                                                <label for="post">Post</label>
+                                                <input type="text" id="post" class="form-input" required>
+                                                <span class="checkout-error-message" id="post-error"></span>
+                                            </div>
 
-                                        <label for="post">Post</label>
-                                        <input type="text" id="post" class="form__input" required>
-                                        <span class="checkout__error-message" id="post-error"></span>
+                                            
+                                        </div>
 
+                                       <div class="checkout-form-group">
                                         <label for="country">Country</label>
-                                        <input type="text" id="country" class="form__input" required>
-                                        <span class="checkout__error-message" id="country-error"></span>
+                                        <input type="text" id="country" class="form-input" required>
+                                        <span class="checkout-error-message" id="country-error"></span>
+                                       </div>
+                                        
 
-                                        <label for="code">Code</label>
-                                        <input type="text" id="code" class="form__input" required>
-                                        <span class="checkout__error-message" id="code-error"></span>
+                                        <div class="checkout-form-row">
+                                            <div class="checkout-form-group">
+                                                <label for="code">Code</label>
+                                                <input type="text" id="code" class="form-input" required>
+                                                <span class="checkout-error-message" id="code-error"></span>
+                                            </div>
+                                            <div class="checkout-form-group">
+                                                <label for="phone">Phone</label>
+                                                <input type="tel" id="phone" class="form-input" required>
+                                                <span class="checkout-error-message" id="phone-error"></span>
+                                            </div>
+                                        </div>
 
-                                        <label for="phone">Phone</label>
-                                        <input type="tel" id="phone" class="form__input" required>
-                                        <span class="checkout__error-message" id="phone-error"></span>
+                                       
                                     </fieldset>
                                     <fieldset tabindex="0">
                                         <legend>Delivery</legend>
@@ -99,45 +127,32 @@
                                             <p><strong>Address:</strong> <span id="d-address">—</span></p>
                                             <p><strong>City / Post:</strong> <span id="d-city-post">—</span></p>
                                             <p><strong>Country:</strong> <span id="d-country">—</span></p>
-                                            <p><strong>Phone:</strong> <span id="d-phone">—</span></p>
+                                            <p><strong>Code / Phone:</strong> <span id="d-code-phone">—</span></p>
                                             <p><strong>Delivery price:</strong> $50</p>
                                         </div>
                                     </fieldset>
                                     <fieldset class="pay-method" tabindex="0">
-                                        <legend>Payment</legend>
-                                        <input 
-                                            type="radio" 
-                                            id="card" 
-                                            name="payment" 
-                                            value="card" 
-                                            class="form__input" 
-                                            required
-                                        >
-                                        <label for="card">Credit/Debit Card</label>
-                                        <input 
-                                            type="radio" 
-                                            id="paypal" 
-                                            name="payment" 
-                                            value="paypal" 
-                                            class="form__input" 
-                                            required
-                                        >
-                                        <label for="paypal">PayPal</label>
-                                        <input 
-                                            type="radio" 
-                                            id="google-pay" 
-                                            name="payment" 
-                                            value="google-pay" 
-                                            class="form__input" 
-                                            required
-                                        >
-                                        <label for="google-pay">Google Pay</label>
-                                        <span class="checkout__error-message" id="payment-error"></span>
-                                    </fieldset>
+  <legend>Payment</legend>
+
+  <div class="pay-option">
+    <input type="radio" id="card" name="payment" value="card" required>
+    <label for="card">Credit/Debit Card</label>
+  </div>
+
+  <div class="pay-option">
+    <input type="radio" id="paypal" name="payment" value="paypal" required>
+    <label for="paypal">PayPal</label>
+  </div>
+
+  <div class="pay-option">
+    <input type="radio" id="google-pay" name="payment" value="google-pay" required>
+    <label for="google-pay">Google Pay</label>
+  </div>
+
+  <span class="checkout-error-message" id="payment-error"></span>
+</fieldset>
                                 </form>
-                                <div class="price-total" tabindex="0">
-                                    <h2 >Total:</h2>
-                                    <h2 class="price">#</h2>
+                                <div class="price-total" tabindex="0">Total: <span class="price">0</span>
                                 </div>
                                 <div id="form-error" class="error" hidden></div>
                                 <div class="cta-section">
@@ -152,9 +167,7 @@
                                             <div>Items: <span id="cart-count">0</span></div>
                                             <div class="cart-total">Subtotal: $<span id="cart-total">0</span></div>
                                             <div class="cart-delivery">Delivery price: $50</div>
-                                            <div class="price-total" tabindex="0">
-                                                <h2 >Total:</h2>
-                                                <h2 class="price">#</h2>
+                                            <div class="price-total" tabindex="0">Total: <span class="price">0</span>
                                             </div>   
                                             <div id="cart-error" class="error" hidden></div>
                                         </div>
