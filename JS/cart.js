@@ -1,10 +1,11 @@
-const cartItemsContainer = document.querySelector("#cart-items")
+const cartItemsContainer = document.querySelector("#cart-list")
 const cartCount = document.querySelector("#cart-count")
 const cartTotal = document.querySelector("#cart-total")
 const cartEmpty = document.querySelector("#cart-empty")
 const loader = document.querySelector("#loader")
 const cartError = document.querySelector("#cart-error")
 const checkoutButton = document.querySelector("#checkout-button")
+const catalogBtn = document.querySelector("#catalog-button");
 
 function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || []
@@ -18,18 +19,22 @@ function renderCart() {
   showLoader()
   try {
     const cart = getCart()
-    cartItemsContainer.replaceChildren()
+    cartItemsContainer.querySelectorAll(".cart-item").forEach(item => item.remove())
+    
 
     if (cart.length === 0) {
       cartEmpty.hidden = false
       cartCount.textContent = "0"
       cartTotal.textContent = "0"
       checkoutButton.style.display = "none"
+      catalogBtn.style.display = "inline-flex"  // показываем кнопку
+      
       hideLoader()
       return
     }
 
     cartEmpty.hidden = true
+    catalogBtn.style.display = "none"  // скрываем кнопку, если есть товары
     let total = 0
     let count = 0
     /*throw new Error("Test error in renderCart")//error checking*/
@@ -45,8 +50,7 @@ function renderCart() {
       img.className = "cart-item-image"
       title.className = "cart-item-title"
       price.className = "cart-item-price"
-      removeBtn.className = "remove-link"
-      
+      removeBtn.className = "active-link"
       
       img.src = item.image.url
       img.alt = item.image.alt
@@ -68,7 +72,7 @@ function renderCart() {
     cartCount.textContent = count
     cartTotal.textContent = total.toFixed(2)
 
-    checkoutButton.style.display = count > 0 ? "inline-block" : "none"
+    checkoutButton.style.display = count > 0 ? "cta-button" : "none"
 
   } catch (error) {
     cartError.textContent = "Failed to load cart. Try again later."

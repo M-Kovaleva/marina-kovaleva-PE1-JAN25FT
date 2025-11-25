@@ -51,7 +51,7 @@ async function fetchAndCreateProducts() {
     price.className = "product-price"
     description.className = "product-description"
     addButton.className = "cta-button"
-    goToCartBtn.className = "active"
+    goToCartBtn.className = "active-link"
     shareButton.className = "share-button"
     image.src = product.image.url
     image.alt = product.image.alt || `Image of ${product.title}`

@@ -37,18 +37,24 @@
             <div class="container">
                 <section id="cart-container" class="cart-container">
                     <div class="nav-page">
-                        <a href="index.html">Catalog ></a>
-                        <a href="cart.html" class="active">Cart</a>
-                    </div>
-                    <div class="nav-actions">
-                        <a href="index.html" class="active">Keep shopping</a>
+                        <nav aria-label="Breadcrumb">
+                            <a href="index.html">Catalog ></a>
+                            <a href="cart.html" class="active-link" aria-current="page">Cart</a>
+                        </nav>
+                        <a href="index.html" class="active-link" aria-label="Continue shopping and return to catalog" title="Back to catalog">Keep shopping</a>
                     </div>
                 <div class="cart-content">
                     <h1>Shopping cart</h1>
                     <div class="loader" id="loader"></div>
-                    <div id="cart-empty" hidden>Your cart is empty.</div>
+                  
                     <div class="cart-box">
-                        <div id="cart-items" class="cart-list"></div>
+
+                        <div id="cart-list" class="cart-list">
+                            <div id="cart-empty" hidden class="cart-empty-inside">
+                                <h3>Your cart is currently empty.</h3>
+                                <a href="index.html" class="cta-button" id="catalog-button">Catalog</a>
+                            </div>
+                        </div>
                         <div class="cart-summary">
                             <div>Items: <span id="cart-count">0</span></div>
                             <div class="cart-total">Subtotal: $<span id="cart-total">0</span></div>

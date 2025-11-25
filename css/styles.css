@@ -7,7 +7,7 @@ body{
     padding: 0;
     font-family: var(--font-secondary);
     font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-body-mobile);
+    font-size: var(--font-size-body-desktop);
     font-style: normal;
     color: var(--color-primary);
     line-height: var(--line-height);
@@ -354,38 +354,40 @@ main .loader {
   height: clamp(36px, 4vw, 48px);
   border: 2px solid var(--color-button-cta);
   border-radius: var(--border-radius);
-
-
-
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-    background-color: var(--color-button-cta);
-    color: var(--color-backround);
-    border: 0 solid var(--color-button-cta);
-    border-radius: var(--border-radius);
-   
-    font-family: var(--font-secondary);
+  background-color: var(--color-button-cta);
+  color: var(--color-backround);
+  border: 0 solid var(--color-button-cta);
+  border-radius: var(--border-radius);
+  font-family: var(--font-secondary);
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-button-links-desktop);
   cursor: pointer;
   text-align: center;
-    cursor: pointer;
+  cursor: pointer;
   transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
    
 
-
+.active-link {
+  font-size: var(--font-size-body-desktop);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  text-decoration:underline ;
+  cursor: pointer;
+}
 
 /* Адаптивный размер шрифта как у filter */
 @media (max-width: 480px) {
   .cta-button {
     font-size: var(--font-size-button-links-mobile);
   }
+  .active-link{
+  font-size: var(--font-size-body-mobile);
 }
-
+}
 
 .cta-button:hover {
     color: var(--color-accent);
@@ -395,3 +397,30 @@ main .loader {
 .error{
   margin-top: 8px;
 }
+
+.nav-page {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.nav-page nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.nav-page a{
+  font-size: var(--font-size-body-desktop);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 480px) {
+    .nav-page {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
