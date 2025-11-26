@@ -1,51 +1,7 @@
 @import url("variables.css");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-/*.auth-modal {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 2000;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-}
 
-.auth-modal-content {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-}
-
-.close-modal {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.auth-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
-}
-
-.auth-btn {
-  padding: 0.5rem 1rem;
-  background-color: #333;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-@import url("variables.css");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 /* ====== ОСНОВНОЙ КОНТЕЙНЕР ====== */
 .cart-container {
@@ -205,6 +161,7 @@ legend {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .cart-item-image {
@@ -225,33 +182,11 @@ legend {
   background: var(--color-secondary);
   border: 2px solid var(--color-accent);
   border-radius: 12px;
-  padding: 1.2rem;
+  padding: 1rem;
 }
 
-/* ====== MODAL ====== */
-.auth-modal {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(3px);
-  background-color: rgba(0,0,0,0.5);
-}
 
-.auth-modal-content {
-  background: var(--color-secondary);
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-}
-
-.close-modal {
-  text-align: right;
-  cursor: pointer;
-}
+ 
 /* ===== PAYMENT RADIO ALIGNMENT ===== */
 .pay-method {
   display: flex;

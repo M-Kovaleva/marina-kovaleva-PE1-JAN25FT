@@ -2,40 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("login-form")
     const emailInput = document.getElementById("login-email")
     const passwordInput = document.getElementById("login-password")
-    const toastMobile = document.getElementById("login-toast-success-mobile")
-    const toastDesktop = document.getElementById("login-toast-success-desktop")
-    const closeToastButtons = document.querySelectorAll(".login-toast__close")
-    // Show toast
-    function showToast() {
-        if (window.innerWidth <= 768) {
-            toastMobile.hidden = false
-        } else {
-            toastDesktop.hidden = false
-        }
-    }
-    // Close toast
-    function closeToast() {
-        toastMobile.hidden = true
-        toastDesktop.hidden = true
-    }
+   
 
-    closeToastButtons.forEach(btn => {
-        btn.addEventListener("click", closeToast)
-    })
-
-    window.addEventListener("click", (e) => {
-        if (e.target === toastMobile || e.target === toastDesktop) {
-            closeToast()
-        }
-    })
     // Validation
     function showError(id, message) {
         const span = document.getElementById(id)
         span.textContent = message
     }
     function clearErrors() {
-        document.querySelectorAll(".login__error-message").forEach(el => el.textContent = "")
-        document.querySelectorAll(".login-form__input").forEach(el => el.classList.remove("login__input--error"))
+        document.querySelectorAll(".login-error-message").forEach(el => el.textContent = "")
+        document.querySelectorAll(".login-form-input").forEach(el => el.classList.remove("login-input-error"))
     }
     // Submit form
     form.addEventListener("submit", async (e) => {
@@ -49,17 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
         // Email validation
         if (!emailValue) {
             showError("login-email-error", "Email is required")
-            emailInput.classList.add("login__input--error")
+            emailInput.classList.add("login-input--error")
             isValid = false
         } else if (!/^[^\s@]+@stud\.noroff\.no$/.test(emailValue)) {
             showError("login-email-error", "Email must be a valid stud.noroff.no email")
-            emailInput.classList.add("login__input--error")
+            emailInput.classList.add("login-input-error")
             isValid = false
         }
         // Passwrd validation
         if (!passwordValue) {
             showError("login-password-error", "Password is required")
-            passwordInput.classList.add("login__input--error")
+            passwordInput.classList.add("login-input-error")
             isValid = false
         }
         if (!isValid) return
@@ -75,28 +51,55 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json()
 
             if (response.ok) {
-                localStorage.setItem("accessToken", data.data.accessToken || "")
-                localStorage.setItem("user", JSON.stringify({
-                    id: data.data.id,
-                    name: data.data.name,
-                    email: data.data.email
-                }))
-                showToast()
-                // After 2s redirect to index page
-                setTimeout(() => {
-                    closeToast()
-                    window.location.href = "../index.html"
-                }, 4000)
-            } else {
-                if (data.errors && data.errors[0]?.message) {
-                    alert("Login failed: " + data.errors[0].message)
-                } else {
-                    alert("Invalid email or password.")
-                }
-            }
+    localStorage.setItem("accessToken", data.data.accessToken || "")
+    localStorage.setItem("user", JSON.stringify({
+        id: data.data.id,
+        name: data.data.name,
+        email: data.data.email
+    }))
+
+    showLoginToast()
+
+    setTimeout(() => {
+        window.location.href = "login.html"
+    }, 2500)
+
+} else {
+    // Пользователь не найден или неверный пароль
+    openAuthModal()
+}
+
         } catch (error) {
             console.error("Network error:", error)
             alert("Network error, please try again later.")
         }
     })
+    function showLoginToast() {
+    const toast = document.getElementById("login-toast-success")
+    
+    toast.classList.add("show")
+
+    setTimeout(() => {
+        toast.classList.remove("show")
+    }, 2000)
+}
+// ===== AUTH MODAL =====
+const authModal = document.getElementById("auth-modal")
+const closeModalBtn = document.getElementById("close-modal")
+
+function openAuthModal() {
+  authModal.style.display = "flex"
+  document.body.style.overflow = "hidden"
+}
+
+function closeAuthModal() {
+  authModal.style.display = "none"
+  document.body.style.overflow = "auto"
+}
+
+closeModalBtn.addEventListener("click", closeAuthModal)
+
+window.addEventListener("click", (e) => {
+  if (e.target === authModal) closeAuthModal()
+})
 })

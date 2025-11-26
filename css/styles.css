@@ -66,6 +66,10 @@ body{
   .products,.filter{
   padding: 0 55px;
 }
+.toast {
+  margin-left: 55px;
+
+}
 }
 @media (max-width: 480px) {
   .page-footer{
@@ -77,6 +81,12 @@ body{
   }
   .products,.filter{
   padding: 0 35px;}
+  .auth-modal-content{
+    margin: 0 35px;
+  }
+  .toast {
+  margin-left: 35px;
+}
 }
 @media (max-width: 350px){
   .page-footer{
@@ -99,6 +109,9 @@ body{
 }
 .auth-buttons a{
   text-align: center;
+}
+ .toast {
+  margin-left: 20px;
 }
 }
 
@@ -186,6 +199,8 @@ main .loader {
   transition: all 0.3s ease;
   z-index: 1000;
   font-size: var(--font-size-body-desktop);
+  margin-left: 70px;
+  pointer-events: none;
 }
 
 .toast.show {
