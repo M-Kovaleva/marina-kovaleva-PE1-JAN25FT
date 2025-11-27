@@ -1,0 +1,47 @@
+@import url("variables.css");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+
+.coming-soon-container {
+  background-color: var(--color-backround);
+  padding: 0 70px 64px 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coming-soon-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coming-soon--connect-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+.coming-soon--connect-item .social-icons a{
+
+  color: var(--color-primary);
+  font-size: 1.2rem;
+
+}
+
+@media (max-width: 768px) {
+  .coming-soon-container{
+    padding: 0 55px 64px 55px;
+  }
+}
+
+@media (max-width: 480px) {
+   .coming-soon-container{
+    padding: 0 35px 64px 35px;
+  }
+}
+
+@media (max-width: 350px){
+  .coming-soon-container{
+    padding: 0 20px 64px 20px;
+  }
+}
