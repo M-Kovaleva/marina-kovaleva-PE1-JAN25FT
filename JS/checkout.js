@@ -205,7 +205,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const valid = validateForm()
         if (!valid) return
-
+ const userData = {
+        email: document.querySelector("#email").value.trim(),
+        firstName: document.querySelector("#name").value.trim(),
+        surname: document.querySelector("#surname").value.trim(),
+        address: document.querySelector("#address").value.trim(),
+        city: document.querySelector("#city").value.trim(),
+        post: document.querySelector("#post").value.trim(),
+        country: document.querySelector("#country").value.trim(),
+        code: document.querySelector("#code").value.trim(),
+        phone: document.querySelector("#phone").value.trim(),
+    }
+    localStorage.setItem("userData", JSON.stringify(userData))
         localStorage.removeItem("cart") // Clear cart
         window.location.href = "success.html"
     })

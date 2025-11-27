@@ -1,0 +1,54 @@
+@import url("variables.css");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+
+.conf-container {
+  background-color: var(--color-backround);
+  padding: 0 70px 64px 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order-info{
+display: flex;
+flex-direction: column;
+align-items:start;
+border-radius: var(--border-radius);
+border: 2px solid var(--color-accent);
+padding: 20px;
+}
+.conf-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.connect-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+.connect-item .social-icons a{
+
+  color: var(--color-primary);
+  font-size: 1.2rem;
+
+}
+
+@media (max-width: 768px) {
+  .conf-container{
+    padding: 0 55px 64px 55px;
+  }
+}
+
+@media (max-width: 480px) {
+   .conf-container{
+    padding: 0 35px 64px 35px;
+  }
+}
+
+@media (max-width: 350px){
+  .conf-container{
+    padding: 0 20px 64px 20px;
+  }
+}

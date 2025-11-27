@@ -19,7 +19,7 @@ async function fetchAndCreateProducts() {
         //await new Promise(res => setTimeout(res, 2000)) // Check loader
         allProducts = data.data
 
-    renderProducts(allProducts)
+    renderProducts(allProducts.slice(0, 24))
   } catch (error) {
     errorContainer.textContent = "Failed to load items. Try again later."
     errorContainer.hidden = false
