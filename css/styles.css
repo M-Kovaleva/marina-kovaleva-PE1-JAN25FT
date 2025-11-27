@@ -33,6 +33,7 @@ body{
 }
 
 
+
 .page-main{
     background-color: var(--color-backround);
     flex-grow: 1;
@@ -88,32 +89,7 @@ body{
   margin-left: 35px;
 }
 }
-@media (max-width: 350px){
-  .page-footer{
-    padding: 0 20px;
-  }
 
-  .header{
-    padding: 0 20px;
-  }
-  .products,.filter{
-  padding: 0 20px;}
-
-  .auth-modal-content{
-    margin: 0 20px;
-  }
-  .auth-buttons{
-  flex-direction: column;
-  
-  
-}
-.auth-buttons a{
-  text-align: center;
-}
- .toast {
-  margin-left: 20px;
-}
-}
 
 .page-main .container{
     background-color: var(--color-backround);
@@ -159,6 +135,7 @@ h4{
 
 a {
   text-decoration: none;
+  font-size: var(--font-size-body-desktop);
 }
 input{
 
@@ -294,9 +271,130 @@ main .loader {
 /*Header*/
 
   
+/* Hamburger styling */
+.menu-toggle {
+  display: none;
+}
 
+/* Hamburger center */
+/* Hamburger слева */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--color-backround);
+  z-index: 1001;
+}
+/* Desktop nav */
+/* Desktop nav links */
+/* Desktop nav */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+/* Login и Cart справа */
+.auth-cart {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 
-.header-container {
+/* ===========================
+   ПЕРЕКЛЮЧЕНИЕ HAMBURGER → CLOSE
+   =========================== */
+
+/* Иконка закрытия скрыта по умолчанию */
+.close-menu {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 2rem;
+  color: var(--color-backround);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Когда меню открыто */
+.menu-toggle:checked ~ .nav .close-menu {
+  display: block;
+}
+
+/* Когда меню открыто — прячем hamburger */
+.menu-toggle:checked + .hamburger {
+  opacity: 0;
+  pointer-events: none;
+}
+body:has(.menu-toggle:checked) {
+  position: fixed;
+  width: 100%;
+}
+/* AUTH-CART как NAV-LINKS */
+.auth-cart a {
+  text-decoration: none;
+  color: var(--color-backround);
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-button-links-desktop);
+  padding: 8px 0;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.auth-cart a:hover {
+  color: var(--color-accent);
+}
+
+/* Размер иконки корзины как в меню */
+.auth-cart i {
+  font-size: 1.2rem;
+}
+ /* Mobile */
+@media (max-width: 1000px) {
+  .hamburger {
+    display: block;
+  }
+
+   .nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+   max-width: 480px;
+    height: 100vh;
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.4s ease;
+    z-index: 999;
+
+        overflow-y: auto;
+  }
+  /* Показываем меню по клику */
+  .menu-toggle:checked ~ .nav {
+  left: 0;
+}
+
+   .nav-links {
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.5rem;
+  }
+
+  /* auth-cart stays visible */
+  /* auth-cart всегда справа */
+  .auth-cart {
+    position: absolute;
+    right: 0;
+  }
+}
+
+/*.header-container {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: row;  
@@ -307,23 +405,41 @@ main .loader {
   color: var(--color-backround);
   
 
+}*/
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Для позиционирования logo */
+  height: 60px;
 }
 
-
-.logo {
+/*.logo {
   display: flex;
   align-items: center;
-  height: 50px;        /* фиксируем как у картинки */
-  line-height: 0;      /* убираем влияние текста */
+  height: 50px;        
+  line-height: 0;      
+}*/
+/* Logo по центру */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  height: 50px;
 }
 
+/*.logo img {
+  display: block;    
+  height: 50px;
+  width: auto;
+}*/
+
 .logo img {
-  display: block;      /* убирает нижний отступ inline-элемента */
   height: 50px;
   width: auto;
 }
-
-
 /* Header-nav*/
 .nav-links {
   list-style: none;
@@ -351,7 +467,12 @@ main .loader {
 .nav-links i {
   font-size: 1.2rem;
 }
+
 @media (max-width: 480px) {
+  
+  a {
+  font-size: var(--font-size-body-mobile);
+}
   .logo img {
     height: 40px;
   }
@@ -370,6 +491,10 @@ main .loader {
   }
 
 }
+
+
+
+
 /* Hero CTA Button - похожа на filter buttons */
 
 .cta-button {
@@ -437,10 +562,12 @@ main .loader {
     flex-wrap: wrap;
 }
 .nav-page a{
-  font-size: var(--font-size-body-desktop);
+  font-size: var(--font-size-body-mobile);
   color: var(--color-primary);
   font-weight: var(--font-weight-medium);
 }
+
+
 
 @media (max-width: 480px) {
     .nav-page {
@@ -448,3 +575,30 @@ main .loader {
       align-items: start;
     }
   }
+  @media (max-width: 350px){
+  .page-footer{
+    padding: 0 20px;
+  }
+ 
+
+  .header{
+    padding: 0 20px;
+  }
+  .products,.filter{
+  padding: 0 20px;}
+
+  .auth-modal-content{
+    margin: 0 20px;
+  }
+  .auth-buttons{
+  flex-direction: column;
+  
+  
+}
+.auth-buttons a{
+  text-align: center;
+}
+ .toast {
+  margin-left: 20px;
+}
+}

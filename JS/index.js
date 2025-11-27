@@ -154,9 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const token = localStorage.getItem("accessToken")
 
         if (token) {
-            // User logged in → change Login → Logout
-            authLink.textContent = "Logout"
+            authLink.innerHTML = `<i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>`
             authLink.href = "#"
+            authLink.setAttribute("title", "Logout")
             authLink.addEventListener("click", logout)
         }
     }
