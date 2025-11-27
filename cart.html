@@ -15,24 +15,37 @@
 <body>
     <div class="wrapper">
         <header class="header">
-            <div class="container">
-                <div class="header-container">
-                        <a href="index.html" class="logo">
-                            <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
-                        </a>  
-                        <nav class="nav">
-                            <ul class="nav-links">            
-                                <li>
-                                    <a id="auth-link" href="account/login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                                </li>
-                            </ul>
-                        </nav>                
+                <div class="container">
+                    <div class="header-container">
+                    <!-- Hamburger слева -->
+                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                    <label for="menu-toggle" class="hamburger" aria-label="Open menu"><i class="fas fa-bars open-icon"></i></label>
+                    <!-- Навигация (для мобильного меню) -->
+                    <nav class="nav">
+                        <ul class="nav-links">
+                        <li><a href="coming-soon.html">Blog</a></li>
+                        <li><a href="coming-soon.html">About us</a></li>
+                        <li><a href="coming-soon.html">Contact us</a></li>
+                        <label for="menu-toggle" class="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></label>
+                        </ul>
+                    </nav>
+
+                    <!-- Логотип по центру -->
+                    <a href="index.html" class="logo">
+                        <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
+                    </a>
+
+                    <!-- Login и Cart справа -->
+                        <div class="auth-cart">
+                            <a id="auth-link" href="login.html" title="login page">
+                            <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
+
+                            </a>
+                            <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </div>  
                     </div>
-            </div>
-        </header>
+                </div>
+            </header>
         <main class="page-main">
             <div class="container">
                 <section id="cart-container" class="cart-container">

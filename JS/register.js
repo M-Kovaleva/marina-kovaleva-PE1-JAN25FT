@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toast.classList.add("show");
     setTimeout(() => {
       toast.classList.remove("show");
-      window.location.href = "./login.html"; // перенаправление после успешной регистрации
+      window.location.href = "login.html"; // перенаправление после успешной регистрации
     }, 2000);
   }
 

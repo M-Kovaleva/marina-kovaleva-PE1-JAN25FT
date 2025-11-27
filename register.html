@@ -4,35 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account Register Page</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/register.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/register.css">
     <script src="https://kit.fontawesome.com/83b00f3480.js" crossorigin="anonymous"></script>
-    <script src="./register.js" defer></script>
+    <script src="JS/" defer></script>
 </head>
 <body>
     <div class="wrapper">
         <header class="header">
-            <div class="container">
-                <div class="header-container">
-                        <a href="../index.html" class="logo">
-                            <img src="../logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
-                        </a>  
-                        <nav class="nav">
-                            <ul class="nav-links">            
-                                <li>
-                                    <a id="auth-link" href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="../cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                                </li>
-                            </ul>
-                        </nav>                
+                <div class="container">
+                    <div class="header-container">
+                    <!-- Hamburger слева -->
+                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                    <label for="menu-toggle" class="hamburger" aria-label="Open menu"><i class="fas fa-bars open-icon"></i></label>
+                    <!-- Навигация (для мобильного меню) -->
+                    <nav class="nav">
+                        <ul class="nav-links">
+                        <li><a href="coming-soon.html">Blog</a></li>
+                        <li><a href="coming-soon.html">About us</a></li>
+                        <li><a href="coming-soon.html">Contact us</a></li>
+                        <label for="menu-toggle" class="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></label>
+                        </ul>
+                    </nav>
+
+                    <!-- Логотип по центру -->
+                    <a href="index.html" class="logo">
+                        <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
+                    </a>
+
+                    <!-- Login и Cart справа -->
+                        <div class="auth-cart">
+                            <a id="auth-link" href="login.html" title="login page">
+                            <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
+
+                            </a>
+                            <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </div>  
                     </div>
-            </div>
-        </header>
+                </div>
+            </header>
 
         <main class="page-main">
             <div class="container">
@@ -80,7 +93,7 @@
                                 <span class="signup-error-message" id="password-error"></span>
                             </div>
                             <div class="signup-have-accountt">
-                                <a href="./login.html" class="active-link">Login</a>
+                                <a href="login.html" class="active-link">Login</a>
                             </div>
                             <button type="submit" class="cta-button">Register</button>
                     </form>

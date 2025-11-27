@@ -49,7 +49,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: height 0.5s ease;
+  transition: opacity 0.8s ease-in-out;
+
 }
 
 .carousel-slide.active {
