@@ -5,7 +5,8 @@
 .hero-carousel-wrapper {
   padding: 0 70px;
   box-sizing: border-box; 
-  background-color: var(--color-secondary);
+  background-image: url("/Images/Untitled design.png");
+  
 }
 
 .latest-carousel {
@@ -20,7 +21,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--color-secondary);
+  background: none;
   border: 2px solid var(--color-accent);
   color: var(--color-accent);
   padding: 12px 18px;

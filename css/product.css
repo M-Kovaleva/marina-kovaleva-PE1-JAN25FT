@@ -35,10 +35,10 @@
 
 .product-image {
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  max-height: 427px;
+  max-width: 400px;
   border-radius: 16px;
-  object-fit: cover;
+  object-fit:cover;
   transition: transform 0.3s ease;
 }
 
@@ -139,9 +139,11 @@
 /* "You might also like" */
 .products-also {
     margin-top: 4rem;
+    background-color: var(--color-secondary);
+  padding: 0 70px 64px 70px;
 }
 
-.products-also h2 {
+.products-also h3 {
     font-size: 2rem;
     font-weight: 700;
     color: var(--color-primary);
@@ -150,13 +152,16 @@
 }
 
 /* Секция "You might also like" */
+
 #also-container {
     display: flex;               /* flex вместо grid */
     gap: 24px;
-    overflow-x: auto;            /* горизонтальная прокрутка */
+    overflow-x: auto;     
+   /* горизонтальная прокрутка */
     flex-wrap: nowrap;           /* запрещаем перенос */
     padding-bottom: 8px;         /* немного пространства под скролл */
     -webkit-overflow-scrolling: touch; /* плавный скролл на мобильных */
+    
 }
 
 #also-container > a {
