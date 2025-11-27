@@ -132,7 +132,101 @@
   color: var(--color-backround);
 }
 
+.products-also {
+  margin-top: 4rem;
+}
 
+/* "You might also like" */
+.products-also {
+    margin-top: 4rem;
+}
+
+.products-also h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Секция "You might also like" */
+#also-container {
+    display: flex;               /* flex вместо grid */
+    gap: 24px;
+    overflow-x: auto;            /* горизонтальная прокрутка */
+    flex-wrap: nowrap;           /* запрещаем перенос */
+    padding-bottom: 8px;         /* немного пространства под скролл */
+    -webkit-overflow-scrolling: touch; /* плавный скролл на мобильных */
+}
+
+#also-container > a {
+    flex: 0 0 auto;              /* карточки не растягиваются и не сжимаются */
+    width: 260px;                /* ширина карточки */
+}
+
+
+
+/* Скроллбар для всех браузеров (опционально) */
+#also-container::-webkit-scrollbar {
+    height: 8px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--border-radius);
+}
+
+#also-container::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent);
+    border-radius: 4px;
+}
+
+#also-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.card {
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--color-accent);
+}
+
+.card-image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.card-price {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.card-price .old-price {
+    text-decoration: line-through;
+    color: var(--color-secondary-text);
+    margin-right: 8px;
+}
+
+.card-price .new-price {
+    color: var(--color-button-cta);
+}
 
 
 @media (max-width: 640px) {
@@ -165,7 +259,19 @@
    .product-container{
     padding: 0 35px 64px 35px;
   }
+  #also-container {
+        overflow-x: visible;  /* убираем горизонтальную прокрутку */
+        flex-wrap: wrap;      /* карточки переносятся на следующую строку */
+        justify-content: center;
+    }
+
+    #also-container > a {
+        width: 100%;          /* карточка занимает всю ширину контейнера */
+        max-width: 260px;     /* можно ограничить максимальную ширину */
+        flex: 1 1 auto;       /* карточка теперь может сжиматься и растягиваться */
+    }
 }
+
 
 @media (max-width: 350px){
   .product-container{

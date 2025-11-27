@@ -72,9 +72,16 @@ function renderProducts(products) {
 // Filter by category
 const categoryButtons = document.querySelectorAll(".category-btn")
 categoryButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
+  btn.addEventListener("click", () => {
     const category = btn.textContent.trim().toLowerCase()
-categoryButtons.forEach(b => b.setAttribute("aria-pressed", "false"))
+
+    // Скрываем сообщение "No products found for tag..."
+    errorContainer.textContent = ""
+    errorContainer.hidden = true
+    tagSearchInput.value = ""
+
+    categoryButtons.forEach(b => b.setAttribute("aria-pressed", "false"))
+    btn.setAttribute("aria-pressed", "true")
 btn.setAttribute("aria-pressed", "true")
     // Remove active class for all buttons
     categoryButtons.forEach((b) => b.classList.remove("active"))
