@@ -55,10 +55,7 @@ legend {
   display: flex;
   max-width: 650px;
   width: 100%;
-  padding: 0.6rem 0.8rem;
-  border-radius: 6px;
-  border: 1px solid var(--color-accent);
-  font-family: var(--font-secondary);
+  height: clamp(36px, 4vw, 48px);
   margin-bottom: 0.5rem;
  
   box-sizing: border-box;
@@ -217,6 +214,14 @@ legend {
   word-break: break-word;
   overflow-wrap: anywhere;
 }
+@media (max-width: 813px){
+  .pay-method {
+
+  flex-direction: column;
+
+}
+}
+
 @media (max-width: 768px) {
   .cart-container {
     padding: 0 55px 64px;
@@ -232,11 +237,7 @@ legend {
   
  
 }
-.pay-method {
 
-  flex-direction: column;
-
-}
 .form-input {
   max-width: none;
 }

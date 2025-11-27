@@ -210,20 +210,13 @@
 
 .search-bar input {
   padding: 8px 16px;
-  border: 2px solid var(--color-accent);
-  border-radius: var(--border-radius);
-  font-family: var(--font-secondary);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
-  background-color: var(--color-backround);
+ width: 100%;
   outline: none;
-  transition: border-color 0.3s, background-color 0.3s;
+ 
+  
 }
 
-.search-bar input:focus {
-  border-color: var(--color-accent);
-  background-color: var(--color-backround);
-}
+
 
 .search-btn {
   background-color: var(--color-secondary);
@@ -366,21 +359,12 @@
   flex: 1;
   max-width: 360px; 
   width: 100%;
-  padding: 8px 16px;
-  border: 2px solid var(--color-accent);
-  border-radius: var(--border-radius);
-  font-family: var(--font-secondary);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
-  background-color: var(--color-backround);
+ 
   outline: none;
-  transition: border-color 0.3s, background-color 0.3s;
+
 }
 
-.sign-up-form-group input:focus {
-  border-color: var(--color-accent);
-  background-color: var(--color-backround);
-}
+
 
 .sign-up-form-group input,
 .sign-up-form-group .cta-button {

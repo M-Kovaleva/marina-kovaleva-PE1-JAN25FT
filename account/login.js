@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // Email validation
         if (!emailValue) {
             showError("login-email-error", "Email is required")
-            emailInput.classList.add("login-input--error")
+            emailInput.classList.add("login-input-error")
             isValid = false
-        } else if (!/^[^\s@]+@stud\.noroff\.no$/.test(emailValue)) {
-            showError("login-email-error", "Email must be a valid stud.noroff.no email")
+        } else if (!/^[\w\-.]+@(stud\.)?noroff\.no$/.test(emailValue)) {
+            showError("login-email-error", "Email must be a valid stud.noroff.no or @stud.noroff.no email")
             emailInput.classList.add("login-input-error")
             isValid = false
         }
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showLoginToast()
 
     setTimeout(() => {
-        window.location.href = "login.html"
+        window.location.href = "../index.html"
     }, 2500)
 
 } else {

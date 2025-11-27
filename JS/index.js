@@ -358,8 +358,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!emailValue) {
       showEmailError("Email is required")
       isValid = false
-    } else if (!/^[^\s@]+@stud\.noroff\.no$/.test(emailValue)) {
-      showEmailError("Email must be a valid stud.noroff.no email")
+    } else if (!/^[\w\-.]+@(stud\.)?noroff\.no$/.test(emailValue)) {
+      showEmailError("Email must be @noroff.no or @stud.noroff.no")
+      emailInput.classList.add("sign-up-error-message")
       isValid = false
     }
 

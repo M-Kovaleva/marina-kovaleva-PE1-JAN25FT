@@ -36,53 +36,53 @@
 
         <main class="page-main">
             <div class="container">
-                    <section class="signup__card">
-                    <h1 class="signup__title">Sign up</h1>
-                    <form id="signup-form" class="signup-form" novalidate>
+                    <section class="signup-card">
+                        <h1 class="signup-title">Sign up</h1>
+                        <form id="signup-form" class="signup-form-body" method="post" data-role="signup-form" novalidate>
                         
-                        <!-- Username -->
-                        <div class="signup-form__group">
-                            <label class="signup-form__label" for="signup-name">Name</label>
-                            <input
-                                id="signup-name"
-                                class="signup-form__input"
-                                type="text"
-                                placeholder="username"
-                                required
-                            />
-                            <span class="signup__error-message" id="name-error"></span>
-                        </div>
+                            <!-- Username --> 
+                            <div class="signup-form-group">
+                                <label class="signup-form-label" for="signup-name">Name</label>
+                                <input
+                                    id="signup-name"
+                                    class="signup-form-input"
+                                    type="text"
+                                    placeholder="username"
+                                    required
+                                />
+                                <span class="signup-error-message" id="name-error"></span>
+                            </div>
 
-                        <!-- Email -->
-                        <div class="signup-form__group">
-                            <label class="signup-form__label" for="signup-email">Email</label>
-                            <input
-                                id="signup-email"
-                                class="signup-form__input"
-                                type="email"
-                                placeholder="example@stud.noroff.no" 
-                                required
-                            />
-                            <span class="signup__error-message" id="email-error"></span>
-                        </div>
+                            <!-- Email -->
+                            <div class="signup-form-group">
+                                <label class="signup-form-label" for="signup-email">Email</label>
+                                <input
+                                    id="signup-email"
+                                    class="signup-form-input"
+                                    type="email"
+                                    placeholder="example@stud.noroff.no" 
+                                    required
+                                />
+                                <span class="signup-error-message" id="email-error"></span>
+                            </div>
 
-                        <!-- Password -->
-                        <div class="signup-form__group">
-                            <label class="signup-form__label" for="password">Password</label>
-                            <input
-                                id="password"
-                                class="signup-form__input"
-                                type="password"
-                                placeholder="at least 8 characters"
-                                minlength="8"
-                                required
-                            />
-                            <span class="signup__error-message" id="password-error"></span>
-                        </div>
-                        <div class="login__have__account">
-                            <a href="./login.html" class="login__have__account__link">Login</a>
-                        </div>
-                        <button type="submit" class="signup__button--submit">Register</button>
+                            <!-- Password -->
+                            <div class="signup-form-group">
+                                <label class="signup-form-label" for="password">Password</label>
+                                <input
+                                    id="password"
+                                    class="signup-form-input"
+                                    type="password"
+                                    placeholder="at least 8 characters"
+                                    minlength="8"
+                                    required
+                                />
+                                <span class="signup-error-message" id="password-error"></span>
+                            </div>
+                            <div class="signup-have-accountt">
+                                <a href="./login.html" class="active-link">Login</a>
+                            </div>
+                            <button type="submit" class="cta-button">Register</button>
                     </form>
                 </section>
             </div>
@@ -98,32 +98,23 @@
                         </div>
                     </div>
                 </div>
-            </footer>
+        </footer>
     </div>
-
-    <!-- Failed Sign Up Modal -->
-    <div id="email-modal" class="auth-modal">
+    <div id="login-toast-success" class="toast">
+        <h3>Success ✅</h3>
+        <p class="login-toast-message">Your account has been created successfully.</p>
+    </div>
+        <!-- Login/Register modal window-->
+    <div id="auth-modal" class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
         <div class="auth-modal-content">
-            <span id="close-email-modal" class="close-modal">&times;</span>
-            <h2>Failed Sign Up!</h2>
-            <p>Email already registered.</p>
+            <span id="close-modal" class="close-modal" title="Close"><i class="fa-solid fa-xmark"></i></span>
+            <h2 id="auth-modal-title">Account already exists!</h2>
+            <p>This email address is already registered.<br>Please log in or use another email to create a new account.</p>
             <div class="auth-buttons">
                 <a href="login.html" class="auth-btn login-btn">Log in</a>
                 <a href="register.html" class="auth-btn register-btn">Try another email</a>
             </div>
-        </div>
-    </div>
-
-    <!-- Success Sign Up Modal -->
-    <div id="success-modal" class="auth-modal">
-        <div class="auth-modal-content">
-            <span id="close-success-modal" class="close-modal">&times;</span>
-            <h2>Successful Sign Up!</h2>
-            <p>Your account has been created successfully.</p>
-            <div class="auth-buttons">
-                <a href="login.html" class="auth-btn login-btn">Go to Login</a>
-            </div>
-        </div>
+        </div>    
     </div>
 </body>
 </html>
