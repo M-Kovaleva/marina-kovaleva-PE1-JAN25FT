@@ -20,14 +20,26 @@
                     <div class="header-container">
                     <!-- Hamburger слева -->
                     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-                    <label for="menu-toggle" class="hamburger" aria-label="Open menu"><i class="fas fa-bars open-icon"></i></label>
+                    <label for="menu-toggle"
+                        class="hamburger"
+                        aria-label="Open navigation menu"
+                        title="Open menu"
+                        role="button"
+                        tabindex="0"
+                    ><i class="fas fa-bars open-icon"></i></label>
                     <!-- Навигация (для мобильного меню) -->
-                    <nav class="nav">
+                    <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
                         <li><a href="coming-soon.html">Blog</a></li>
                         <li><a href="coming-soon.html">About us</a></li>
                         <li><a href="coming-soon.html">Contact us</a></li>
-                        <label for="menu-toggle" class="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></label>
+                        <label for="menu-toggle"
+                            class="close-menu"
+                            aria-label="Close navigation menu"
+                            title="Close menu"
+                            role="button"
+                            tabindex="0">
+                        <i class="fas fa-times"></i></label>
                         </ul>
                     </nav>
 
@@ -38,11 +50,18 @@
 
                     <!-- Login и Cart справа -->
                         <div class="auth-cart">
-                            <a id="auth-link" href="login.html" title="login page">
+                            <a 
+                                id="auth-link"
+                                href="login.html"
+                                aria-label="Login to your account"
+                                title="Login page">
                             <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
 
                             </a>
-                            <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a 
+                                aria-label="View shopping cart"
+                                title="Shopping cart">
+                            <i class="fa-solid fa-cart-shopping"></i></a>
                         </div>  
                     </div>
                 </div>

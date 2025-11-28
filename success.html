@@ -20,14 +20,26 @@
                     <div class="header-container">
                     <!-- Hamburger слева -->
                     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-                    <label for="menu-toggle" class="hamburger" aria-label="Open menu"><i class="fas fa-bars open-icon"></i></label>
+                    <label for="menu-toggle"
+                        class="hamburger"
+                        aria-label="Open navigation menu"
+                        title="Open menu"
+                        role="button"
+                        tabindex="0"
+                    ><i class="fas fa-bars open-icon"></i></label>
                     <!-- Навигация (для мобильного меню) -->
-                    <nav class="nav">
+                    <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
                         <li><a href="coming-soon.html">Blog</a></li>
                         <li><a href="coming-soon.html">About us</a></li>
                         <li><a href="coming-soon.html">Contact us</a></li>
-                        <label for="menu-toggle" class="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></label>
+                        <label for="menu-toggle"
+                            class="close-menu"
+                            aria-label="Close navigation menu"
+                            title="Close menu"
+                            role="button"
+                            tabindex="0">
+                        <i class="fas fa-times"></i></label>
                         </ul>
                     </nav>
 
@@ -38,35 +50,54 @@
 
                     <!-- Login и Cart справа -->
                         <div class="auth-cart">
-                            <a id="auth-link" href="account/login.html" title="login page">
+                            <a 
+                                id="auth-link"
+                                href="login.html"
+                                aria-label="Login to your account"
+                                title="Login page">
                             <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
 
                             </a>
-                            <a href="cart.html" aria-label="shopping cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a 
+                                aria-label="View shopping cart"
+                                title="Shopping cart">
+                            <i class="fa-solid fa-cart-shopping"></i></a>
                         </div>  
                     </div>
                 </div>
             </header>
-        <main class="page-main">
+        <main class="page-main" role="main">
             <div class="container">
-                <section class="conf-container">
+                <section 
+                    class="conf-container" 
+                    aria-labelledby="success-title"
+                >
                     <div class="conf-item">
-                        <h1>Your order is on the way!</h1>
+                        <h1 id="order-info-title">Your order is on the way!</h1>
                         <p>Thank you for your purchase. A confirmation and receipt has been sent to your e-mail.</p>
-                        
+                            
                     </div>
-                    <div class="order-info">
+                    <div 
+                        class="order-info" 
+                        role="region" 
+                        aria-labelledby="order-info-title"
+                    >
     <h2>Order information: </h2>
     <h3>Delivery address:</h3>
-    <p>Phone: <span id="success-phone">—</span></p>
-    <p>E-mail: <span id="success-email">—</span></p>
-    <p>Name: <span id="success-name">—</span></p>
-    <p>Address: <span id="success-address">—</span></p>
+    <p>Phone: <span id="success-phone" aria-live="polite">—</span></p>
+    <p>E-mail: <span id="success-email" aria-live="polite">—</span></p>
+    <p>Name: <span id="success-name" aria-live="polite">—</span></p>
+    <p>Address: <span id="success-address" aria-live="polite">—</span></p>
     
     
 </div>
                     <div class="connect-item">
-                        <a class="cta-button" href="coming-soon.html">Contact us</a>
+                        <a class="cta-button"
+                            href="coming-soon.html"
+                            aria-label="Contact customer support"
+                            title="Contact customer support"
+                            >Contact us
+                        </a>
                         <div class="social-icons">
                             <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                             <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>

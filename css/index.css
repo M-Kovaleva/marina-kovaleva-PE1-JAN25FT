@@ -6,7 +6,7 @@
   padding: 0 70px;
   box-sizing: border-box; 
   background-image: url("/Images/Untitled design.png");
-  
+  background-size: cover;
 }
 
 .latest-carousel {
@@ -47,17 +47,15 @@
 
 .carousel-slides {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.8s ease-in-out;
+
 
 }
 
 .carousel-slide.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ 
+   opacity: 1;
+  visibility: visible;
+  position: relative;
 }
 
 .carousel-slide-wrapper {
@@ -100,8 +98,12 @@
 }
 
 .carousel-slide {
-  display: none;
+  position: absolute;
+  inset: 0;
   width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
 .carousel-slide img {
@@ -110,6 +112,7 @@
   min-width: 100px;
   height: auto;
   object-fit: contain;
+  
 }
 
 .carousel-slide img,
@@ -241,7 +244,6 @@
 .card {
   border-radius: 16px;
   padding: 16px;
-  /*height: 100%;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -583,4 +585,9 @@
     margin: 0 20px;
   }
   
+}
+@media (max-width: 615px){
+.card-image {
+  max-width: 300px;
+}
 }
