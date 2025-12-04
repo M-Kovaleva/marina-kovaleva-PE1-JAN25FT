@@ -10,127 +10,144 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/register.css">
     <script src="https://kit.fontawesome.com/83b00f3480.js" crossorigin="anonymous"></script>
-    <script src="JS/" defer></script>
+    <script src="JS/register.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
-        <header class="header">
-                <div class="container">
-                    <div class="header-container">
-                    <!-- Hamburger слева -->
-                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+       <header class="header">
+            <div class="container">
+                <div class="header-container">
+                    <!-- Hamburger -->
+                    <input type="checkbox" 
+                        id="menu-toggle" 
+                        class="menu-toggle">
                     <label for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
                         role="button"
-                        tabindex="0"
-                    ><i class="fas fa-bars open-icon"></i></label>
-                    <!-- Навигация (для мобильного меню) -->
+                        tabindex="0">
+                        <i class="fas fa-bars open-icon"></i>
+                    </label>
+                    <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                        <li><a href="coming-soon.html">Blog</a></li>
-                        <li><a href="coming-soon.html">About us</a></li>
-                        <li><a href="coming-soon.html">Contact us</a></li>
-                        <label for="menu-toggle"
-                            class="close-menu"
-                            aria-label="Close navigation menu"
-                            title="Close menu"
-                            role="button"
-                            tabindex="0">
-                        <i class="fas fa-times"></i></label>
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                            <label for="menu-toggle"
+                                class="close-menu"
+                                aria-label="Close navigation menu"
+                                title="Close menu"
+                                role="button"
+                                tabindex="0">
+                                <i class="fas fa-times"></i>
+                            </label>
                         </ul>
                     </nav>
-
-                    <!-- Логотип по центру -->
                     <a href="index.html" class="logo">
                         <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
                     </a>
-
-                    <!-- Login и Cart справа -->
-                        <div class="auth-cart">
-                            <a 
-                                id="auth-link"
-                                href="login.html"
-                                aria-label="Login to your account"
-                                title="Login page">
+                    <div class="auth-cart">
+                        <a id="auth-link" href="login.html" aria-label="Login to your account" title="Login page">
                             <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
-
-                            </a>
-                            <a 
-                                aria-label="View shopping cart"
-                                title ="Shopping cart">
-                            <i class ="fa-solid fa-cart-shopping"></i></a>
-                        </div>  
-                    </div>
+                        </a>
+                        <a href="cart.html" aria-label="View shopping cart" title="Shopping cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>  
                 </div>
-            </header>
-
+            </div>
+        </header>
         <main class="page-main" role="main">
             <div class="container">
-                    <section class="signup-card" aria-labelledby="signup-title">
-                        <h1 id="signup-title" class="signup-title">Sign up</h1>
-                        <form id="signup-form" class="signup-form-body" method="post" data-role="signup-form" novalidate>
-                        
-                            <!-- Username --> 
-                            <div class="signup-form-group">
-                                <label class="signup-form-label" for="signup-name">Name</label>
-                                <input
-                                    id="signup-name"
-                                    class="signup-form-input"
-                                    type="text"
-                                    placeholder="username"
-                                    required
-                                />
-                                <span class="signup-error-message" id="name-error"></span>
+                    <section class="register-card" aria-labelledby="register-title">
+                        <div class="register-hero">
+                            <div class="nav-page">
+                                <nav aria-label="Breadcrumb">
+                                    <a href="index.html">Home ></a>
+                                    <a href="register.html" class="active-link" aria-current="page">Register</a>
+                                </nav>
+                                <a href="index.html" 
+                                    class="active-link" 
+                                    aria-label="Continue shopping and return to catalog" 
+                                    title="Back to catalog"
+                                    >Keep shopping
+                                </a>
                             </div>
+                            <h2 id="register-title" class="register-title">Register</h2>
+                    </div>
+                        <div class="register-content">
+                                    <form id="register-form" class="register-form-body" method="post" data-role="register-form" novalidate>
+                                
+                                    <!-- Username --> 
+                                    <div class="register-form-group">
+                                        <label class="register-form-label" for="register-name">Name</label>
+                                        <input
+                                            id="register-name"
+                                            class="register-form-input"
+                                            type="text"
+                                            placeholder="username"
+                                            required
+                                        />
+                                        <span class="register-error-message" id="name-error"></span>
+                                    </div>
 
-                            <!-- Email -->
-                            <div class="signup-form-group">
-                                <label class="signup-form-label" for="signup-email">Email</label>
-                                <input
-                                    id="signup-email"
-                                    class="signup-form-input"
-                                    type="email"
-                                    placeholder="example@stud.noroff.no" 
-                                    required
-                                />
-                                <span class="signup-error-message" id="email-error"></span>
-                            </div>
+                                    <!-- Email -->
+                                    <div class="register-form-group">
+                                        <label class="signup-form-label" for="signup-email">Email</label>
+                                        <input
+                                            id="register-email"
+                                            class="register-form-input"
+                                            type="email"
+                                            placeholder="example@stud.noroff.no" 
+                                            required
+                                        />
+                                        <span class="register-error-message" id="email-error"></span>
+                                    </div>
 
-                            <!-- Password -->
-                            <div class="signup-form-group">
-                                <label class="signup-form-label" for="password">Password</label>
-                                <input
-                                    id="password"
-                                    class="signup-form-input"
-                                    type="password"
-                                    placeholder="at least 8 characters"
-                                    minlength="8"
-                                    required
-                                />
-                                <small id="password-hint">Password must be at least 8 characters</small>
-                                <span class="signup-error-message" id="password-error"></span>
-                            </div>
-                            <div class="signup-have-accountt">
-                                <a href="login.html" class="active-link">Login</a>
-                            </div>
-                            <button type="submit" class="cta-button">Register</button>
-                    </form>
-                </section>
-            </div>
+                                    <!-- Password -->
+                                    <div class="register-form-group">
+                                        <label class="register-form-label" for="password">Password</label>
+                                        <input
+                                            id="password"
+                                            class="register-form-input"
+                                            type="password"
+                                            placeholder="at least 8 characters"
+                                            minlength="8"
+                                            required
+                                        />
+                                        <span class="register-error-message" id="password-error"></span>
+                                    </div>
+                                    <div class="register-have-accountt">
+                                        <a href="login.html" class="active-link">Login</a>
+                                    </div>
+                                    <button type="submit" class="cta-button">Register</button>
+                            </form>
+                        </div>
+                       
+             </section>
+        </div>
             
         </main>
-        <footer class="page-footer">
-                <div class="container">
-                    <div class="footer-container">
-                        <p>Modo &copy; 2024</p>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
+       <footer class="page-footer">
+            <div class="container">
+                <div class="footer-container">
+                    <p>Modo &copy; 2025</p>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <ul class="footer-nav-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                        </ul>
+                    </nav>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
+            </div>
         </footer>
     </div>
     <div id="login-toast-success" class="toast">
@@ -140,10 +157,10 @@
     <div id="auth-modal" class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
         <div class="auth-modal-content">
             <span id="close-modal" class="close-modal" title="Close"><i class="fa-solid fa-xmark"></i></span>
-            <h2 id="auth-modal-title">Account already exists!</h2>
+            <h3 id="auth-modal-title">Account already exists</h3>
             <p>This email address is already registered.<br>Please log in or use another email to create a new account.</p>
             <div class="auth-buttons">
-                <a href="login.html" class="auth-btn login-btn">Log in</a>
+                <a href="login.html" class="auth-btn login-btn">Login</a>
                 <a href="register.html" class="auth-btn register-btn">Try another email</a>
             </div>
         </div>    

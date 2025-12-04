@@ -1,32 +1,25 @@
 :root {
-  /* Primary colors */
+
+  /* Colors */
   --color-primary: #1C1C1C;
-
-  /* Secondary colors */
   --color-secondary: #F1E9DD;
-
-  /* Accent colors */
   --color-accent: #C6A664;
-
-  /* Background Colors */
   --color-backround: #F8F6F2;
-
-  /* Secondary text Colors */
   --color-secondary-text: #6F6F6F;
-
-  /* Buttons CTA Colors */
   --color-button-cta: #A1332A;
   
 
   /* Spacing */
-  --spacing-0: 0px; /* No spacing */
-  --spacing-8: 8px; /* Small padding/margin */
-  --spacing-16: 16px; /* General padding/margin */
-  --spacing-24: 24px; /* Medium Section padding */
-  --spacing-32: 36px; /* Large Section padding */
-  --spacing-48: 48px; /* Small Section margin*/
-  --spacing-64: 64px; /* Medium Section margin*/
-  --spacing-80: 80px; /* Lrge Section margin*/
+  --spacing-0: 0px; 
+  --spacing-6: 6px;
+  --spacing-8: 8px; 
+  --spacing-16: 16px; 
+  --spacing-20: 20px; 
+  --spacing-24: 24px; 
+  --spacing-32: 32px;
+  --spacing-48: 48px; 
+  --spacing-64: 64px; 
+  --spacing-80: 80px; 
 
   /* Typography */
   --font-primary: "Playfair Display", Arial, sans-serif;
@@ -39,21 +32,42 @@
   --font-weight-bold: 700;
 
   /* Headings */
-  --font-size-h1: 4rem;
-  --font-size-h2: 1.5rem;
-  --font-size-h3: 1.25rem;
+  --font-size-desktop-h1: 4rem;
+  --font-size-desktop-h2: 3rem;
+  --font-size-desktop-h3: 2rem;
+  --font-size-desktop-h4: 1.5rem;
+
+  --font-size-mobile-h1: 2.25rem;
+  --font-size-mobile-h2: 2rem;
+  --font-size-mobile-h3: 1.5rem;
+  --font-size-mobile-h4: 1.25rem;
 
   /* Body text */
-  --font-size-body-desktop: 1,125rem;
-  --font-size-body-mobile: 1rem;
+  --font-size-body-desktop: 1.25rem;
+  --font-size-body-mobile: 1.125rem;
+
+  /* Price */
+  --font-price-1-desktop: 1.25rem;
+  --font-price-2-desktop: 1.5rem;
+
+  --font-price-1-mobile: 1.125rem;
+  --font-price-2-mobile: 1.25rem;
 
   /* Line height & letter spacing */
   --line-height: 1.5;
   --letter-spacing: 0.5px;
 
   /* Components */
-  --font-size-button-links-desktop: 1,5rem;
+  --font-size-button-links-desktop: 1.125rem;
   --font-size-button-links-mobile: 1rem;
   --button-padding: 8px 16px;
-  --border-radius: 6px;
+
+  --button-border-radius: 6px;
+  --card-border-radius: 12px;
+  --image-border-radius: 10px;
+
+
+
+
+
 }

@@ -14,64 +14,75 @@
 </head>
 <body>
     <div class="wrapper">
-        <header class="header">
-                <div class="container">
-                    <div class="header-container">
-                    <!-- Hamburger слева -->
-                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+       <header class="header">
+            <div class="container">
+                <div class="header-container">
+                    <!-- Hamburger -->
+                    <input type="checkbox" 
+                        id="menu-toggle" 
+                        class="menu-toggle">
                     <label for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
                         role="button"
-                        tabindex="0"
-                    ><i class="fas fa-bars open-icon"></i></label>
-                    <!-- Навигация (для мобильного меню) -->
+                        tabindex="0">
+                        <i class="fas fa-bars open-icon"></i>
+                    </label>
+                    <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                        <li><a href="coming-soon.html">Blog</a></li>
-                        <li><a href="coming-soon.html">About us</a></li>
-                        <li><a href="coming-soon.html">Contact us</a></li>
-                        <label for="menu-toggle"
-                            class="close-menu"
-                            aria-label="Close navigation menu"
-                            title="Close menu"
-                            role="button"
-                            tabindex="0">
-                        <i class="fas fa-times"></i></label>
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                            <label for="menu-toggle"
+                                class="close-menu"
+                                aria-label="Close navigation menu"
+                                title="Close menu"
+                                role="button"
+                                tabindex="0">
+                                <i class="fas fa-times"></i>
+                            </label>
                         </ul>
                     </nav>
-
-                    <!-- Логотип по центру -->
                     <a href="index.html" class="logo">
                         <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
                     </a>
-
-                    <!-- Login и Cart справа -->
-                        <div class="auth-cart">
-                            <a 
-                                id="auth-link"
-                                href="login.html"
-                                aria-label="Login to your account"
-                                title="Login page">
+                    <div class="auth-cart">
+                        <a id="auth-link" href="login.html" aria-label="Login to your account" title="Login page">
                             <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
-
-                            </a>
-                            <a 
-                                aria-label="View shopping cart"
-                                title="Shopping cart">
-                            <i class="fa-solid fa-cart-shopping"></i></a>
-                        </div>  
-                    </div>
+                        </a>
+                        <a href="cart.html" aria-label="View shopping cart" title="Shopping cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>  
                 </div>
-            </header>
+            </div>
+        </header>
         <main class="page-main">
             <div class="container">
               
             <!-- Login Form -->
             <section class="login-card">
-                <h1 class="login-title">Log in</h1>
-                <form id="login-form" class="login-form-body" data-role="login-form" novalidate>
+                <div class="login-hero">
+                        <div class="nav-page">
+                            <nav aria-label="Breadcrumb">
+                                <a href="index.html">Home ></a>
+                                <a href="login.html" class="active-link" aria-current="page">Login</a>
+                            </nav>
+                            <a href="index.html" 
+                                class="active-link" 
+                                aria-label="Continue shopping and return to catalog" 
+                                title="Back to catalog"
+                                >Keep shopping
+                            </a>
+                        </div>
+                        <h2 class="login-title">Login</h2>
+                    </div>
+            
+                <div class="login-content">
+                    <form id="login-form" class="login-form-body" data-role="login-form" novalidate>
                     <!-- Email Field -->
                     <div class="login-form-group">
                         <label class="login-form-label" for="login-email">Email</label>
@@ -115,10 +126,19 @@
             </section>
             </div>
         </main>
+                </div>
+                
         <footer class="page-footer">
             <div class="container">
                 <div class="footer-container">
-                    <p>Modo &copy; 2024</p>
+                    <p>Modo &copy; 2025</p>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <ul class="footer-nav-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                        </ul>
+                    </nav>
                     <div class="social-icons">
                         <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -135,7 +155,7 @@
     <div id="auth-modal" class="auth-modal" role="dialog" aria-modal="true"aria-labelledby="auth-modal-title">
         <div class="auth-modal-content">
             <span id="close-modal" class="close-modal" title="Close"><i class="fa-solid fa-xmark"></i></span>
-            <h2 id="auth-modal-title">User not found.</h2>
+            <h3 id="auth-modal-title">User not found</h3>
             <p>We couldn't find this account or data entered incorrectly.<br>Please try again or create a new account.</p>
             <div class="auth-buttons">
                 <a href="register.html" class="auth-btn register">Create account</a>

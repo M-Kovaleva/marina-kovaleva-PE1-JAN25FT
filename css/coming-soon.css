@@ -4,7 +4,7 @@
 
 .coming-soon-container {
   background-color: var(--color-backround);
-  padding: 0 70px 64px 70px;
+  padding: 80px 70px 80px 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,12 +14,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+text-align: center;
+  gap: 24px;
+  margin-bottom: 32px;
 }
 .coming-soon--connect-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  gap: 32px;
+
 }
 .coming-soon--connect-item .social-icons a{
 
@@ -30,18 +34,18 @@
 
 @media (max-width: 768px) {
   .coming-soon-container{
-    padding: 0 55px 64px 55px;
+    padding: 80px 55px 80px 55px;
   }
 }
 
 @media (max-width: 480px) {
    .coming-soon-container{
-    padding: 0 35px 64px 35px;
+    padding: 48px 35px 64px 35px;
   }
 }
 
 @media (max-width: 350px){
   .coming-soon-container{
-    padding: 0 20px 64px 20px;
+    padding: 48px 20px 64px 20px;
   }
 }

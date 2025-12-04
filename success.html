@@ -11,108 +11,98 @@
     <link rel="stylesheet" href="css/success.css">
     <script src="https://kit.fontawesome.com/83b00f3480.js" crossorigin="anonymous"></script>
     <script src="js/success.js" defer ></script>
-
 </head>
 <body>
     <div class="wrapper">
        <header class="header">
-                <div class="container">
-                    <div class="header-container">
-                    <!-- Hamburger слева -->
-                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <div class="container">
+                <div class="header-container">
+                    <!-- Hamburger -->
+                    <input type="checkbox" 
+                        id="menu-toggle" 
+                        class="menu-toggle">
                     <label for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
                         role="button"
-                        tabindex="0"
-                    ><i class="fas fa-bars open-icon"></i></label>
-                    <!-- Навигация (для мобильного меню) -->
+                        tabindex="0">
+                        <i class="fas fa-bars open-icon"></i>
+                    </label>
+                    <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                        <li><a href="coming-soon.html">Blog</a></li>
-                        <li><a href="coming-soon.html">About us</a></li>
-                        <li><a href="coming-soon.html">Contact us</a></li>
-                        <label for="menu-toggle"
-                            class="close-menu"
-                            aria-label="Close navigation menu"
-                            title="Close menu"
-                            role="button"
-                            tabindex="0">
-                        <i class="fas fa-times"></i></label>
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                            <label for="menu-toggle"
+                                class="close-menu"
+                                aria-label="Close navigation menu"
+                                title="Close menu"
+                                role="button"
+                                tabindex="0">
+                                <i class="fas fa-times"></i>
+                            </label>
                         </ul>
                     </nav>
-
-                    <!-- Логотип по центру -->
                     <a href="index.html" class="logo">
                         <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
                     </a>
-
-                    <!-- Login и Cart справа -->
-                        <div class="auth-cart">
-                            <a 
-                                id="auth-link"
-                                href="login.html"
-                                aria-label="Login to your account"
-                                title="Login page">
+                    <div class="auth-cart">
+                        <a id="auth-link" href="login.html" aria-label="Login to your account" title="Login page">
                             <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
-
-                            </a>
-                            <a 
-                                aria-label="View shopping cart"
-                                title="Shopping cart">
-                            <i class="fa-solid fa-cart-shopping"></i></a>
-                        </div>  
-                    </div>
+                        </a>
+                        <a href="cart.html" aria-label="View shopping cart" title="Shopping cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>  
                 </div>
-            </header>
+            </div>
+        </header>
         <main class="page-main" role="main">
             <div class="container">
-                <section 
-                    class="conf-container" 
-                    aria-labelledby="success-title"
-                >
-                    <div class="conf-item">
-                        <h1 id="order-info-title">Your order is on the way!</h1>
-                        <p>Thank you for your purchase. A confirmation and receipt has been sent to your e-mail.</p>
-                            
-                    </div>
-                    <div 
-                        class="order-info" 
-                        role="region" 
-                        aria-labelledby="order-info-title"
-                    >
-    <h2>Order information: </h2>
-    <h3>Delivery address:</h3>
-    <p>Phone: <span id="success-phone" aria-live="polite">—</span></p>
-    <p>E-mail: <span id="success-email" aria-live="polite">—</span></p>
-    <p>Name: <span id="success-name" aria-live="polite">—</span></p>
-    <p>Address: <span id="success-address" aria-live="polite">—</span></p>
-    
-    
-</div>
-                    <div class="connect-item">
-                        <a class="cta-button"
-                            href="coming-soon.html"
-                            aria-label="Contact customer support"
-                            title="Contact customer support"
-                            >Contact us
-                        </a>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://www.youtube.com" aria-label="link to youtube page" title="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                <section class="conf-container" aria-labelledby="success-title">
+                    <div class="success-hero">
+                        <div class="nav-page">
+                            <nav aria-label="Breadcrumb">
+                                <a href="index.html">Home ></a>
+                                <a href="cart.html">Cart ></a>
+                                <a href="checkout.html">Checkout ></a>
+                                <a href="success.html" class="active-link" aria-current="page">Confirmation
+                                </a>
+                            </nav>
+                            <a href="index.html" class="active-link" aria-label="Return to catalog" title="Back to catalog">Keep shopping</a>
                         </div>
-                        
-                    </div>  
-
+                        <h2 id="order-info-title">Your order is on the way!</h2>
+                        <p>Thank you for your purchase. A confirmation and receipt has been sent to your email.</p>
+                    </div>
+                    <div class="conf-item">
+                        <div class="order-info" role="region" aria-labelledby="order-info-title">
+                            <h4>Delivery address:</h4>
+                                <div class="deliveri-info">
+                                    <p>Phone: <span id="success-phone" aria-live="polite">—</span></p>
+                                    <p>E-mail: <span id="success-email" aria-live="polite">—</span></p>
+                                    <p>Name: <span id="success-name" aria-live="polite">—</span></p>
+                                    <p>Address: <span id="success-address" aria-live="polite">—</span></p>
+                                </div>                          
+                        </div>
+                        <a class="cta-button" href="index.html" aria-label="Return to catalog" title="Back to catalog">Catalog</a>
+                    </div>
                 </section>
             </div>
         </main>
-        <footer class="page-footer">
+       <footer class="page-footer">
             <div class="container">
                 <div class="footer-container">
-                    <p>Modo &copy; 2024</p>
+                    <p>Modo &copy; 2025</p>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <ul class="footer-nav-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                        </ul>
+                    </nav>
                     <div class="social-icons">
                         <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>

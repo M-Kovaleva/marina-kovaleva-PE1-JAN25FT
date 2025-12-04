@@ -2,25 +2,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap");
 
 /* ===== ОСНОВНАЯ КАРТОЧКА LOGIN ===== */
+
+
+.login-hero{
+  background-image: url("/Images/Untitled design.png");
+  background-size: cover;
+    padding: 0 70px 80px 70px;
+    margin-bottom: 48px;
+}
+.login-hero h2{
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 16px;
+}
 .login-card {
-    display: flex;
+
+  background: var(--color-backround);
+  padding: 0 0 80px 0;
+  /*margin: 0 auto;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--color-backround);
-  margin: 0 auto;
-  padding: 0 70px 64px 70px;
   width: 100%;
+  max-width: 360px;*/
+
+}
+.login-content{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 360px;
-
+  padding: 0 70px;
 }
 
-/* Заголовок как у legend */
-.login-title {
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-h3);
-  margin-bottom: 1.5rem;
-}
+
 
 /* ===== ФОРМА ===== */
 .login-form-body {
@@ -58,7 +74,7 @@
   border-color: var(--color-accent);
 }
 
-/* Ошибки */
+
 .login-error-message {
   font-size: 0.85rem;
   color: var(--color-button-cta);
@@ -66,43 +82,80 @@
   margin-top: 4px;
 }
 
-/* Ошибка поля */
+
 .login-input-error {
   border-color: var(--color-button-cta);
 }
 
 
 
-/* ===== Блок регистрации ===== */
-.login-create-account {
-  margin-top: 0.8rem;
+
+
+
+.login-form-body button {
+  margin-top: 8px;
+  height: 48px;
+  width: 140px;
+  border: none;
+  background-color: var(--color-button-cta);
+  color: var(--color-backround);
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-medium);
+  padding: 8px 20px;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-
-
-.login-create-account-link:hover {
-  text-decoration: underline;
+.sign-up-form-group button:hover {
+  color: var(--color-accent);
 }
 
 /* ===== АДАПТИВ ===== */
 @media (max-width: 768px) {
-  .login-card {
+ .login-hero{
+    padding: 0 55px 80px 55px;
+}
+  .login-content{
  
-    padding: 0 55px;
-  }
-  
+  padding: 0 55px;
+}
+
 }
 
 @media (max-width: 480px) {
-   .login-card {
-    padding: 0 35px;
+
+ .login-hero{
+    padding: 0 35px 48px 35px;
+}
+ .login-form-body button {
+height: 36px;
+    width: 124px;
   }
+    .login-content{
  
+  padding: 0 35px;
+}
+.login-hero h2{
+padding-top: 48px;
+  margin-top: 0;
+  margin-bottom: 0;
+
+}
+.login-card {
+    background: var(--color-backround);
+    padding: 0 0 64px 0px;
+}
 
 }
 
 @media (max-width: 350px) {
-   .login-card {
-    padding: 0 20px;
-  }
+   .login-hero{
+    padding: 0 35px 48px 35px;
+}
+   .login-content{
+ 
+  padding: 0 20px;
+}
+
 }

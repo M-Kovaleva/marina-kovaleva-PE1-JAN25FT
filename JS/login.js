@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             emailInput.classList.add("login-input-error")
             isValid = false
         } else if (!/^[\w\-.]+@(stud\.)?noroff\.no$/.test(emailValue)) {
-            showError("login-email-error", "Email must be a valid stud.noroff.no or @stud.noroff.no email")
+            showError("login-email-error", "Email must be stud.noroff.no or @stud.noroff.no email")
             emailInput.classList.add("login-input-error")
             isValid = false
         }
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2500)
 
 } else {
-    // Пользователь не найден или неверный пароль
+    // User not found or incorrect password
     openAuthModal()
 }
 
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         toast.classList.remove("show")
     }, 2000)
 }
-// ===== AUTH MODAL =====
+// authModal
 const authModal = document.getElementById("auth-modal")
 const closeModalBtn = document.getElementById("close-modal")
 

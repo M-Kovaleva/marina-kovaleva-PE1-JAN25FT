@@ -16,61 +16,56 @@
 <body>
     <div class="wrapper">
         <header class="header">
-                <div class="container">
-                    <div class="header-container">
-                    <!-- Hamburger слева -->
-                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <div class="container">
+                <div class="header-container">
+                    <!-- Hamburger -->
+                    <input type="checkbox" 
+                        id="menu-toggle" 
+                        class="menu-toggle">
                     <label for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
                         role="button"
-                        tabindex="0"
-                    ><i class="fas fa-bars open-icon"></i></label>
-                    <!-- Навигация (для мобильного меню) -->
+                        tabindex="0">
+                        <i class="fas fa-bars open-icon"></i>
+                    </label>
+                    <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                        <li><a href="coming-soon.html">Blog</a></li>
-                        <li><a href="coming-soon.html">About us</a></li>
-                        <li><a href="coming-soon.html">Contact us</a></li>
-                        <label for="menu-toggle"
-                            class="close-menu"
-                            aria-label="Close navigation menu"
-                            title="Close menu"
-                            role="button"
-                            tabindex="0">
-                        <i class="fas fa-times"></i></label>
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                            <label for="menu-toggle"
+                                class="close-menu"
+                                aria-label="Close navigation menu"
+                                title="Close menu"
+                                role="button"
+                                tabindex="0">
+                                <i class="fas fa-times"></i>
+                            </label>
                         </ul>
                     </nav>
-
-                    <!-- Логотип по центру -->
                     <a href="index.html" class="logo">
                         <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
                     </a>
-
-                    <!-- Login и Cart справа -->
-                        <div class="auth-cart">
-                            <a 
-                                id="auth-link"
-                                href="login.html"
-                                aria-label="Login to your account"
-                                title="Login page">
+                    <div class="auth-cart">
+                        <a id="auth-link" href="login.html" aria-label="Login to your account" title="Login page">
                             <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
-
-                            </a>
-                            <a 
-                                aria-label="View shopping cart"
-                                title="Shopping cart">
-                            <i class="fa-solid fa-cart-shopping"></i></a>
-                        </div>  
-                    </div>
+                        </a>
+                        <a href="cart.html" aria-label="View shopping cart" title="Shopping cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>  
                 </div>
-            </header>
+            </div>
+        </header>
         <main class="page-main">
             <div class="container">
                 <section class="coming-soon-container">
                     <div class="coming-soon-item">
-                        <h1>Coming soon</h1>
+                        <h2>Coming soon</h2>
                         <p>This page is under construction.</p>
                         
                     </div>
@@ -80,7 +75,6 @@
                         <div class="social-icons">
                             <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                             <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://www.youtube.com" aria-label="link to youtube page" title="Youtube"><i class="fa-brands fa-youtube"></i></a>
                         </div>
                         
                     </div>  
@@ -91,7 +85,14 @@
         <footer class="page-footer">
             <div class="container">
                 <div class="footer-container">
-                    <p>Modo &copy; 2024</p>
+                    <p>Modo &copy; 2025</p>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <ul class="footer-nav-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                        </ul>
+                    </nav>
                     <div class="social-icons">
                         <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>

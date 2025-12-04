@@ -1,54 +1,116 @@
 @import url("variables.css");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
+.success-hero{
+  background-image: url("/Images/Untitled design.png");
+  background-size: cover;
+    padding: 0 70px 64px 70px;
+    margin-bottom: 48px;
+}
+.success-hero h2{
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 24px;
+}
+.success-hero p{
+  text-align: center;
+  margin-bottom: 16px;
 
+
+}
 .conf-container {
   background-color: var(--color-backround);
-  padding: 0 70px 64px 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+   padding: 0 0 80px 0;
+
 }
 .order-info{
 display: flex;
 flex-direction: column;
 align-items:start;
-border-radius: var(--border-radius);
+border-radius: 12px;
 border: 2px solid var(--color-accent);
-padding: 20px;
+padding: 32px;
+margin-bottom: 32px;
+max-width: 1100px;
+margin-right: 70px;
+margin-left: 70px;
+
+}
+.order-info h4{
+  margin-bottom: 24px;
+}
+.deliveri-info{
+  display: flex;
+  flex-direction: column;
+  gap:12px
+}
+.deliveri-info p{
+  font-weight: var(--font-weight-semibold);
+}
+.deliveri-info span{
+  font-weight: var(--font-weight-regular);
 }
 .conf-item{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.connect-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-}
-.connect-item .social-icons a{
 
-  color: var(--color-primary);
-  font-size: 1.2rem;
-
-}
 
 @media (max-width: 768px) {
-  .conf-container{
+ .success-hero{
+
     padding: 0 55px 64px 55px;
-  }
+
+}
+.success-hero .nav-page{
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+} 
+.order-info{
+
+margin-right: 55px;
+margin-left: 55px;
+}
 }
 
 @media (max-width: 480px) {
-   .conf-container{
-    padding: 0 35px 64px 35px;
-  }
-}
+   .conf-container {
+   padding: 0 0 64px 0;
 
+}
+  .success-hero{
+
+    padding: 0 35px 64px 35px;
+
+
+}
+.order-info{
+margin-bottom: 24px;
+margin-right: 35px;
+margin-left: 35px;
+}
+     .success-hero h2{
+  margin-top: 0;
+  padding-top: 48px;
+}
+.success-hero p{
+
+  margin-bottom: 0;
+
+
+}
+}
 @media (max-width: 350px){
-  .conf-container{
+   .success-hero{
+
     padding: 0 20px 64px 20px;
-  }
+
+}
+.order-info{
+
+margin-right: 20px;
+margin-left: 20px;
+}
 }

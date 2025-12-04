@@ -5,7 +5,7 @@ const cartEmpty = document.querySelector("#cart-empty")
 const loader = document.querySelector("#loader")
 const cartError = document.querySelector("#cart-error")
 const checkoutButton = document.querySelector("#checkout-button")
-const catalogBtn = document.querySelector("#catalog-button");
+const catalogBtn = document.querySelector("#catalog-button")
 
 function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || []
@@ -15,8 +15,9 @@ function saveCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart))
 }
 
-function renderCart() {
+async function renderCart() {
   showLoader()
+  //await new Promise(res => setTimeout(res, 2000)) // Check loader
   try {
     const cart = getCart()
     cartItemsContainer.querySelectorAll(".cart-item").forEach(item => item.remove())
@@ -27,22 +28,23 @@ function renderCart() {
       cartCount.textContent = "0"
       cartTotal.textContent = "0"
       checkoutButton.style.display = "none"
-      catalogBtn.style.display = "inline-flex"  // показываем кнопку
+      catalogBtn.style.display = "inline-flex"  // Show "Cataloge" button
       
       hideLoader()
       return
     }
+    
 
     cartEmpty.hidden = true
-    catalogBtn.style.display = "none"  // скрываем кнопку, если есть товары
+    catalogBtn.style.display = "none"  // Hide "Catalog" butto if there are products
     let total = 0
     let count = 0
-    /*throw new Error("Test error in renderCart")//error checking*/
+   
     cart.forEach((item, index) => {
 
       const itemDiv = document.createElement("div")
       const img = document.createElement("img")
-      const title = document.createElement("h3")
+      const title = document.createElement("h4")
       const price = document.createElement("p")
       const removeBtn = document.createElement("span")
       

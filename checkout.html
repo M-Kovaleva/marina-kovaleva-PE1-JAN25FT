@@ -11,184 +11,218 @@
     <link rel="stylesheet" href="css/checkout.css">
     <script src="https://kit.fontawesome.com/83b00f3480.js" crossorigin="anonymous"></script>
     <script src="js/checkout.js" defer ></script>
-
 </head>
 <body>
     <div class="wrapper">
        <header class="header">
-                <div class="container">
-                    <div class="header-container">
-                    <!-- Hamburger слева -->
-                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <div class="container">
+                <div class="header-container">
+                    <!-- Hamburger -->
+                    <input type="checkbox" 
+                        id="menu-toggle" 
+                        class="menu-toggle">
                     <label for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
                         role="button"
-                        tabindex="0"
-                    ><i class="fas fa-bars open-icon"></i></label>
-                    <!-- Навигация (для мобильного меню) -->
+                        tabindex="0">
+                        <i class="fas fa-bars open-icon"></i>
+                    </label>
+                    <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                        <li><a href="coming-soon.html">Blog</a></li>
-                        <li><a href="coming-soon.html">About us</a></li>
-                        <li><a href="coming-soon.html">Contact us</a></li>
-                        <label for="menu-toggle"
-                            class="close-menu"
-                            aria-label="Close navigation menu"
-                            title="Close menu"
-                            role="button"
-                            tabindex="0">
-                        <i class="fas fa-times"></i></label>
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                            <label for="menu-toggle"
+                                class="close-menu"
+                                aria-label="Close navigation menu"
+                                title="Close menu"
+                                role="button"
+                                tabindex="0">
+                                <i class="fas fa-times"></i>
+                            </label>
                         </ul>
                     </nav>
-
-                    <!-- Логотип по центру -->
                     <a href="index.html" class="logo">
                         <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
                     </a>
-
-                    <!-- Login и Cart справа -->
-                        <div class="auth-cart">
-                            <a 
-                                id="auth-link"
-                                href="login.html"
-                                aria-label="Login to your account"
-                                title="Login page">
+                    <div class="auth-cart">
+                        <a id="auth-link" href="login.html" aria-label="Login to your account" title="Login page">
                             <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
-
-                            </a>
-                            <a 
-                                aria-label="View shopping cart"
-                                title="Shopping cart">
-                            <i class="fa-solid fa-cart-shopping"></i></a>
-                        </div>  
-                    </div>
+                        </a>
+                        <a href="cart.html" aria-label="View shopping cart" title="Shopping cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>  
                 </div>
-            </header>
+            </div>
+        </header>
         <main class="page-main">
             <div class="container">
                 <section id="cart-container" class="cart-container">
-
+                     <div class="cart-hero">
                         <div class="nav-page">
-                        <nav aria-label="Breadcrumb">
-                            <a href="index.html">Catalog ></a>
-                            <a href="cart.html" aria-current="page">Cart ></a>
-                            <a href="checkout.html" class="active-link" aria-current="page">Checkout </a>
-                        </nav>
-                        <a href="index.html" class="active-link" aria-label="Continue shopping and return to catalog" title="Back to catalog">Keep shopping</a>
-                    </div>
+                            <nav aria-label="Breadcrumb">
+                                <a href="index.html">Home ></a>
+                                <a href="cart.html" aria-current="page">Cart ></a>
+                                <a href="checkout.html" 
+                                    class="active-link" 
+                                    aria-current="page"
+                                    >Checkout 
+                                </a>
+                            </nav>
+                            <a href="index.html" 
+                                class="active-link" 
+                                aria-label="Continue shopping and return to catalog" 
+                                title="Back to catalog"
+                                >Keep shopping
+                            </a>
+                        </div>
+                        <h2>Checkout</h2>
+                     </div>
+                    
                     <div class="checkout-content">
                         <div class="loader" id="loader"></div>
                         <div class="checkout-info-content">
                             <div class="checkout-info-content-left">
                                 <form class="payment">
                                     <fieldset tabindex="0">
-                                        
                                         <legend>Contact information</legend>
                                         <div class="checkout-form-group">
-                                            <label for="email">e-mail</label>
-                                        <input 
-                                            type="email" 
-                                            id="email" 
-                                            class="form-input"
-                                            required
-                                        >
-                                        <span class="checkout-error-message" id="email-error"></span>
+                                            <label for="email">Email</label>
+                                            <input 
+                                                type="email" 
+                                                id="email" 
+                                                class="form-input"
+                                                required>
+                                            <span class="checkout-error-message" id="email-error"></span>
                                         </div>
-                                        
-
                                         <div class="checkout-form-row">
                                             <div class="checkout-form-group">
                                                 <label for="name">First name</label>
-                                            <input type="text" id="name" class="form-input" required>
-                                            <span class="checkout-error-message" id="name-error"></span>
+                                                <input type="text" 
+                                                    id="name" 
+                                                    class="form-input" 
+                                                    required>
+                                                <span class="checkout-error-message" id="name-error"></span>
                                             </div>
                                             <div class="checkout-form-group">
                                                 <label for="surname">Surname</label>
-                                            <input type="text" id="surname" class="form-input" required>
-                                            <span class="checkout-error-message" id="surname-error"></span>
+                                                <input type="text" 
+                                                    id="surname" 
+                                                    class="form-input" 
+                                                    required>
+                                                <span class="checkout-error-message" id="surname-error"></span>
                                             </div>
-
                                         </div>
-
-                                        <label for="address">Address</label>
-                                        <input type="text" id="address" class="form-input" required>
-                                        <span class="checkout-error-message" id="address-error"></span>
-
+                                        <div class="checkout-form-group">
+                                            <label for="address">Address</label>
+                                            <input type="text"
+                                                id="address" 
+                                                class="form-input" 
+                                                required>
+                                            <span class="checkout-error-message" id="address-error"></span>
+                                        </div>
+                                        
                                         <div class="checkout-form-row">
                                             <div class="checkout-form-group">
                                                 <label for="city">City</label>
-                                            <input type="text" id="city" class="form-input" required>
-                                            <span class="checkout-error-message" id="city-error"></span>
+                                                <input type="text" 
+                                                    id="city" 
+                                                    class="form-input" 
+                                                    required>
+                                                <span class="checkout-error-message" id="city-error"></span>
                                             </div>
                                             <div class="checkout-form-group">
                                                 <label for="post">Post</label>
-                                                <input type="text" id="post" class="form-input" required>
+                                                <input type="text" 
+                                                    id="post" 
+                                                    class="form-input" 
+                                                    required>
                                                 <span class="checkout-error-message" id="post-error"></span>
-                                            </div>
-
-                                            
+                                            </div>      
                                         </div>
-
-                                       <div class="checkout-form-group">
-                                        <label for="country">Country</label>
-                                        <input type="text" id="country" class="form-input" required>
-                                        <span class="checkout-error-message" id="country-error"></span>
+                                        <div class="checkout-form-group">
+                                            <label for="country">Country</label>
+                                            <input type="text" 
+                                                id="country" 
+                                                class="form-input" 
+                                                required>
+                                            <span class="checkout-error-message" id="country-error"></span>
                                        </div>
-                                        
-
                                         <div class="checkout-form-row">
                                             <div class="checkout-form-group">
                                                 <label for="code">Code</label>
-                                                <input type="text" id="code" class="form-input" required>
+                                                <input type="text" 
+                                                    id="code" 
+                                                    class="form-input" 
+                                                    required>
                                                 <span class="checkout-error-message" id="code-error"></span>
                                             </div>
                                             <div class="checkout-form-group">
                                                 <label for="phone">Phone</label>
-                                                <input type="tel" id="phone" class="form-input" required>
-                                                <span class="checkout-error-message" id="phone-error"></span>
-                                            </div>
+                                                <input type="tel" 
+                                                    id="phone" 
+                                                    class="form-input" 
+                                                    required>
+                                                <span class="checkout-error-message" id="phone-error"></span> 
+                                            </div>  
                                         </div>
-
-                                       
+                                     <hr>  
                                     </fieldset>
-                                    <fieldset tabindex="0">
+                                    <fieldset tabindex="0">  
                                         <legend>Delivery</legend>
                                         <div id="delivery-info" class="delivery-info">
-                                            <p><strong>Address:</strong> <span id="d-address">—</span></p>
-                                            <p><strong>City / Post:</strong> <span id="d-city-post">—</span></p>
-                                            <p><strong>Country:</strong> <span id="d-country">—</span></p>
-                                            <p><strong>Code / Phone:</strong> <span id="d-code-phone">—</span></p>
-                                            <p><strong>Delivery price:</strong> $50</p>
+                                            <p>Address:<span id="d-address"></span></p>
+                                            <p>City / Post:<span id="d-city-post"></span></p>
+                                            <p>Country:<span id="d-country">—</span></p>
+                                            <p>Code / Phone:<span id="d-code-phone"></span></p>
+                                            <p>Delivery price:<span>$50</span></p>
                                         </div>
                                     </fieldset>
-                                    <fieldset class="pay-method" tabindex="0">
-  <legend>Payment</legend>
-
-  <div class="pay-option">
-    <input type="radio" id="card" name="payment" value="card" required>
-    <label for="card">Credit/Debit Card</label>
-  </div>
-
-  <div class="pay-option">
-    <input type="radio" id="paypal" name="payment" value="paypal" required>
-    <label for="paypal">PayPal</label>
-  </div>
-
-  <div class="pay-option">
-    <input type="radio" id="google-pay" name="payment" value="google-pay" required>
-    <label for="google-pay">Google Pay</label>
-  </div>
-
-  <span class="checkout-error-message" id="payment-error"></span>
-</fieldset>
+                                    <hr> 
+                                    <fieldset class="pay-method" tabindex="0">          
+                                        <legend>Payment</legend>
+                                        <div class="pay-option">
+                                            <input type="radio" 
+                                                id="card" 
+                                                name="payment" 
+                                                value="card" 
+                                                required>
+                                            <label for="card">Credit/Debit card</label>
+                                        </div>
+                                        <div class="pay-option">
+                                            <input type="radio" 
+                                                id="paypal" 
+                                                name="payment" 
+                                                value="paypal" 
+                                                required>
+                                            <label for="paypal">PayPal</label>
+                                        </div>
+                                        <div class="pay-option">
+                                            <input type="radio" 
+                                                id="google-pay" 
+                                                name="payment" 
+                                                value="google-pay" 
+                                                required>
+                                            <label for="google-pay">Google Pay</label>
+                                        </div>
+                                        <span class="checkout-error-message" id="payment-error"></span>
+                                    </fieldset>
+                                    <hr> 
                                 </form>
-                                <div class="price-total" tabindex="0">Total: <span class="price">0</span>
+                                <div class="price-total" tabindex="0">Total:<span class="price">0</span>
                                 </div>
                                 <div id="form-error" class="error" hidden></div>
                                 <div class="cta-section">
-                                    <a id="pay-btn" href="success.html" class="cta-button">Pay order</a>
+                                    <a id="pay-btn" 
+                                        href="success.html" 
+                                        class="cta-button"
+                                        >Pay order
+                                    </a>
                                 </div>  
                             </div>
                             <div class="checkout-info-content-right">
@@ -196,11 +230,10 @@
                                     <div class="cart-box">
                                         <div id="cart-items" class="cart-list"></div>
                                         <div class="cart-summary">
-                                            <div>Items: <span id="cart-count">0</span></div>
-                                            <div class="cart-total">Subtotal: $<span id="cart-total">0</span></div>
-                                            <div class="cart-delivery">Delivery price: $50</div>
-                                            <div class="price-total" tabindex="0">Total: <span class="price">0</span>
-                                            </div>   
+                                            <div class="cart-count">Items:<span id="cart-count">0</span></div>
+                                            <div class="cart-total">Subtotal:<span id="cart-total">0</span></div>
+                                            <div class="cart-delivery">Delivery price:<span>$50</span></div>
+                                            <div class="price-total" tabindex="0">Total:<span class="price">0</span></div>   
                                             <div id="cart-error" class="error" hidden></div>
                                         </div>
                                     </div>
@@ -214,7 +247,14 @@
         <footer class="page-footer">
             <div class="container">
                 <div class="footer-container">
-                    <p>Modo &copy; 2024</p>
+                    <p>Modo &copy; 2025</p>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <ul class="footer-nav-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                        </ul>
+                    </nav>
                     <div class="social-icons">
                         <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -223,11 +263,11 @@
             </div>
         </footer>
     </div>
-    <!-- Empty Cart Modal -->
+    <!-- Modal window-->
     <div id="empty-cart-modal" class="auth-modal">
         <div class="auth-modal-content">
-            <span id="close-empty-cart-modal" class="close-modal">&times;</span>
-            <h2>Your cart is empty</h2>
+            <span id="close-empty-cart-modal" class="close-modal"><i class="fas fa-times"></i></span>
+            <h3>Your cart is empty</h3>
             <p>Please add some products before checking out.</p>
             <div class="auth-buttons">
                 <a href="index.html" class="auth-btn">Continue Shopping</a>

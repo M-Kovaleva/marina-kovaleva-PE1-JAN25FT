@@ -11,112 +11,129 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="https://kit.fontawesome.com/83b00f3480.js" crossorigin="anonymous"></script>
     <script src="js/index.js" defer ></script>
-
     </head>
     <body>
         <div class="wrapper">
             <header class="header">
-                <div class="container">
-                    <div class="header-container">
-                    <!-- Hamburger слева -->
-                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <div class="container">
+                <div class="header-container">
+                    <!-- Hamburger -->
+                    <input type="checkbox" 
+                        id="menu-toggle" 
+                        class="menu-toggle">
                     <label for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
                         role="button"
-                        tabindex="0"
-                    ><i class="fas fa-bars open-icon"></i></label>
-                    <!-- Навигация (для мобильного меню) -->
+                        tabindex="0">
+                        <i class="fas fa-bars open-icon"></i>
+                    </label>
+                    <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                        <li><a href="coming-soon.html">Blog</a></li>
-                        <li><a href="coming-soon.html">About us</a></li>
-                        <li><a href="coming-soon.html">Contact us</a></li>
-                        <label for="menu-toggle"
-                            class="close-menu"
-                            aria-label="Close navigation menu"
-                            title="Close menu"
-                            role="button"
-                            tabindex="0">
-                        <i class="fas fa-times"></i></label>
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                            <label for="menu-toggle"
+                                class="close-menu"
+                                aria-label="Close navigation menu"
+                                title="Close menu"
+                                role="button"
+                                tabindex="0">
+                                <i class="fas fa-times"></i>
+                            </label>
                         </ul>
                     </nav>
-
-                    <!-- Логотип по центру -->
                     <a href="index.html" class="logo">
                         <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
                     </a>
-
-                    <!-- Login и Cart справа -->
-                        <div class="auth-cart">
-                            <a 
-                                id="auth-link"
-                                href="login.html"
-                                aria-label="Login to your account"
-                                title="Login page">
+                    <div class="auth-cart">
+                        <a id="auth-link" href="login.html" aria-label="Login to your account" title="Login page">
                             <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
-
-                            </a>
-                            <a 
-                                aria-label="View shopping cart"
-                                title="Shopping cart">
-                            <i class="fa-solid fa-cart-shopping"></i></a>
-                        </div>  
-                    </div>
+                        </a>
+                        <a href="cart.html" aria-label="View shopping cart" title="Shopping cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>  
                 </div>
-            </header>
-
+            </div>
+        </header>
             <main class="page-main">
                 <div class="container">
-                    <div class="hero-carousel-wrapper">
-                        <section id="latest-carousel" class="latest-carousel" role="region" aria-label="New products carousel">
-                            <button class="carousel-btn prev" aria-label="Previous slide" title="Previous slide">❮</button>
-                            <div class="carousel-slides"></div>
-                            <div class="carousel-dots"></div>
-                            <button class="carousel-btn next" aria-label="Next slide" title="Next slide">❯</button>
-                        </section>
-                    </div>
-                    <section id="products" class="products">
-                        <h2>Catalog</h2>
-                    </section>
-                    <section class="filter">
-                        <div class="filter-container">
-                            <div class="category">
-                                <button class="category-btn" aria-pressed="false">All</button>
-                                <button class="category-btn" aria-pressed="false">Fashion</button>
-                                <button class="category-btn" aria-pressed="false">Beauty</button>
-                                <button class="category-btn" aria-pressed="false">Electronics</button>
-                                <button class="category-btn" aria-pressed="false">Lifestyle</button>
-                                <button class="category-btn" aria-pressed="false">Jewelry</button>
-                            </div>
-                            <div class="search-bar">
-                                <input
-                                    type="text"
-                                    id="tag-search"
-                                    aria-label="Search products by tag"
-                                    placeholder="bag"
-                                />
-                                <button id="search-btn" class="search-btn" aria-label="Search products">Search</button>
-                            </div>
+                        <div class="hero-carousel-wrapper">
+                            <section id="latest-carousel" 
+                                class="latest-carousel" 
+                                role="region" 
+                                aria-label="New products carousel">
+                                <button class="carousel-btn prev" 
+                                    aria-label="Previous slide" 
+                                    title="Previous slide"
+                                    >❮
+                                </button>
+                                <div class="carousel-slides"></div>
+                                <div class="carousel-dots"></div>
+                                <button class="carousel-btn next" 
+                                    aria-label="Next slide" 
+                                    title="Next slide"
+                                    >❯
+                                </button>
+                            </section>
                         </div>
-                    <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading products"></div>
-                    <div id="products-error" class="error" role="alert" aria-live="error"></div>
-                    <div id="container" class="container"></div>
-                </section>
-                <section class="sign-up">                       
+                        <section id="products" class="products">
+                            <h2>Catalog</h2>
+                        </section>
+                        <section class="filter">
+                            <div class="filter-container">
+                                <div class="category">
+                                    <button class="category-btn" aria-pressed="false">All</button>
+                                    <button class="category-btn" aria-pressed="false">Fashion</button>
+                                    <button class="category-btn" aria-pressed="false">Beauty</button>
+                                    <button class="category-btn" aria-pressed="false">Electronics</button>
+                                    <button class="category-btn" aria-pressed="false">Lifestyle</button>
+                                    <button class="category-btn" aria-pressed="false">Jewelry</button>
+                                </div>
+                                <div class="search-bar">
+                                    <input
+                                        type="text"
+                                        id="tag-search"
+                                        aria-label="Search products by tag"
+                                        placeholder="bag"
+                                    />
+                                    <button id="search-btn" 
+                                        class="search-btn" 
+                                        aria-label="Search products"
+                                        >Search
+                                    </button>
+                                </div>
+                            </div>
+                        <div class="loader" 
+                            id="loader" 
+                            role="status" 
+                            aria-live="polite" 
+                            aria-label="Loading products">
+                        </div>
+                        <div id="products-error" 
+                            class="error" 
+                            role="alert" 
+                            aria-live="error">
+                        </div>
+                        <div id="container" class="container"></div>
+                    </section>
+                    <section class="sign-up">                       
                         <div class="sign-up-image-wrapper">
-                            <img src="Images/gift-gold-background.png" class="sign-up-img" alt="black box on a gold background" />
+                            <img src="Images/gift-gold-background.png" 
+                                class="sign-up-img" 
+                                alt="black box on a gold background" />
                         </div>
                         <div class="sign-up-item-content">
-                            <h4>Register for the newsletter</h4>
+                            <h2>Register for the newsletter</h2>
                             <p tabindex="0">
                                 Sign up for our newsletter and be the first to know about our latest arrivals, 
-                                exclusive promotions, special discounts, and upcoming events. Stay connected with us and 
-                                enjoy early access to limited offers, insider updates, and handpicked recommendations created 
-                                just for you.
+                                exclusive promotions, special discounts, and upcoming events.
                             </p>
-                            <h2 class="sale">Get 10% off your first order.</h2>
+                            <h3 class="sale">Get 10% off your first order.</h3>
                             <div class="sign-up-form-group">
                                 <label class="sign-up-form-label" for="sign-up-email">Email</label>
                                 <input 
@@ -128,32 +145,36 @@
                                     required 
                                     aria-describedby="sign-up-email-error"
                                     autocomplete="email"
-                                    data-testid="sign-up-email">   
-                                <button type="submit" class="cta-button" aria-label="Subscribe to newsletter">Sign up</button>
+                                    data-testid="sign-up-email">
+                                    <span class="sign-up-error-message" id="sign-up-email-error"></span>   
+                                <button type="submit" 
+                                    class="cta-button" 
+                                    aria-label="Subscribe to newsletter"
+                                    >Sign up
+                                </button>  
                             </div>
-                            <span class="sign-up-error-message" id="sign-up-email-error"></span>
                         </div>  
-                </section>
+                    </section>
                 </div>
             </main>
             <footer class="page-footer">
-                <div class="container">
-                    <div class="footer-container">
-                        <p>Modo &copy; 2024</p>
-                        <nav class="footer-nav">
+            <div class="container">
+                <div class="footer-container">
+                    <p>Modo &copy; 2025</p>
+                    <nav class="footer-nav" aria-label="Footer navigation">
                         <ul class="footer-nav-links">
-                        <li><a href="coming-soon.html">Blog</a></li>
-                        <li><a href="coming-soon.html">About us</a></li>
-                        <li><a href="coming-soon.html">Contact us</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
                         </ul>
                     </nav>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
         </div>
     </body>
 </html>

@@ -21,7 +21,7 @@ async function fetchAndCreateProducts() {
 
     renderProducts(allProducts.slice(0, 24))
   } catch (error) {
-    errorContainer.textContent = "Failed to load items. Try again later."
+    errorContainer.textContent = "Failed to load products. Try again later."
     errorContainer.hidden = false
     } 
     finally {
@@ -35,7 +35,7 @@ function renderProducts(products) {
         const card = document.createElement("div")
         const image = document.createElement("img")
         const content = document.createElement("div")
-        const title = document.createElement("h2")
+        const title = document.createElement("h4")
         const price = document.createElement("p")
         const anchor = document.createElement("a")
 
@@ -48,7 +48,7 @@ function renderProducts(products) {
         image.alt = product.image.alt || `Image of ${product.title}`
         title.textContent = product.title
         price.textContent = product.price
-        //Sale
+        // Sale
         if (product.discountedPrice < product.price) {
         price.innerHTML = `
             <span class="old-price">$${product.price}</span>
@@ -75,7 +75,7 @@ categoryButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const category = btn.textContent.trim().toLowerCase()
 
-    // Скрываем сообщение "No products found for tag..."
+    // Hide "No products found for tag..."
     errorContainer.textContent = ""
     errorContainer.hidden = true
     tagSearchInput.value = ""
@@ -99,7 +99,7 @@ btn.setAttribute("aria-pressed", "true")
     const filteredProducts = allProducts.filter((product) =>
         product.tags.some((tag) => categoryTags.includes(tag.toLowerCase()))
     )
-    // If nothing is found, a message will be displayed
+    // "No products found for tag..." displays if nothing is found
     if (filteredProducts.length === 0) {
         errorContainer.textContent = "No products found in this category."
         errorContainer.hidden = false
@@ -152,9 +152,9 @@ function hideLoader() {
     container.style.display = "grid"
 }
 
-
 //Login/Logout in the Header
 document.addEventListener("DOMContentLoaded", () => {
+    
     const authLink = document.getElementById("auth-link")
 
     function updateAuthLink() {
@@ -221,7 +221,7 @@ function initLatestCarousel() {
 
         content.innerHTML = `
             <h1 class="carousel-hero-title">Luxurious gifts for every occasion</h1>
-            <h2 class="carousel-title">${product.title}</h2>
+            <h3 class="carousel-title">${product.title}</h3>
             <p class="carousel-description">${product.description}</p>
             <a class="cta-button" href="product.html?id=${product.id}">See product</a>
         `

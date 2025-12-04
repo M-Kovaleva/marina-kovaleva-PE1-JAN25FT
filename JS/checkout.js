@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const loader = document.querySelector("#loader") // Loader element
+    const loader = document.querySelector("#loader") 
     const emailField = document.querySelector("#email")
     const payBtn = document.querySelector("#pay-btn")
 
-    // Modal window for empty cart
+    // authModal for empty cart
     const emptyCartModal = document.getElementById("empty-cart-modal")
     const closeEmptyCartModal = document.getElementById("close-empty-cart-modal")
 
@@ -36,8 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return JSON.parse(localStorage.getItem("cart")) || []
     }
 
-    function renderCart() {
+    async function renderCart() {
         showLoader()
+        //await new Promise(res => setTimeout(res, 2000)) // Check loader
         const cart = getCart()
         cartItemsContainer.innerHTML = ""
         let subtotal = 0
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             div.className = "cart-item"
             div.innerHTML = `
                 <img src="${item.image.url}" class="cart-item-image" alt="">
-                <h3 class="cart-item-title">${item.title}</h3>
+                <h4 class="cart-item-title">${item.title}</h4>
                 <p class="cart-item-price">$${item.price}</p>
             `
             cartItemsContainer.appendChild(div)

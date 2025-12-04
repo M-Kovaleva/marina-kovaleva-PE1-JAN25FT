@@ -10,12 +10,11 @@ const params = new URLSearchParams(window.location.search)
 const id = params.get("id")
 const API_URL = "https://v2.api.noroff.dev/online-shop"
 
-// Обновляем breadcrumb с id продукта
+// Updating breadcrumb with product ID
 if (id && breadcrumbLink) {
     breadcrumbLink.href = `product.html?id=${id}`
 }
 
-// --- Функции Loader ---
 function showLoader() {
     loader.style.display = "block"
     container.style.display = "none"
@@ -25,7 +24,7 @@ function hideLoader() {
     container.style.display = "block"
 }
 
-// --- Модальное окно авторизации ---
+// authModal
 const authModal = document.getElementById("auth-modal")
 const closeModalBtn = document.getElementById("close-modal")
 authModal.setAttribute("tabindex", "-1")
@@ -42,7 +41,7 @@ function closeAuthModal() {
 closeModalBtn.addEventListener("click", closeAuthModal)
 window.addEventListener("click", (e) => { if (e.target === authModal) closeAuthModal() })
 
-// --- Toast ---
+// Toast
 function showToast(message) {
     let toast = document.createElement("div")
     toast.className = "toast"
@@ -55,7 +54,7 @@ function showToast(message) {
     }, 3000)
 }
 
-// --- Добавление в корзину ---
+// Add to cart
 function addToCart(product) {
     const cart = JSON.parse(localStorage.getItem("cart")) || []
     cart.push({
@@ -68,9 +67,10 @@ function addToCart(product) {
     showToast(`1 × ${product.title} added to cart ✅`)
 }
 
-// --- Рендер основного продукта ---
+// Render of product
 async function fetchAndCreateProducts() {
     showLoader()
+    //await new Promise(res => setTimeout(res, 2000)) // Check loader
     try {
         if (!id) {
             errorContainer.textContent = "No product ID provided!"
@@ -83,14 +83,14 @@ async function fetchAndCreateProducts() {
         const data = await response.json()
         const product = data.data
 
-        // --- Создаем DOM элементы ---
         const productDiv = document.createElement("div")
         const imageWrapper = document.createElement("div")
         const infoWrapper = document.createElement("div")
         const buttonsWrapper = document.createElement("div")
         const layoutWrapper = document.createElement("div")
         const image = document.createElement("img")
-        const title = document.createElement("h2")
+        const title = document.createElement("h3")
+        const tags = document.createElement("p")
         const rating = document.createElement("p")
         const price = document.createElement("p")
         const description = document.createElement("p")
@@ -109,6 +109,8 @@ async function fetchAndCreateProducts() {
         image.alt = product.image.alt || `Image of ${product.title}`
         title.className = "product-title"
         title.textContent = product.title
+        tags.className = "product-tags"
+        tags.textContent = product.tags
         rating.className = "product-rating"
         rating.innerHTML = `Rating: ${"⭐".repeat(Math.round(product.rating))} (${product.rating})`
         rating.setAttribute("aria-label", `Rating ${product.rating} out of 5`)
@@ -135,7 +137,6 @@ async function fetchAndCreateProducts() {
         shareButton.setAttribute("aria-label", `Share ${product.title}`)
         shareButton.setAttribute("title", `Share ${product.title}`)
 
-        // --- Добавляем обработчики ---
         addButton.addEventListener("click", () => {
             const user = JSON.parse(localStorage.getItem("user"))
             if (!user) openAuthModal()
@@ -153,23 +154,22 @@ async function fetchAndCreateProducts() {
             }
         })
 
-        // --- Сборка DOM ---
         imageWrapper.appendChild(image)
         buttonsWrapper.append(addButton, shareButton)
-        infoWrapper.append(title, rating, price, description, buttonsWrapper, goToCartBtn)
+        infoWrapper.append(title, tags, rating, price, description, buttonsWrapper, goToCartBtn)
         infoWrapper.appendChild(reviewsSection)
         productDiv.append(imageWrapper, infoWrapper)
         layoutWrapper.appendChild(productDiv)
         container.prepend(navPage)
         container.appendChild(layoutWrapper)
 
-        // --- Рендер отзывов ---
+        // Reviews
         if (product.reviews && product.reviews.length > 0) {
             reviewsContainer.innerHTML = ""
             product.reviews.forEach(review => {
                 const reviewCard = document.createElement("div")
                 reviewCard.className = "review-card"
-                reviewCard.innerHTML = `<h3>${review.username}</h3><p>${"⭐".repeat(review.rating)}</p><p>${review.description}</p>`
+                reviewCard.innerHTML = `<p>${review.username}</p><p>${"⭐".repeat(review.rating)}</p><p>${review.description}</p>`
                 reviewsContainer.appendChild(reviewCard)
             })
         } else {
@@ -186,14 +186,14 @@ async function fetchAndCreateProducts() {
     }
 }
 
-// --- Рендер "You might also like" ---
+// Render of "You might also like" products
 function renderAlsoProducts(products) {
     alsoContainer.innerHTML = ""
     products.forEach(product => {
         const card = document.createElement("div")
         const image = document.createElement("img")
         const content = document.createElement("div")
-        const title = document.createElement("h2")
+        const title = document.createElement("h4")
         const price = document.createElement("p")
         const anchor = document.createElement("a")
 
@@ -227,15 +227,14 @@ async function loadAlsoProducts(currentId) {
         const data = await response.json()
         const allProducts = data.data
         const filtered = allProducts.filter(p => p.id !== currentId)
-        const shuffled = filtered.sort(() => 0.5 - Math.random()).slice(0, 6)
+        const shuffled = filtered.sort(() => 0.5 - Math.random()).slice(0, 5)
         renderAlsoProducts(shuffled)
     } catch (error) {
-        alsoContainer.innerHTML = `<p>Failed to load related products.</p>`
+        alsoContainer.innerHTML = `<p>Failed to load products. Try again later.</p>`
         console.error(error)
     }
 }
 
-// --- Инициализация страницы ---
 async function initProductPage() {
     await fetchAndCreateProducts()
     if (id) loadAlsoProducts(id)

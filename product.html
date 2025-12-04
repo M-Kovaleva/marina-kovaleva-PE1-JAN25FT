@@ -16,85 +16,106 @@
 <body>
     <div class="wrapper">
         <header class="header">
-                <div class="container">
-                    <div class="header-container">
-                    <!-- Hamburger слева -->
-                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <div class="container">
+                <div class="header-container">
+                    <!-- Hamburger -->
+                    <input type="checkbox" 
+                        id="menu-toggle" 
+                        class="menu-toggle">
                     <label for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
                         role="button"
-                        tabindex="0"
-                    ><i class="fas fa-bars open-icon"></i></label>
-                    <!-- Навигация (для мобильного меню) -->
+                        tabindex="0">
+                        <i class="fas fa-bars open-icon"></i>
+                    </label>
+                    <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                        <li><a href="coming-soon.html">Blog</a></li>
-                        <li><a href="coming-soon.html">About us</a></li>
-                        <li><a href="coming-soon.html">Contact us</a></li>
-                        <label for="menu-toggle"
-                            class="close-menu"
-                            aria-label="Close navigation menu"
-                            title="Close menu"
-                            role="button"
-                            tabindex="0">
-                        <i class="fas fa-times"></i></label>
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                            <label for="menu-toggle"
+                                class="close-menu"
+                                aria-label="Close navigation menu"
+                                title="Close menu"
+                                role="button"
+                                tabindex="0">
+                                <i class="fas fa-times"></i>
+                            </label>
                         </ul>
                     </nav>
-
-                    <!-- Логотип по центру -->
                     <a href="index.html" class="logo">
                         <img src="logo/Logo-gold.png" alt="Modo shop logo" title="Modo shop home page">
                     </a>
-
-                    <!-- Login и Cart справа -->
-                        <div class="auth-cart">
-                            <a 
-                                id="auth-link"
-                                href="login.html"
-                                aria-label="Login to your account"
-                                title="Login page">
+                    <div class="auth-cart">
+                        <a id="auth-link" href="login.html" aria-label="Login to your account" title="Login page">
                             <i class="fa-solid fa-arrow-right-to-bracket login-icon"></i>
-
-                            </a>
-                            <a 
-                                aria-label="View shopping cart"
-                                title="Shopping cart">
-                            <i class="fa-solid fa-cart-shopping"></i></a>
-                        </div>  
-                    </div>
+                        </a>
+                        <a href="cart.html" aria-label="View shopping cart" title="Shopping cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>  
                 </div>
-            </header>
-        <main class="page-main">
-            <div class="container">
-                <div id="product-container" class="product-container">
-                    <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading products"></div>
-                    <div id="products-error" class="error" role="alert" aria-live="error"></div></div>
-                    <div class="nav-page">
-                        <nav aria-label="Breadcrumb">
-                            <a href="index.html">Catalog ></a>
-                            <a href="product.html" class="active-link" aria-current="page">Product page</a>
-                        </nav>
-                        <a href="index.html" class="active-link" aria-label="Continue shopping and return to catalog" title="Back to catalog">Keep shopping</a>
-                    </div>
-                    <div class="product-reviews-section" id="product-reviews-section" role="region" aria-label="Customer reviews">
-                        <h2>Customer Reviews</h2>
-                        <div id="reviews-container" class="reviews-container"></div>
-                    </div>
-                </div>
-                <section id="products-also" class="products-also">
-                    <div class="also-container">
-                        <h2>You might also like</h2>
-                        <div id="also-container" class="also-products-grid"></div>
-                    </div>
-                </section>
             </div>
-        </main>
-        <footer class="page-footer">
+        </header>
+            <main class="page-main">
+                <div class="container">
+                    <div class="loader" 
+                        id="loader" 
+                        role="status" 
+                        aria-live="polite" 
+                        aria-label="Loading products">
+                    </div>
+                    <div id="products-error" 
+                        class="error" 
+                        role="alert" 
+                        aria-live="error">
+                    </div>
+                    <div id="product-container" class="product-container">
+                        <div class="nav-page">
+                            <nav aria-label="Breadcrumb">
+                                <a href="index.html">Home ></a>
+                                <a href="product.html" 
+                                    class="active-link" 
+                                    aria-current="page"
+                                    >Product page
+                                </a>
+                            </nav>
+                            <a href="index.html" 
+                                class="active-link" 
+                                aria-label="Continue shopping and return to catalog" 
+                                title="Back to catalog"
+                                >Keep shopping
+                            </a>
+                        </div>
+                        <div class="product-reviews-section" id="product-reviews-section" role="region" aria-label="Customer reviews">
+                            <h4>Customer Reviews</h4>
+                            <div id="reviews-container" class="reviews-container"></div>
+                        </div>
+                    </div>
+                    <div id="products-also" class="products-also">
+                        <hr>
+                        <div class="also-container">
+                            <h3>You might also like</h3>
+                            <div id="also-container" class="also-products-grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="page-footer">
             <div class="container">
                 <div class="footer-container">
-                    <p>Modo &copy; 2024</p>
+                    <p>Modo &copy; 2025</p>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <ul class="footer-nav-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="coming-soon.html">About us</a></li>
+                            <li><a href="coming-soon.html">Contact us</a></li>
+                        </ul>
+                    </nav>
                     <div class="social-icons">
                         <a href="https://www.facebook.com" aria-label="link to facebook page" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com" aria-label="link to instagram page" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -103,16 +124,19 @@
             </div>
         </footer>
     </div>
- 
     <!-- Login/Register modal window-->
-    <div id="auth-modal" class="auth-modal" role="dialog" aria-modal="true"aria-labelledby="auth-modal-title">
+    <div id="auth-modal" 
+        class="auth-modal" 
+        role="dialog" 
+        aria-modal="true"
+        aria-labelledby="auth-modal-title">
         <div class="auth-modal-content">
             <span id="close-modal" class="close-modal" title="Close"><i class="fa-solid fa-xmark"></i></span>
-            <h2 id="auth-modal-title">Login required</h2>
+            <h3 id="auth-modal-title">Login required</h3>
             <p>Please log in to continue shopping.</p>
             <div class="auth-buttons">
-                <a href="account/login.html" class="auth-btn login-btn">Log in</a>
-                <a href="account/register.html" class="auth-btn register-btn">Create a new account</a>
+                <a href="login.html" class="auth-btn login-btn">Log in</a>
+                <a href="register.html" class="auth-btn register-btn">Create a new account</a>
             </div>
         </div>
     </div>       
