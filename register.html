@@ -18,30 +18,31 @@
             <div class="container">
                 <div class="header-container">
                     <!-- Hamburger -->
-                    <input type="checkbox" 
+                    <input 
+                        type="checkbox" 
                         id="menu-toggle" 
                         class="menu-toggle">
-                    <label for="menu-toggle"
+                    <label 
+                        for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
-                        role="button"
-                        tabindex="0">
+                        role="button">
                         <i class="fas fa-bars open-icon"></i>
                     </label>
                     <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="coming-soon.html">About us</a></li>
                             <li><a href="coming-soon.html">Contact us</a></li>
-                            <label for="menu-toggle"
+                            <label 
+                                for="menu-toggle"
                                 class="close-menu"
                                 aria-label="Close navigation menu"
                                 title="Close menu"
-                                role="button"
-                                tabindex="0">
+                                role="button">
                                 <i class="fas fa-times"></i>
                             </label>
                         </ul>
@@ -62,74 +63,63 @@
         </header>
         <main class="page-main" role="main">
             <div class="container">
-                    <section class="register-card" aria-labelledby="register-title">
-                        <div class="register-hero">
-                            <div class="nav-page">
-                                <nav aria-label="Breadcrumb">
-                                    <a href="index.html">Home ></a>
-                                    <a href="register.html" class="active-link" aria-current="page">Register</a>
-                                </nav>
-                                <a href="index.html" 
-                                    class="active-link" 
-                                    aria-label="Continue shopping and return to catalog" 
-                                    title="Back to catalog"
-                                    >Keep shopping
-                                </a>
-                            </div>
-                            <h2 id="register-title" class="register-title">Register</h2>
-                    </div>
-                        <div class="register-content">
-                                    <form id="register-form" class="register-form-body" method="post" data-role="register-form" novalidate>
-                                
-                                    <!-- Username --> 
-                                    <div class="register-form-group">
-                                        <label class="register-form-label" for="register-name">Name</label>
-                                        <input
-                                            id="register-name"
-                                            class="register-form-input"
-                                            type="text"
-                                            placeholder="username"
-                                            required
-                                        />
-                                        <span class="register-error-message" id="name-error"></span>
-                                    </div>
-
-                                    <!-- Email -->
-                                    <div class="register-form-group">
-                                        <label class="signup-form-label" for="signup-email">Email</label>
-                                        <input
-                                            id="register-email"
-                                            class="register-form-input"
-                                            type="email"
-                                            placeholder="example@stud.noroff.no" 
-                                            required
-                                        />
-                                        <span class="register-error-message" id="email-error"></span>
-                                    </div>
-
-                                    <!-- Password -->
-                                    <div class="register-form-group">
-                                        <label class="register-form-label" for="password">Password</label>
-                                        <input
-                                            id="password"
-                                            class="register-form-input"
-                                            type="password"
-                                            placeholder="at least 8 characters"
-                                            minlength="8"
-                                            required
-                                        />
-                                        <span class="register-error-message" id="password-error"></span>
-                                    </div>
-                                    <div class="register-have-accountt">
-                                        <a href="login.html" class="active-link">Login</a>
-                                    </div>
-                                    <button type="submit" class="cta-button">Register</button>
-                            </form>
+                <section class="register-card" aria-labelledby="register-title">
+                    <div class="register-hero">
+                        <!-- Breadcrumbs -->
+                        <div class="nav-page">
+                            <nav aria-label="Breadcrumb">
+                                <a href="index.html" title="Go to home page">Home ></a>
+                                <a href="register.html" class="active-link" aria-current="page">Register</a>
+                            </nav>
+                            <a href="index.html" class="active-link" aria-label="Return to catalog" title="Back to catalog">Keep shopping</a>
                         </div>
-                       
-             </section>
-        </div>
-            
+                        <h2 id="register-title" class="register-title">Register</h2>
+                    </div>
+                    <div class="register-content">
+                        <form id="register-form" class="register-form-body" method="post" data-role="register-form" novalidate>
+                            <!-- Username --> 
+                            <div class="register-form-group">
+                                <label class="register-form-label" for="register-name">Name</label>
+                                <input
+                                    id="register-name"
+                                    class="register-form-input"
+                                    type="text"
+                                    placeholder="username"
+                                    required/>
+                                <span class="register-error-message" id="name-error"></span>
+                            </div>
+                            <!-- Email -->
+                            <div class="register-form-group">
+                                <label class="signup-form-label" for="signup-email">Email</label>
+                                <input
+                                    id="register-email"
+                                    class="register-form-input"
+                                    type="email"
+                                    placeholder="example@stud.noroff.no" 
+                                    required/>
+                                <span class="register-error-message" id="email-error"></span>
+                            </div>
+                            <!-- Password -->
+                            <div class="register-form-group">
+                                <label class="register-form-label" for="password">Password</label>
+                                <input
+                                    id="password"
+                                    class="register-form-input"
+                                    type="password"
+                                    placeholder="at least 8 characters"
+                                    minlength="8"
+                                    required/>
+                                <span class="register-error-message" id="password-error"></span>
+                            </div>
+                            <!-- Have registered account link -->
+                            <div class="register-have-accountt">
+                                <a href="login.html" class="active-link">Login</a>
+                            </div>
+                            <button type="submit" class="cta-button">Register</button>
+                        </form>
+                    </div>          
+                </section>
+            </div>
         </main>
        <footer class="page-footer">
             <div class="container">
@@ -150,13 +140,14 @@
             </div>
         </footer>
     </div>
-    <div id="login-toast-success" class="toast">
+    <!-- Toast -->
+    <div id="login-toast-success" class="toast" role="status" aria-live="polite">
         <p class="login-toast-message">Your account has been created successfully ✅</p>
     </div>
-        <!-- Login/Register modal window-->
+    <!-- Modal window -->
     <div id="auth-modal" class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
         <div class="auth-modal-content">
-            <span id="close-modal" class="close-modal" title="Close"><i class="fa-solid fa-xmark"></i></span>
+            <span id="close-modal" class="close-modal" title="Close" tabindex="0"><i class="fa-solid fa-xmark"></i></span>
             <h3 id="auth-modal-title">Account already exists</h3>
             <p>This email address is already registered.<br>Please log in or use another email to create a new account.</p>
             <div class="auth-buttons">

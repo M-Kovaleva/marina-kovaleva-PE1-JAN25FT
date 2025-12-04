@@ -19,30 +19,31 @@
             <div class="container">
                 <div class="header-container">
                     <!-- Hamburger -->
-                    <input type="checkbox" 
+                    <input 
+                        type="checkbox" 
                         id="menu-toggle" 
                         class="menu-toggle">
-                    <label for="menu-toggle"
+                    <label 
+                        for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
-                        role="button"
-                        tabindex="0">
+                        role="button">
                         <i class="fas fa-bars open-icon"></i>
                     </label>
                     <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="coming-soon.html">About us</a></li>
                             <li><a href="coming-soon.html">Contact us</a></li>
-                            <label for="menu-toggle"
+                            <label 
+                                for="menu-toggle"
                                 class="close-menu"
                                 aria-label="Close navigation menu"
                                 title="Close menu"
-                                role="button"
-                                tabindex="0">
+                                role="button">
                                 <i class="fas fa-times"></i>
                             </label>
                         </ul>
@@ -63,39 +64,25 @@
         </header>
             <main class="page-main">
                 <div class="container">
-                    <div class="loader" 
-                        id="loader" 
-                        role="status" 
-                        aria-live="polite" 
-                        aria-label="Loading products">
-                    </div>
-                    <div id="products-error" 
-                        class="error" 
-                        role="alert" 
-                        aria-live="error">
-                    </div>
+                    <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading products"></div>
+                    <div id="products-error" class="error" role="alert" aria-live="error"></div>
+                    <!-- Product -->
                     <div id="product-container" class="product-container">
+                        <!-- Breadcrumbs -->
                         <div class="nav-page">
                             <nav aria-label="Breadcrumb">
-                                <a href="index.html">Home ></a>
-                                <a href="product.html" 
-                                    class="active-link" 
-                                    aria-current="page"
-                                    >Product page
-                                </a>
+                                <a href="index.html" title="Go to home page">Home ></a>
+                                <a href="product.html" class="active-link" aria-current="page">Product page</a>
                             </nav>
-                            <a href="index.html" 
-                                class="active-link" 
-                                aria-label="Continue shopping and return to catalog" 
-                                title="Back to catalog"
-                                >Keep shopping
-                            </a>
+                                <a href="index.html" class="active-link" aria-label="Return to catalog" title="Back to catalog">Keep shopping</a>
                         </div>
+                        <!-- Customer reviewst -->
                         <div class="product-reviews-section" id="product-reviews-section" role="region" aria-label="Customer reviews">
                             <h4>Customer Reviews</h4>
                             <div id="reviews-container" class="reviews-container"></div>
                         </div>
                     </div>
+                    <!-- You might also like -->
                     <div id="products-also" class="products-also">
                         <hr>
                         <div class="also-container">
@@ -124,14 +111,10 @@
             </div>
         </footer>
     </div>
-    <!-- Login/Register modal window-->
-    <div id="auth-modal" 
-        class="auth-modal" 
-        role="dialog" 
-        aria-modal="true"
-        aria-labelledby="auth-modal-title">
+    <!-- Modal window-->
+    <div id="auth-modal" class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
         <div class="auth-modal-content">
-            <span id="close-modal" class="close-modal" title="Close"><i class="fa-solid fa-xmark"></i></span>
+            <span id="close-modal" class="close-modal" title="Close" tabindex="0"><i class="fa-solid fa-xmark"></i></span>
             <h3 id="auth-modal-title">Login required</h3>
             <p>Please log in to continue shopping.</p>
             <div class="auth-buttons">

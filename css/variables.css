@@ -12,13 +12,17 @@
   /* Spacing */
   --spacing-0: 0px; 
   --spacing-6: 6px;
-  --spacing-8: 8px; 
+  --spacing-8: 8px;
+  --spacing-12: 12px; 
   --spacing-16: 16px; 
   --spacing-20: 20px; 
   --spacing-24: 24px; 
   --spacing-32: 32px;
-  --spacing-48: 48px; 
-  --spacing-64: 64px; 
+  --spacing-35: 35px;
+  --spacing-48: 48px;
+  --spacing-55: 55px; 
+  --spacing-64: 64px;
+  --spacing-70: 70px;
   --spacing-80: 80px; 
 
   /* Typography */
@@ -61,11 +65,13 @@
   --font-size-button-links-desktop: 1.125rem;
   --font-size-button-links-mobile: 1rem;
   --button-padding: 8px 16px;
-
   --button-border-radius: 6px;
   --card-border-radius: 12px;
   --image-border-radius: 10px;
-
+  --border: 2px solid var(--color-accent);
+  --border-1: 1px solid var(--color-accent);
+  --box-shadow: 0 8px 20px var(--color-accent);
+  --transition: color 0.3s, transform 0.2s;
 
 
 

@@ -4,8 +4,8 @@
 /* Product section */
 .product-container {
   background-color: var(--color-backround);
-  padding: 0 70px 24px 70px;
-  margin-bottom: 0;
+  padding: var(--spacing-0) var(--spacing-70) var(--spacing-24) var(--spacing-70);
+  margin-bottom: var(--spacing-0);
 }
 
 .product-layout-wrapper {
@@ -16,9 +16,9 @@
 
 .product-layout {
   display: flex;
-  gap: 5rem;
+  gap: var(--spacing-80);
   align-items: flex-start;
-  margin-top: 2rem;
+  margin-top: var(--spacing-16);
   flex-wrap: wrap;
   max-width: 1100px; 
   width: 100%;   
@@ -49,7 +49,6 @@
 .product-info {
   display: flex;
   flex-direction: column;
- 
 }
 
 .product-tags {
@@ -61,47 +60,45 @@
   background-color: var(--color-secondary);
   color: var(--color-primary);
   border-radius: var(--button-border-radius);
-  font-size: var(--font-size-button-links-desktop);
+  font-size: var(--font-size-body-desktop);
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-medium);
-  margin-bottom: 32px;
+  margin-bottom: var(--spacing-32);
 }
 
 .product-title {
-  font-size: 2rem;
-  font-weight: 700;
   color: var(--color-primary);
-  margin-top: 0;
-  margin-bottom: 32px;
+  margin-top: var(--spacing-0);
+  margin-bottom: var(--spacing-32);
 }
 
 .product-rating{
-  margin-bottom: 24px;
+  margin-bottom: var(--spacing-24);
 }
 
 .product-price  {
   font-size: var(--font-price-2-desktop);
   color: var(--color-button-cta);
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 24px;
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--spacing-0);
+  margin-bottom: var(--spacing-24);
 }
 
 .product-price .old-price {
   text-decoration: line-through;
   color: var(--color-secondary-text);
-  margin-right: 8px;
+  margin-right: var(--spacing-8);
 }
 
 .product-description {
- margin-bottom: 32px;
+ margin-bottom: var(--spacing-32);
 }
 
 .product-buttons-row{
   display: flex;
   flex-direction: row;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: var(--spacing-16);
+  margin-bottom: var(--spacing-32);
 }
 
 .product-buttons-row .cta-button {
@@ -112,7 +109,7 @@
   color: var(--color-backround);
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-medium);
-  padding: 8px 20px;
+  padding: var(--spacing-8) var(--spacing-20);
   border-radius: var(--button-border-radius);
   cursor: pointer;
   transition: 0.3s ease;
@@ -131,14 +128,14 @@
   justify-content: center;
   background-color: var(--color-secondary);
   color: var(--color-primary);
-  border: 2px solid var(--color-accent);
+  border: var(--border);
   border-radius: var(--button-border-radius);
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-medium);
   font-size: var( --font-size-button-links-desktop) ;
   cursor: pointer;
   transition: 0.3s ease;
-  gap: 6px;
+  gap: var(--spacing-6);
 }
 
 .share-button:hover {
@@ -147,19 +144,19 @@
 }
 
 .product-info .active-link{
-  margin-bottom: 48px;
+  margin-bottom: var(--spacing-48);
 }
 
 .product-reviews-section h4{
-  margin-bottom: 32px;
+  margin-bottom: var(--spacing-32);
 }
 
 .review-card{
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap:8px;
-  margin-bottom: 24px;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-24);
 }
 
 /* "You might also like" */
@@ -173,13 +170,13 @@ hr{
 .products-also {
   margin-top: 4rem;
   background-color: var(--color-backround);
-  padding: 0 70px 64px 70px;
+  padding: var(--spacing-0) var(--spacing-70) var(--spacing-64) var(--spacing-70);
 }
 
 .card {
   background-color: var(--color-backround);
   border-radius: 16px;
-  padding: 16px;
+  padding: var(--spacing-16);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -190,7 +187,7 @@ hr{
 .card:hover {
   opacity: 70%;
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px var(--color-accent);
+  box-shadow: var(--box-shadow);
   opacity: 1;
 }
 
@@ -198,8 +195,8 @@ hr{
   width: 100%;
   height: 260px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 32px;
+  border-radius: var(--card-border-radius);
+  margin-bottom: var(--spacing-32);
 }
 
 .card-content {
@@ -212,36 +209,35 @@ hr{
 
 .card-price{
   display: flex;
-  gap: 8px;
+  gap: var(--spacing-8);
   justify-content: center;
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
-  margin-top: 24px;
+  margin-top: var(--spacing-24);
   text-align: center;
   font-size: var(--font-price-1-desktop);
 }
 
 .card-price .old-price {
   text-decoration: line-through;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   color: var(--color-secondary-text);
 }
 
 .card-price .new-price{
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   color: var(--color-primary);
 }
-
 
 #also-container {
   display: grid;
   grid-auto-flow: column;                       
   grid-auto-columns: minmax(280px, 1fr);        
   overflow-x: auto;
-  padding-bottom: 24px;
+  padding-bottom: var(--spacing-24);
   scroll-snap-type: x mandatory;
-  gap: 24px;
-  padding-top: 16px;
+  gap: var(--spacing-24);
+  padding-top: var(--spacing-16);
 }
 
 #also-container > a {
@@ -250,7 +246,7 @@ hr{
 
 #also-container::-webkit-scrollbar {
   height: 8px;
-  border: 1px solid var(--color-accent);
+  border: var(--border-1);
   border-radius: var(--border-radius);
 }
 
@@ -265,23 +261,23 @@ hr{
 
 
 .also-container h3{
-  margin-top: 24px;
+  margin-top: var(--spacing-24);
   margin-bottom: 19px;
 }
 
 
 @media (max-width: 768px) {
   .product-container{
-    padding: 0 55px 64px 55px;
+    padding: var(--spacing-0) var(--spacing-55) var(--spacing-64) var(--spacing-55);
   }
 
   .products-also {
-    padding: 0 55px 64px 55px;
+    padding: var(--spacing-0) var(--spacing-55) var(--spacing-64) var(--spacing-55);
   }
 
   .product-layout {
     flex-direction: column;
-    gap: 0;
+    gap: var(--spacing-0);
   }
 
   .product-image-wrapper {
@@ -293,34 +289,34 @@ hr{
   }
 }
 
-
 @media (max-width: 480px) {
   .product-layout {
     margin-top: 40px;
   }
 
   .product-info{
-    margin-top: 32px;
+    margin-top: var(--spacing-32);
   }
 
   .product-title{
-    margin-bottom: 24px;
+    margin-bottom: var(--spacing-24);
   }
 
   .product-tags{
-    margin-bottom: 16px;
+    margin-bottom: var(--spacing-16);
+    font-size: var(--font-size-body-mobile);
   }
 
   .product-rating{
-    margin-bottom: 16px;
+    margin-bottom: var(--spacing-16);
   }
 
   .product-price{
-    margin-bottom: 16px;
+    margin-bottom: var(--spacing-16);
   }
 
   .product-description{
-    margin-bottom: 24px;
+    margin-bottom: var(--spacing-24);
   }
 
   .product-buttons-row .cta-button {
@@ -329,40 +325,41 @@ hr{
   }
 
   .product-buttons-row{
-    margin-bottom: 24px;
+    margin-bottom: var(--spacing-24);
   }
 
   .share-button {
     min-width: 124px; 
     min-height: 36px;
+    font-size: var(--font-size-button-links-mobile);
   }
 
   .product-info .active-link {
-    margin-bottom: 32px;
+    margin-bottom: var(--spacing-32);
   }
 
   .product-reviews-section h4 {
-    margin-bottom: 24px;
+    margin-bottom: var(--spacing-24);
   }
 
   .review-card {
-    gap: 0;
-    margin-bottom: 0;
+    gap: var(--spacing-0);
+    margin-bottom: var(--spacing-0);
   }
 
   .product-container{
-    padding: 0 35px 48px 35px;
+    padding: var(--spacing-0) var(--spacing-35) var(--spacing-48) var(--spacing-35);
   }
 
   .products-also {
-    margin-top: 0;
-    padding: 0 35px 40px 35px;
+    margin-top: var(--spacing-0);
+    padding: var(--spacing-0) var(--spacing-35) 40px var(--spacing-35);
   }
 
   #also-container {
     display: grid;
     grid-auto-flow: column;
-    gap: 16px;
+    gap: var(--spacing-16);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -382,10 +379,10 @@ hr{
 
 @media (max-width: 350px){
   .product-container{
-    padding: 0 20px 64px 20px;
+    padding: var(--spacing-0) var(--spacing-20) var(--spacing-64) var(--spacing-20);
   }
 
   .products-also {
-    padding: 0 20px 40px 20px;
+    padding: var(--spacing-0) var(--spacing-20) 40px var(--spacing-20);
   }
 }

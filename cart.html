@@ -25,14 +25,13 @@
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
-                        role="button"
-                        tabindex="0">
+                        role="button">
                         <i class="fas fa-bars open-icon"></i>
                     </label>
                     <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="coming-soon.html">About us</a></li>
                             <li><a href="coming-soon.html">Contact us</a></li>
@@ -40,8 +39,7 @@
                                 class="close-menu"
                                 aria-label="Close navigation menu"
                                 title="Close menu"
-                                role="button"
-                                tabindex="0">
+                                role="button">
                                 <i class="fas fa-times"></i>
                             </label>
                         </ul>
@@ -64,46 +62,32 @@
             <div class="container">
                 <section id="cart-container" class="cart-container">
                    <div class="cart-hero">
+                        <!-- Breadcrumbs -->
                         <div class="nav-page">
                             <nav aria-label="Breadcrumb">
                                 <a href="index.html">Home ></a>
-                                <a href="cart.html" 
-                                    class="active-link" 
-                                    aria-current="page">Cart
+                                <a href="cart.html" class="active-link" aria-current="page">Cart
                                 </a>
                             </nav>
-                            <a href="index.html" 
-                                class="active-link" 
-                                aria-label="Continue shopping and return to catalog" 
-                                title="Back to catalog"
-                                >Keep shopping
-                            </a>
+                            <a href="index.html" class="active-link" aria-label="Continue shopping and return to catalog" title="Back to catalog">Keep shopping</a>
                         </div>
                         <h2>Shopping cart</h2>
-                   </div>
-                    
-                    <div class="cart-content">
-                        
+                   </div>            
+                    <div class="cart-content">            
                         <div class="loader" id="loader"></div>                 
                         <div class="cart-box">
+                            <!-- Products list -->
                             <div id="cart-list" class="cart-list">
                                 <div id="cart-empty" hidden class="cart-empty-inside">
                                     <h3>Your cart is currently empty.</h3>
-                                    <a href="index.html" 
-                                        class="cta-button" 
-                                        id="catalog-button"
-                                        >Catalog
-                                    </a>
+                                    <a href="index.html" class="cta-button" id="catalog-button">Catalog</a>
                                 </div>
                             </div>
+                            <!-- Summary -->
                             <div class="cart-summary">
                                 <div>Items: <span id="cart-count">0</span></div>
                                 <div class="cart-total">Subtotal: <span id="cart-total">0</span></div>
-                                <a id="checkout-button" 
-                                    class="cta-button" 
-                                    href="checkout.html"
-                                    >Place order
-                                </a>
+                                <a id="checkout-button" class="cta-button" href="checkout.html">Place order</a>
                                 <div id="cart-error" class="error" hidden></div>
                             </div>
                         </div>

@@ -1,11 +1,13 @@
 @import url("variables.css");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
+
+
 /* Carusell */
 .hero-carousel-wrapper {
-  padding: 0 70px;
+  padding: var(--spacing-0) var(--spacing-70);
   box-sizing: border-box; 
-  background-image: url("/Images/Untitled design.png");
+  background-image: url("/Images/Hero-background.png");
   background-size: cover;
 }
 
@@ -14,7 +16,7 @@
   width: 100%; 
   margin: 0; 
   overflow: hidden;
-  padding: 10px 0;
+  padding: 10px var(--spacing-0);
 }
 
 .carousel-btn {
@@ -22,9 +24,9 @@
   top: 50%;
   transform: translateY(-50%);
   background: none;
-  border: 2px solid var(--color-accent);
+  border: var(--border);
   color: var(--color-accent);
-  padding: 12px 18px;
+  padding: var(--spacing-12) 18px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 18px;
@@ -68,24 +70,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: var(--spacing-70);
 }
 
 .carousel-hero-title {
-  margin: 0 0 12px 0;
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-12) var(--spacing-0);
   line-height: 1.2;
 }
 
 .carousel-title {
-    margin: 12px 0 12px 0;
+  margin: var(--spacing-12) var(--spacing-0) var(--spacing-12) var(--spacing-0);
   }
 
 .carousel-description {
-  margin: 12px 0 12px 0;
+  margin: var(--spacing-12) var(--spacing-0) var(--spacing-12) var(--spacing-0);
 }
 
 .carousel-slide .cta-button {
-  margin: 12px 0 48px 0;
+  margin: var(--spacing-12) var(--spacing-0) var(--spacing-48) var(--spacing-0);
 }
 
 .carousel-slide {
@@ -135,13 +137,16 @@
   transform: scale(1.2);
 }
 
-/* Products */
+/* Products + filter */
+.products,.filter{
+  padding: var(--spacing-0) var(--spacing-70);
+}
+
 #container {
   display: grid;
-
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 48px;
+  gap: var(--spacing-24);
+  margin-top: var(--spacing-48);
 }
 
 #container > a {
@@ -149,7 +154,7 @@
 }
 
 .products h2{
-  margin: 3rem 0 1.5rem 0;
+  margin: var(--spacing-48) var(--spacing-0) var(--spacing-16) var(--spacing-0);
 }
 
 /* Filter */
@@ -157,7 +162,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: var(--spacing-32);
   flex-wrap: wrap;
 }
 
@@ -170,22 +175,22 @@
 
 .category-btn,
 .search-btn{
-  min-width: clamp(90px, 12vw, 140px); /* adaptive width */
-  height: clamp(36px, 4vw, 48px);      /* adaptive height */
+  min-width: clamp(90px, 12vw, 140px);
+  height: clamp(36px, 4vw, 48px);  
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-secondary);
   color: var(--color-primary);
-  border: 2px solid var(--color-accent);
+  border: var(--border);
   border-radius: var(--button-border-radius);
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-medium);
   font-size: var( --font-size-button-links-desktop) ;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-    padding: 8px 16px;
+  padding: var(--spacing-8) var(--spacing-16);
 }
 
 .category-btn.active {
@@ -205,8 +210,8 @@
 }
 
 .search-bar input {
-  padding: 8px 16px;
- width: 100%;
+  padding: var(--spacing-8) var(--spacing-16);
+  width: 100%;
   outline: none;
  
 }
@@ -216,10 +221,11 @@
   color: var(--color-backround);
 }
 
+
 /* Products grid */
 .card {
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: var(--card-border-radius);
+  padding: var(--spacing-16);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -231,7 +237,7 @@
 .card:hover {
   opacity: 70%;
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px var(--color-accent);
+  box-shadow: var(--box-shadow);
   opacity: 1;
 }
 
@@ -239,8 +245,8 @@
   width: 100%;
   height: 260px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 32px;
+  border-radius: var(--image-border-radius);
+  margin-bottom: var(--spacing-32);
 }
 
 .card-content {
@@ -253,23 +259,23 @@
 
 .card-price{
   display: flex;
-  gap: 8px;
-justify-content: center;
+  gap: var(--spacing-8);
+  justify-content: center;
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
-  margin-top: 24px;
+  margin-top: var(--spacing-24);
   text-align: center;
   font-size: var(--font-price-1-desktop);
 }
 
 .card-price .old-price {
   text-decoration: line-through;
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   color: var(--color-secondary-text);
 }
 
 .card-price .new-price{
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   color: var(--color-primary);
 }
 
@@ -278,8 +284,8 @@ justify-content: center;
   display: flex;
   width: 100%;
   background-color: var(--color-secondary);
-  margin-top: 64px;
-  padding: 24px 0;
+  margin-top: var(--spacing-64);
+  padding: var(--spacing-24) var(--spacing-0);
 }
 
 .sign-up-item-content,
@@ -291,16 +297,16 @@ justify-content: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 70px;
+  margin:var(--spacing-0) var(--spacing-70);
   box-sizing: border-box;
-  gap: 32px;
+  gap: var(--spacing-32);
 }
 
 .sign-up-item-content h4 {
-  font-size: 3rem;
+  font-size: var(--spacing-48);
   font-family: var(--font-primary);
   font-weight: var(--font-weight-semibold);
-  margin-bottom: 16px;
+  margin-bottom: var(--spacing-16);
 }
 
 .sign-up-image-wrapper {
@@ -308,7 +314,7 @@ justify-content: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 70px ;
+  margin: var(--spacing-0) var(--spacing-70) ;
 }
 
 .sign-up-img {
@@ -322,14 +328,13 @@ justify-content: center;
 
 .sign-up-form-group {
   display: flex;
-
   align-items: center;
   justify-content: start;
-  margin-top: 32px;
+  margin-top: var(--spacing-32);
 }
 
 .sign-up-form-label{
-  margin-right: 16px;
+  margin-right: var(--spacing-16);
 }
 
 .sign-up-form-group input {
@@ -339,10 +344,8 @@ justify-content: center;
   min-height: 48px;
   width: 100%;
   outline: none;
-  margin-right: 16px;
+  margin-right: var(--spacing-16);
 }
-
-
 
 .sign-up-form-group .cta-button {
   height: 48px;
@@ -352,7 +355,7 @@ justify-content: center;
   color: var(--color-backround);
   font-family: var(--font-secondary);
   font-weight: var(--font-weight-medium);
-  padding: 8px 20px;
+  padding: var(--spacing-8) var(--spacing-20);
   border-radius: var(--button-border-radius);
   cursor: pointer;
   transition: 0.3s ease;
@@ -370,13 +373,11 @@ justify-content: center;
   color: var(--color-button-cta);
   font-size: 0.85rem;
 }
+
+
 @media (max-width: 1150px) {
   .carousel-hero-title {
-    font-size: 48px;
-  }
-
-  .sign-up-item-content h2{
-  font-size: 2.5rem;
+    font-size: var(--spacing-48);
   }
 }
 
@@ -387,7 +388,7 @@ justify-content: center;
   }
 
   .sign-up-item-content{
-    margin-top: 32px;
+    margin-top: var(--spacing-32);
   }
 
   .carousel-btn {
@@ -396,11 +397,11 @@ justify-content: center;
 
   .carousel-slide-wrapper{
     flex-direction: column;
-    gap: 16px;
+    gap: var(--spacing-16);
   }
   
   .carousel-content{
-    margin-top: 16px;
+    margin-top: var(--spacing-16);
   }
 
   .carousel-slide img, .carousel-content {
@@ -408,17 +409,20 @@ justify-content: center;
   }
 
   .latest-carousel{
-    padding: 48px 0;
+    padding: var(--spacing-48) var(--spacing-0);
   }
 
   .carousel-slide .cta-button {
-    margin: 12px 0 24px 0;
+    margin: var(--spacing-24) var(--spacing-0) var(--spacing-24) var(--spacing-0);
   }
 }
 
 @media (max-width: 768px) {
+  .products,.filter{
+    padding: var(--spacing-0) var(--spacing-55);
+}
   .hero-carousel-wrapper{
-    padding: 0 55px;
+    padding: var(--spacing-0) var(--spacing-55);
   }
 
   .carousel-dot {
@@ -448,29 +452,32 @@ justify-content: center;
     flex: 1;
   }
   .sign-up {
-    padding: 24px 0;
+    padding: var(--spacing-24) var(--spacing-0);
   }
 
    .sign-up-image-wrapper{
-    margin: 0 55px;
+    margin: var(--spacing-0) var(--spacing-55);
   }
 
   .sign-up-item-content{
-    margin: 32px 55px 40px 55px;
+    margin: var(--spacing-32) var(--spacing-55) 40px var(--spacing-55);
   }
+
     .sign-up-form-group{
     flex-direction: column;
     align-items: start;
-    
-
   }
+
   .sign-up-form-group input {
-    margin-right: 0;
+    margin-right: var(--spacing-0);
     margin-top: 4px;
     margin-bottom: 4px;
   }
   .sign-up-form-group .cta-button {
-    margin-top: 16px;
+    margin-top: var(--spacing-16);
+  }
+   .card-image {
+    max-width: 300px;
   }
 
 }
@@ -481,24 +488,25 @@ justify-content: center;
 }
 
 @media (max-width: 480px) {
+   .products, .filter{
+  padding: var(--spacing-0) var(--spacing-35);
+  }
+
   .hero-carousel-wrapper{
-    padding: 0 35px;
+    padding: var(--spacing-0) var(--spacing-35);
   }
 
    .sign-up {
-    margin-top: 48px;
+    margin-top: var(--spacing-48);
   }
-
-
 
   .sign-up-form-group input {
     max-width: 100%;
     min-height: 36px;
- 
   }
 
   .sign-up-form-group .cta-button {
-height: 36px;
+    height: 36px;
     width: 124px;
   }
 
@@ -521,17 +529,16 @@ height: 36px;
 
   #container {
     grid-template-columns: repeat(1, 1fr);
-    margin-top: 48px;
+    margin-top: var(--spacing-48);
   }
 
   .sign-up-image-wrapper{
-    margin: 0 35px;
+    margin: var(--spacing-0) var(--spacing-35);
   }
 
   .sign-up-item-content{
-    margin: 32px 35px 40px 35px;
+    margin: var(--spacing-32) var(--spacing-35) 40px var(--spacing-35);
   }
-
 }
 
 @media (max-width: 370px) {
@@ -541,8 +548,12 @@ height: 36px;
 }
 
 @media (max-width: 350px){
+    .products,.filter{
+  padding: var(--spacing-0) var(--spacing-20);
+}
+
   .hero-carousel-wrapper{
-    padding: 0 20px;
+    padding: var(--spacing-0) var(--spacing-20);
   }
 
   .search-bar {
@@ -559,11 +570,11 @@ height: 36px;
   }
 
   .sign-up-image-wrapper{
-    margin: 0 20px;
+    margin: var(--spacing-0) var(--spacing-20);
   }
 
   .sign-up-item-content{
-    margin: 32px 20px 40px 20px;
+    margin: var(--spacing-32) var(--spacing-20) 40px var(--spacing-20);
   }
 }
 

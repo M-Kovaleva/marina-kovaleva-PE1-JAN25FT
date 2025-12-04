@@ -18,30 +18,31 @@
             <div class="container">
                 <div class="header-container">
                     <!-- Hamburger -->
-                    <input type="checkbox" 
+                    <input 
+                        type="checkbox" 
                         id="menu-toggle" 
                         class="menu-toggle">
-                    <label for="menu-toggle"
+                    <label 
+                        for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
-                        role="button"
-                        tabindex="0">
+                        role="button">
                         <i class="fas fa-bars open-icon"></i>
                     </label>
                     <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="coming-soon.html">About us</a></li>
                             <li><a href="coming-soon.html">Contact us</a></li>
-                            <label for="menu-toggle"
+                            <label 
+                                for="menu-toggle"
                                 class="close-menu"
                                 aria-label="Close navigation menu"
                                 title="Close menu"
-                                role="button"
-                                tabindex="0">
+                                role="button">
                                 <i class="fas fa-times"></i>
                             </label>
                         </ul>
@@ -62,72 +63,60 @@
         </header>
         <main class="page-main">
             <div class="container">
-              
-            <!-- Login Form -->
-            <section class="login-card">
-                <div class="login-hero">
+                <section class="login-card">
+                    <div class="login-hero">
+                        <!-- Breadcrumbs -->
                         <div class="nav-page">
                             <nav aria-label="Breadcrumb">
-                                <a href="index.html">Home ></a>
+                                <a href="index.html" title="Go to home page">Home ></a>
                                 <a href="login.html" class="active-link" aria-current="page">Login</a>
                             </nav>
-                            <a href="index.html" 
-                                class="active-link" 
-                                aria-label="Continue shopping and return to catalog" 
-                                title="Back to catalog"
-                                >Keep shopping
-                            </a>
+                            <a href="index.html" class="active-link" aria-label="Continue shopping and return to catalog" title="Back to catalog">Keep shopping</a>
                         </div>
-                        <h2 class="login-title">Login</h2>
+                            <h2 class="login-title">Login</h2>
                     </div>
-            
-                <div class="login-content">
-                    <form id="login-form" class="login-form-body" data-role="login-form" novalidate>
-                    <!-- Email Field -->
-                    <div class="login-form-group">
-                        <label class="login-form-label" for="login-email">Email</label>
-                        <input 
-                            type="email" 
-                            id="login-email" 
-                            name="email" 
-                            class="login-form-input" 
-                            placeholder="example@stud.noroff.no" 
-                            required 
-                            aria-describedby="login-email-error"
-                            autocomplete="email"
-                            data-testid="login-email">
-                        
-                        <span class="login-error-message" id="login-email-error"></span>
+                    <div class="login-content">
+                        <!-- Login form -->
+                        <form id="login-form" class="login-form-body" data-role="login-form" novalidate>
+                            <!-- Email field -->
+                            <div class="login-form-group">
+                                <label class="login-form-label" for="login-email">Email</label>
+                                <input 
+                                    type="email" 
+                                    id="login-email" 
+                                    name="email" 
+                                    class="login-form-input" 
+                                    placeholder="example@stud.noroff.no" 
+                                    required 
+                                    aria-describedby="login-email-error"
+                                    autocomplete="email">
+                                <span class="login-error-message" id="login-email-error"></span>
+                            </div>
+                            <!-- Password field -->
+                            <div class="login-form-group">
+                                <label class="login-form-label" for="login-password">Password</label>
+                                <input 
+                                    type="password" 
+                                    id="login-password" 
+                                    name="password" 
+                                    class="login-form-input" 
+                                    placeholder="Enter password" 
+                                    required 
+                                    aria-describedby="login-password-error"
+                                    autocomplete="current-password">
+                                <span class="login-error-message" id="login-password-error"></span>
+                            </div>
+                            <!-- Submit button -->
+                            <button type="submit" class="cta-button" aria-label="Submit login form">Submit</button>
+                            <!-- Forgot password link -->
+                            <div class="login-create-account">
+                                <a href="register.html" class="active-link">Not registrated? Create a new account.</a>
+                            </div>
+                        </form>
                     </div>
-                    <!-- Password Field -->
-                    <div class="login-form-group">
-                        <label class="login-form-label" for="login-password">Password</label>
-                        <input 
-                            type="password" 
-                            id="login-password" 
-                            name="password" 
-                            class="login-form-input" 
-                            placeholder="Enter password" 
-                            required 
-                            aria-describedby="login-password-error"
-                            autocomplete="current-password"
-                            data-testid="login-password">
-                        <span class="login-error-message" id="login-password-error"></span>
-                    </div>
-                    <!-- Submit Button -->
-                    <button type="submit" class="cta-button" data-testid="login-submit">Submit</button>
-                    <!-- Forgot Password Link -->
-                    <div class="login-create-account">
-                        <a href="register.html" class="active-link">
-                            Not registrated? Create a new account.
-                        </a>
-                    </div>
-                </form>
-            </section>
-            </div>
-        </main>
-                </div>
-                
+                </section>
+            </div>    
+        </main>  
         <footer class="page-footer">
             <div class="container">
                 <div class="footer-container">
@@ -147,14 +136,14 @@
             </div>
         </footer>
     </div>
-    <div id="login-toast-success" class="toast">
-        
+    <!-- Toast -->
+    <div id="login-toast-success" class="toast" role="status" aria-live="polite">
         <p class="login-toast-message">Login successful! Enjoy your shopping! ✅</p>
     </div>
-   <!-- Login/Register modal window-->
-    <div id="auth-modal" class="auth-modal" role="dialog" aria-modal="true"aria-labelledby="auth-modal-title">
+    <!-- Login/Register modal window -->
+    <div id="auth-modal" class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
         <div class="auth-modal-content">
-            <span id="close-modal" class="close-modal" title="Close"><i class="fa-solid fa-xmark"></i></span>
+            <span id="close-modal" class="close-modal" title="Close"><i class="fa-solid fa-xmark" tabindex="0"></i></span>
             <h3 id="auth-modal-title">User not found</h3>
             <p>We couldn't find this account or data entered incorrectly.<br>Please try again or create a new account.</p>
             <div class="auth-buttons">
@@ -162,7 +151,6 @@
                 <a href="login.html" class="auth-btn login-btn">Try again</a>
             </div>
         </div>
-    </div>
-    
+    </div>   
 </body>
 </html>

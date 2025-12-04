@@ -4,7 +4,7 @@
 
 .coming-soon-container {
   background-color: var(--color-backround);
-  padding: 80px 70px 80px 70px;
+  padding: var(--spacing-80) var(--spacing-70) var(--spacing-80) var(--spacing-70);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,38 +14,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-text-align: center;
-  gap: 24px;
-  margin-bottom: 32px;
+  text-align: center;
+  gap: var(--spacing-24);
+  margin-bottom: var(--spacing-32);
 }
 .coming-soon--connect-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: var(--spacing-32);
 
 }
 .coming-soon--connect-item .social-icons a{
-
   color: var(--color-primary);
-  font-size: 1.2rem;
-
 }
 
 @media (max-width: 768px) {
   .coming-soon-container{
-    padding: 80px 55px 80px 55px;
+    padding: var(--spacing-80) var(--spacing-55) var(--spacing-80) var(--spacing-55);
   }
 }
 
 @media (max-width: 480px) {
    .coming-soon-container{
-    padding: 48px 35px 64px 35px;
+    padding: var(--spacing-48) var(--spacing-35) var(--spacing-64) var(--spacing-35);
   }
 }
 
 @media (max-width: 350px){
   .coming-soon-container{
-    padding: 48px 20px 64px 20px;
+    padding: var(--spacing-48) var(--spacing-20) var(--spacing-64) var(--spacing-20);
   }
 }

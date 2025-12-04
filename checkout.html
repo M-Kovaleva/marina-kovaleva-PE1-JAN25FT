@@ -18,30 +18,31 @@
             <div class="container">
                 <div class="header-container">
                     <!-- Hamburger -->
-                    <input type="checkbox" 
+                    <input 
+                        type="checkbox" 
                         id="menu-toggle" 
                         class="menu-toggle">
-                    <label for="menu-toggle"
+                    <label 
+                        for="menu-toggle"
                         class="hamburger"
                         aria-label="Open navigation menu"
                         title="Open menu"
-                        role="button"
-                        tabindex="0">
+                        role="button">
                         <i class="fas fa-bars open-icon"></i>
                     </label>
                     <!-- Menu for mobile -->
                     <nav class="nav" aria-label="Main navigation">
                         <ul class="nav-links">
-                            <img src="logo/Logo-black.png" class="logo-menu-mobile" alt="Modo shop logo" title="Modo shop home page">
+                            <img src="logo/Logo-black.png" class="logo-menu-mobile">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="coming-soon.html">About us</a></li>
                             <li><a href="coming-soon.html">Contact us</a></li>
-                            <label for="menu-toggle"
+                            <label 
+                                for="menu-toggle"
                                 class="close-menu"
                                 aria-label="Close navigation menu"
                                 title="Close menu"
-                                role="button"
-                                tabindex="0">
+                                role="button">
                                 <i class="fas fa-times"></i>
                             </label>
                         </ul>
@@ -63,33 +64,28 @@
         <main class="page-main">
             <div class="container">
                 <section id="cart-container" class="cart-container">
-                     <div class="cart-hero">
+                    <div class="cart-hero">
+                        <!-- Breadcrumbs -->
                         <div class="nav-page">
                             <nav aria-label="Breadcrumb">
-                                <a href="index.html">Home ></a>
-                                <a href="cart.html" aria-current="page">Cart ></a>
-                                <a href="checkout.html" 
-                                    class="active-link" 
-                                    aria-current="page"
-                                    >Checkout 
+                                <a href="index.html" title="Go to home page">Home ></a>
+                                <a href="cart.html" title="Go to cart page">Cart ></a>
+                                <a href="checkout.html" class="active-link" aria-current="page">Checkout 
                                 </a>
                             </nav>
-                            <a href="index.html" 
-                                class="active-link" 
-                                aria-label="Continue shopping and return to catalog" 
-                                title="Back to catalog"
-                                >Keep shopping
+                            <a href="index.html" class="active-link" aria-label="Continue shopping and return to catalog" title="Back to catalog">Keep shopping
                             </a>
                         </div>
                         <h2>Checkout</h2>
-                     </div>
-                    
+                    </div>
                     <div class="checkout-content">
                         <div class="loader" id="loader"></div>
                         <div class="checkout-info-content">
+                            <!-- Form -->
                             <div class="checkout-info-content-left">
                                 <form class="payment">
-                                    <fieldset tabindex="0">
+                                    <!-- Contact info -->
+                                    <fieldset>
                                         <legend>Contact information</legend>
                                         <div class="checkout-form-group">
                                             <label for="email">Email</label>
@@ -103,7 +99,8 @@
                                         <div class="checkout-form-row">
                                             <div class="checkout-form-group">
                                                 <label for="name">First name</label>
-                                                <input type="text" 
+                                                <input 
+                                                    type="text" 
                                                     id="name" 
                                                     class="form-input" 
                                                     required>
@@ -111,7 +108,8 @@
                                             </div>
                                             <div class="checkout-form-group">
                                                 <label for="surname">Surname</label>
-                                                <input type="text" 
+                                                <input 
+                                                    type="text" 
                                                     id="surname" 
                                                     class="form-input" 
                                                     required>
@@ -120,7 +118,8 @@
                                         </div>
                                         <div class="checkout-form-group">
                                             <label for="address">Address</label>
-                                            <input type="text"
+                                            <input 
+                                                type="text"
                                                 id="address" 
                                                 class="form-input" 
                                                 required>
@@ -130,7 +129,8 @@
                                         <div class="checkout-form-row">
                                             <div class="checkout-form-group">
                                                 <label for="city">City</label>
-                                                <input type="text" 
+                                                <input 
+                                                    type="text" 
                                                     id="city" 
                                                     class="form-input" 
                                                     required>
@@ -138,7 +138,8 @@
                                             </div>
                                             <div class="checkout-form-group">
                                                 <label for="post">Post</label>
-                                                <input type="text" 
+                                                <input 
+                                                    type="text" 
                                                     id="post" 
                                                     class="form-input" 
                                                     required>
@@ -147,7 +148,8 @@
                                         </div>
                                         <div class="checkout-form-group">
                                             <label for="country">Country</label>
-                                            <input type="text" 
+                                            <input 
+                                                type="text" 
                                                 id="country" 
                                                 class="form-input" 
                                                 required>
@@ -156,7 +158,8 @@
                                         <div class="checkout-form-row">
                                             <div class="checkout-form-group">
                                                 <label for="code">Code</label>
-                                                <input type="text" 
+                                                <input 
+                                                    type="text" 
                                                     id="code" 
                                                     class="form-input" 
                                                     required>
@@ -164,7 +167,8 @@
                                             </div>
                                             <div class="checkout-form-group">
                                                 <label for="phone">Phone</label>
-                                                <input type="tel" 
+                                                <input 
+                                                    type="tel" 
                                                     id="phone" 
                                                     class="form-input" 
                                                     required>
@@ -173,7 +177,8 @@
                                         </div>
                                      <hr>  
                                     </fieldset>
-                                    <fieldset tabindex="0">  
+                                    <!-- Delivery info -->
+                                    <fieldset>  
                                         <legend>Delivery</legend>
                                         <div id="delivery-info" class="delivery-info">
                                             <p>Address:<span id="d-address"></span></p>
@@ -184,10 +189,12 @@
                                         </div>
                                     </fieldset>
                                     <hr> 
-                                    <fieldset class="pay-method" tabindex="0">          
+                                    <!-- Payment method -->
+                                    <fieldset class="pay-method">          
                                         <legend>Payment</legend>
                                         <div class="pay-option">
-                                            <input type="radio" 
+                                            <input 
+                                                type="radio" 
                                                 id="card" 
                                                 name="payment" 
                                                 value="card" 
@@ -195,7 +202,8 @@
                                             <label for="card">Credit/Debit card</label>
                                         </div>
                                         <div class="pay-option">
-                                            <input type="radio" 
+                                            <input 
+                                                type="radio" 
                                                 id="paypal" 
                                                 name="payment" 
                                                 value="paypal" 
@@ -203,7 +211,8 @@
                                             <label for="paypal">PayPal</label>
                                         </div>
                                         <div class="pay-option">
-                                            <input type="radio" 
+                                            <input 
+                                                type="radio" 
                                                 id="google-pay" 
                                                 name="payment" 
                                                 value="google-pay" 
@@ -214,17 +223,15 @@
                                     </fieldset>
                                     <hr> 
                                 </form>
+                                <!-- Total price -->
                                 <div class="price-total" tabindex="0">Total:<span class="price">0</span>
                                 </div>
                                 <div id="form-error" class="error" hidden></div>
                                 <div class="cta-section">
-                                    <a id="pay-btn" 
-                                        href="success.html" 
-                                        class="cta-button"
-                                        >Pay order
-                                    </a>
+                                    <a id="pay-btn" href="success.html" class="cta-button">Pay order</a>
                                 </div>  
                             </div>
+                            <!-- Products list + summary -->
                             <div class="checkout-info-content-right">
                                 <div class="product-info-content-right">
                                     <div class="cart-box">
@@ -264,9 +271,9 @@
         </footer>
     </div>
     <!-- Modal window-->
-    <div id="empty-cart-modal" class="auth-modal">
+    <div id="empty-cart-modal" class="auth-modal"  role="dialog" aria-modal="true" aria-labelledby="empty-cart-title">
         <div class="auth-modal-content">
-            <span id="close-empty-cart-modal" class="close-modal"><i class="fas fa-times"></i></span>
+            <span id="close-empty-cart-modal" tabindex="0" class="close-modal"><i class="fas fa-times"></i></span>
             <h3>Your cart is empty</h3>
             <p>Please add some products before checking out.</p>
             <div class="auth-buttons">
