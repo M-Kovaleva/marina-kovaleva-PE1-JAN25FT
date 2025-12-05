@@ -3,51 +3,59 @@ const cartCount = document.querySelector("#cart-count")
 const cartTotal = document.querySelector("#cart-total")
 const cartEmpty = document.querySelector("#cart-empty")
 const loader = document.querySelector("#loader")
-const cartError = document.querySelector("#cart-error")
 const checkoutButton = document.querySelector("#checkout-button")
 const catalogBtn = document.querySelector("#catalog-button")
-
+/**
+ * Gets an array of products from localStorage
+ * @returns {Array}
+ */
 function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || []
 }
-
+/**
+ * Saves the updated cart to localStorage
+ * @param {Array} cart The array of products to be saved
+ */
 function saveCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart))
 }
-
+/**
+ * Renders the cart on the page
+ * shows the loader
+ * displays products
+ * counts the quantity and amount
+ * hides/shows the required interface elements
+ * handles errors
+ * @returns {Promise<void>}
+ */
 async function renderCart() {
   showLoader()
   //await new Promise(res => setTimeout(res, 2000)) // Check loader
   try {
     const cart = getCart()
     cartItemsContainer.querySelectorAll(".cart-item").forEach(item => item.remove())
-    
-
     if (cart.length === 0) {
       cartEmpty.hidden = false
       cartCount.textContent = "0"
       cartTotal.textContent = "0"
       checkoutButton.style.display = "none"
-      catalogBtn.style.display = "inline-flex"  // Show "Cataloge" button
+      catalogBtn.style.display = "inline-flex"// Show Catalog button
       
       hideLoader()
       return
     }
-    
 
     cartEmpty.hidden = true
-    catalogBtn.style.display = "none"  // Hide "Catalog" butto if there are products
+    catalogBtn.style.display = "none"// Hide "Catalog button if there are products
     let total = 0
     let count = 0
    
-    cart.forEach((item, index) => {
-
+    cart.forEach((item, index) => { 
       const itemDiv = document.createElement("div")
       const img = document.createElement("img")
       const title = document.createElement("h4")
       const price = document.createElement("p")
       const removeBtn = document.createElement("span")
-      
       itemDiv.className = "cart-item"
       img.className = "cart-item-image"
       title.className = "cart-item-title"
@@ -74,29 +82,33 @@ async function renderCart() {
     cartCount.textContent = count
     cartTotal.textContent = `$${total.toFixed(2)}`
 
-    checkoutButton.style.display = count > 0 ? "cta-button" : "none"
+    checkoutButton.classList.toggle("cta-button", count > 0)
+    checkoutButton.style.display = count > 0 ? "inline-flex" : "none"
 
-  } catch (error) {
-    cartError.textContent = "Failed to load cart. Try again later."
-    cartError.hidden = false
-    cartItemsContainer.innerHTML = ""
-    checkoutButton.style.display = "none"
   } finally {
     hideLoader()
   }
 }
-
+/**
+ * removes an item from the cart by index
+ * redraws the cart interface.
+ * @param {number} index Index of the product in the cart array
+ */
 function removeFromCart(index) {
   const cart = getCart()
   cart.splice(index, 1)
   saveCart(cart)
   renderCart()
 }
-
+/**
+ * Shows loader
+ */
 function showLoader() {
   loader.style.display = "block"
 }
-
+/**
+ * Hide loader
+ */
 function hideLoader() {
   loader.style.display = "none"
 }

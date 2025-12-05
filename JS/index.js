@@ -11,26 +11,33 @@ const errorContainer = document.querySelector("#products-error")
 const API_URL = "https://v2.api.noroff.dev/online-shop"
 
 let allProducts = []
+/**
+ * Fetches products from API and display them in allProducts
+ * Shows loader while fetching and handles errors
+ */
 async function fetchAndCreateProducts() {
     showLoader()
-    try{
+    try {
         const responce = await fetch(API_URL)
         const data = await responce.json()
         //await new Promise(res => setTimeout(res, 2000)) // Check loader
         allProducts = data.data
 
     renderProducts(allProducts.slice(0, 24))
-  } catch (error) {
+    } catch (error) {
+    console.error("Failed to fetch products:", error)
     errorContainer.textContent = "Failed to load products. Try again later."
     errorContainer.hidden = false
-    } 
-    finally {
+    } finally {
     hideLoader()
     }
 }
+/**
+ * Renders a list of products into the container
+ * @param {Array<Object>} products Array of products
+ */
 function renderProducts(products) {
     container.innerHTML = ""
-  
     products.forEach(product =>{
         const card = document.createElement("div")
         const image = document.createElement("img")
@@ -38,12 +45,11 @@ function renderProducts(products) {
         const title = document.createElement("h4")
         const price = document.createElement("p")
         const anchor = document.createElement("a")
-
-        card.className = 'card'
-        image.className = 'card-image'
-        content.className = 'card-content'
-        title.className = 'card-title'
-        price.className = 'card-price'
+        card.className = "card"
+        image.className = "card-image"
+        content.className = "card-content"
+        title.className = "card-title"
+        price.className = "card-price"
         image.src = product.image.url
         image.alt = product.image.alt || `Image of ${product.title}`
         title.textContent = product.title
@@ -68,11 +74,46 @@ function renderProducts(products) {
         anchor.appendChild(card)
         container.appendChild(anchor)
     })
-}    
+}
+// Search by tags
+const tagSearchInput = document.querySelector("#tag-search")
+const searchBtn = document.querySelector("#search-btn")
+/**
+ * Searches products by tag input and updates the products
+ * Shows error if no products match the search input
+ */
+function searchByTag() {
+    const query = tagSearchInput.value.trim().toLowerCase()
+
+    if (!query) {
+        errorContainer.hidden = true
+        renderProducts(allProducts)
+        return
+    }
+
+    const filteredProducts = allProducts.filter((product) =>
+        product.tags.some((tag) => tag.toLowerCase().includes(query))
+    )
+
+    if (filteredProducts.length === 0) {
+        errorContainer.textContent = `No products found for tag: "${query}".`
+        errorContainer.hidden = false
+        container.innerHTML = ""
+    } else {
+        errorContainer.hidden = true
+        renderProducts(filteredProducts)
+    }
+}
+
+searchBtn.addEventListener("click", searchByTag)
+tagSearchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") searchByTag()
+})
+
 // Filter by category
 const categoryButtons = document.querySelectorAll(".category-btn")
 categoryButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
+    btn.addEventListener("click", () => {
     const category = btn.textContent.trim().toLowerCase()
 
     // Hide "No products found for tag..."
@@ -82,12 +123,10 @@ categoryButtons.forEach((btn) => {
 
     categoryButtons.forEach(b => b.setAttribute("aria-pressed", "false"))
     btn.setAttribute("aria-pressed", "true")
-btn.setAttribute("aria-pressed", "true")
     // Remove active class for all buttons
     categoryButtons.forEach((b) => b.classList.remove("active"))
     // Add active class for current button
     btn.classList.add("active")
-
     // If "All" is selected, all products will be shown
     if (category === "all") {
         renderProducts(allProducts)
@@ -110,53 +149,28 @@ btn.setAttribute("aria-pressed", "true")
     }
   })
 })
-// Search by tags
-const tagSearchInput = document.querySelector("#tag-search")
-const searchBtn = document.querySelector("#search-btn")
-
-function searchByTag() {
-  const query = tagSearchInput.value.trim().toLowerCase()
-
-  if (!query) {
-    errorContainer.hidden = true
-    renderProducts(allProducts)
-    return
-  }
-
-  const filteredProducts = allProducts.filter((product) =>
-    product.tags.some((tag) => tag.toLowerCase().includes(query))
-  )
-
-  if (filteredProducts.length === 0) {
-    errorContainer.textContent = `No products found for tag: "${query}".`
-    errorContainer.hidden = false
-    container.innerHTML = ""
-  } else {
-    errorContainer.hidden = true
-    renderProducts(filteredProducts)
-  }
-}
-
-searchBtn.addEventListener("click", searchByTag)
-tagSearchInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") searchByTag()
-})
-
-//Loader
+/**
+ * Shows loader
+ */
 function showLoader() {
     loader.style.display = "block"
     container.style.display = "none"
 }
+/**
+ * Hides loader
+ */
 function hideLoader() {
     loader.style.display = "none"
     container.style.display = "grid"
 }
-
 //Login/Logout in the Header
 document.addEventListener("DOMContentLoaded", () => {
     
     const authLink = document.getElementById("auth-link")
-
+    /**
+     * Updates the authentication link in the header based on loged in/not logged in state
+     * Shows logout icon if the user is logged in
+     */
     function updateAuthLink() {
         const token = localStorage.getItem("accessToken")
 
@@ -167,7 +181,10 @@ document.addEventListener("DOMContentLoaded", () => {
             authLink.addEventListener("click", logout)
         }
     }
-
+    /**
+     * Logs out with removing all authentication info and cart data
+     * @param {Event} e - The click event
+     */
     function logout(e) {
         e.preventDefault()
 
@@ -175,15 +192,16 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem("accessToken")
         localStorage.removeItem("user")
         localStorage.removeItem("cart")
-
         // Reload page
         window.location.reload()
     }
-
     updateAuthLink()
 })
-
 // Carusell
+/**
+ * Initializes the carousel with the  products
+ * Handles navigation buttons, swipe gestures, and responsive behavior
+ */
 function initLatestCarousel() {
     if (!allProducts.length) return
 
@@ -225,7 +243,6 @@ function initLatestCarousel() {
             <p class="carousel-description">${product.description}</p>
             <a class="cta-button" href="product.html?id=${product.id}">See product</a>
         `
-
         const wrapper = document.createElement("div")
         wrapper.className = "carousel-slide-wrapper"
         wrapper.append(img, content)
@@ -255,7 +272,10 @@ function initLatestCarousel() {
         dotsContainer.appendChild(dot)
         dots.push(dot)
     })
-
+    /**
+     * Shows the slide 
+     * @param {number} i Slide index to show
+     */
     function showSlide(i) {
         Array.from(slides).forEach(s => s.classList.remove("active"))
         slides[i].classList.add("active")
@@ -263,10 +283,8 @@ function initLatestCarousel() {
         dots.forEach(dot => dot.classList.remove("active"))
         dots[i].classList.add("active")
     }
-
     // Swipe for small desktops
     let startX = 0
-
     function enableSwipe() {
         nextBtn.style.pointerEvents = "none"
         prevBtn.style.pointerEvents = "none"
@@ -278,11 +296,6 @@ function initLatestCarousel() {
     function disableSwipe() {
         slidesContainer.removeEventListener("touchstart", touchStart)
         slidesContainer.removeEventListener("touchend", touchEnd)
-    }
-
-    function enableButtons() {
-        nextBtn.style.pointerEvents = "auto"
-        prevBtn.style.pointerEvents = "auto"
     }
 
     function handleResize() {
@@ -305,7 +318,6 @@ function initLatestCarousel() {
             currentIndex = (currentIndex + 1) % slides.length
             showSlide(currentIndex)
         }
-
         prevBtn.onclick = () => {
             currentIndex = (currentIndex - 1 + slides.length) % slides.length
             showSlide(currentIndex)
@@ -319,7 +331,6 @@ function initLatestCarousel() {
     function touchEnd(e) {
         const endX = e.changedTouches[0].clientX
         const diff = startX - endX
-
         if (Math.abs(diff) > 50) {
             if (diff > 0) {
                 currentIndex = (currentIndex + 1) % slides.length
@@ -329,50 +340,62 @@ function initLatestCarousel() {
             showSlide(currentIndex)
         }
     }
-
     handleResize()
     window.addEventListener("resize", handleResize)
 }
 // Launch after all products are loaded
-const originalFetch = fetchAndCreateProducts
-fetchAndCreateProducts = async function () {
-    await originalFetch()
+async function fetchProductsAndInitCarousel() {
+    await fetchAndCreateProducts()
     initLatestCarousel()
 }
 
+fetchProductsAndInitCarousel()
 // Sign up
 document.addEventListener("DOMContentLoaded", () => {
-  const emailInput = document.getElementById("sign-up-email")
-  const emailError = document.getElementById("sign-up-email-error")
-  const signupButton = document.querySelector(".sign-up .cta-button")
+    const emailInput = document.getElementById("sign-up-email")
+    const emailError = document.getElementById("sign-up-email-error")
+    const signupButton = document.querySelector(".sign-up .cta-button")
 
-  function showEmailError(message) {
-    emailError.textContent = message
-    emailInput.classList.add("sign-up-input--error")
-  }
-
-  function clearEmailError() {
-    emailError.textContent = ""
-    emailInput.classList.remove("sign-up-input--error")
-  }
-
-  function validateEmail() {
-    const emailValue = emailInput.value.trim()
-    clearEmailError()
-
-    let isValid = true
-
-    if (!emailValue) {
-      showEmailError("Email is required")
-      isValid = false
-    } else if (!/^[\w\-.]+@(stud\.)?noroff\.no$/.test(emailValue)) {
-      showEmailError("Email must be @noroff.no or @stud.noroff.no")
-      emailInput.classList.add("sign-up-error-message")
-      isValid = false
+    /**
+     * Shows error message for the  email input
+     * @param {string} message error message 
+     */
+    function showEmailError(message) {
+        emailError.textContent = message
+        emailInput.classList.add("sign-up-input-error")
     }
+    /**
+     * Clears error message for email input
+     */
+    function clearEmailError() {
+        emailError.textContent = ""
+        emailInput.classList.remove("sign-up-input-error")
+    }
+    /**
+         * Validates email input for sign-up
+         * @returns {boolean} True if email is valid, false otherwise
+         */
+    function validateEmail() {
+        const emailValue = emailInput.value.trim()
+        clearEmailError()
 
-    return isValid
-  }
+        let isValid = true
+
+        if (!emailValue) {
+        showEmailError("Email is required")
+        isValid = false
+        } else if (!/^[\w.-]+@(stud\.)?noroff\.no$/.test(emailValue)) {
+        showEmailError("Email must be @noroff.no or @stud.noroff.no")
+        emailInput.classList.add("sign-up-input-error")
+        isValid = false
+        }
+
+        return isValid
+    }
+    /**
+     * Shows a toast notification with message
+     * @param {string} message message text in the toast.
+     */
     function showToast(message) {
     const toast = document.createElement("div")
     toast.className = "toast"
@@ -397,8 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
     emailInput.value = ""
     showToast("You have successfully subscribed to the newsletter ✅")
     })
-  // Validation
-  emailInput.addEventListener("input", clearEmailError)
+    // Validation
+    emailInput.addEventListener("input", clearEmailError)
 })
-
 fetchAndCreateProducts()

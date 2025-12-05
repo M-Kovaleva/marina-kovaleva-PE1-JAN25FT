@@ -2,19 +2,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const loader = document.querySelector("#loader") 
     const emailField = document.querySelector("#email")
     const payBtn = document.querySelector("#pay-btn")
-
     // authModal for empty cart
     const emptyCartModal = document.getElementById("empty-cart-modal")
     const closeEmptyCartModal = document.getElementById("close-empty-cart-modal")
-
+    /**
+     * Show loader
+     * @returns {void}
+     */
     function showLoader() { loader.style.display = "block" }
+    /**
+     * Hide loader
+     * @returns {void}
+     */
     function hideLoader() { loader.style.display = "none" }
-
+    /**
+     * Displays a modal window when the cart is empty
+     * @returns {void}
+     */
     function showEmptyCartModal() {
         emptyCartModal.style.display = "flex"
         document.body.style.overflow = "hidden"
     }
-
+    /**
+     * Close modal window for empty cart
+     * @param {HTMLElement} modal HTML-element for modal window
+     * @returns {void}
+     */
     function closeModal(modal) {
         modal.style.display = "none"
         document.body.style.overflow = "auto"
@@ -31,11 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartTotal = document.querySelector("#cart-total")
     const checkoutTotals = document.querySelectorAll(".price-total .price")
     const DELIVERY_PRICE = 50
-
+    /**
+     * Gets the contents of the cart from localStorage
+     * @returns {Array<Object>} array of items in the cart
+     */
     function getCart() {
         return JSON.parse(localStorage.getItem("cart")) || []
     }
-
+    /**
+     * Renders the cart on the page: list of products, subtotal and total price
+     * @async
+     * @returns {Promise<void>}
+     */
     async function renderCart() {
         showLoader()
         //await new Promise(res => setTimeout(res, 2000)) // Check loader
@@ -45,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = "<p>Your cart is empty</p>"
-            cartCount.textContent = 0
+            cartCount.textContent = "0"
             cartTotal.textContent = "0"
             checkoutTotals.forEach(el => el.textContent = "$0")
             hideLoader()
@@ -56,14 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const div = document.createElement("div")
             div.className = "cart-item"
             div.innerHTML = `
-                <img src="${item.image.url}" class="cart-item-image" alt="">
+                <img src="${item.image.url}" class="cart-item-image" alt="${item.image.alt || item.title}">
                 <h4 class="cart-item-title">${item.title}</h4>
                 <p class="cart-item-price">$${item.price}</p>
             `
             cartItemsContainer.appendChild(div)
             subtotal += item.price
         })
-
         cartCount.textContent = cart.length
         cartTotal.textContent = subtotal.toFixed(2)
         checkoutTotals.forEach(el =>
@@ -73,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     renderCart()
-    
     // Duplicate contact info into delivery section
     const fields = {
         address: document.querySelector("#address"),
@@ -96,9 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
         emailField.value = storedUser.email
         updateDeliveryInfo()
     }
-
+    /**
+     * Updates the delivery section data based on user input
+     * @returns {void}
+     */
     function updateDeliveryInfo() {
-        deliveryFields.address.textContent = fields.address.value 
+        deliveryFields.address.textContent = fields.address.value
         deliveryFields.cityPost.textContent = (fields.city.value || "") + " " + (fields.post.value || "")
         deliveryFields.country.textContent = fields.country.value
         deliveryFields.codePhone.textContent = (fields.code.value || "") + " " + (fields.phone.value || "")
@@ -107,17 +128,28 @@ document.addEventListener("DOMContentLoaded", () => {
     Object.values(fields).forEach(input => {
         input.addEventListener("input", updateDeliveryInfo)
     })
-
-    // Form validation
+    /**
+     * Displays error message below form fields
+     * @param {string} inputId - ID input field
+     * @param {string} message - error text
+     * @returns {void}
+     */
     function showError(inputId, message) {
         const errorSpan = document.querySelector(`#${inputId}-error`)
         errorSpan.textContent = message
     }
-
+    /**
+    * Clear all error in the form
+    * @returns {void}
+    */
     function clearErrors() {
         document.querySelectorAll(".checkout__error-message").forEach(e => e.textContent = "")
     }
-
+    /**
+     * Validats form
+     * Checks required fields
+     * @returns {boolean} true - if the form is valid, false - if the form is not valid
+     */
     function validateForm() {
         clearErrors()
         const requiredFields = ["email","name","surname","address","city","post","country","code","phone"]
@@ -130,12 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 showError(id, "Required field")
             }
         })
-
         // Email
         const email = document.querySelector("#email").value.trim()
         if (email && !/^[^\s@]+@stud\.noroff\.no$/.test(email)) {
             isValid = false
-            showError("email", "Email must be a valid stud.noroff.no email")
+            showError("email", "Email must be @noroff.no or @stud.noroff.no")
         }
         // First name
         const firstName = document.querySelector("#name").value.trim()
@@ -151,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         // Address
         const address = document.querySelector("#address").value.trim()
-        if (address && !/^[A-Za-z0-9\s\/-]{1,40}$/.test(address)) {
+        if (address && !/^[A-Za-z0-9\s-]{1,40}$/.test(address)) {
             isValid = false
             showError("address", "Address can contain letters, numbers, space, /, -, max 40 chars")
         }
@@ -191,7 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
             isValid = false
             showError("payment", "Select payment method")
         }
-
         return isValid
     }
     // Pay order button click
@@ -206,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const valid = validateForm()
         if (!valid) return
- const userData = {
+        const userData = {
         email: document.querySelector("#email").value.trim(),
         firstName: document.querySelector("#name").value.trim(),
         surname: document.querySelector("#surname").value.trim(),

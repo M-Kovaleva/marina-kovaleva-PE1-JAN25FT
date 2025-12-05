@@ -91,16 +91,6 @@
 
 
 
-@media (max-width: 768px) {
-.register-hero{
-  padding: var(--spacing-0) var(--spacing-55) var(--spacing-80) var(--spacing-55);
-}
-
-  .register-content{
-  padding: var(--spacing-0) var(--spacing-55);
-}
-}
-
 @media (max-width: 480px) {
 .register-hero{
   padding: var(--spacing-0) var(--spacing-35) var(--spacing-48) var(--spacing-35);

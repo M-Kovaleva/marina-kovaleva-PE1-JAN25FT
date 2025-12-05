@@ -9,39 +9,49 @@ const alsoContainer = document.querySelector("#also-container")
 const params = new URLSearchParams(window.location.search)
 const id = params.get("id")
 const API_URL = "https://v2.api.noroff.dev/online-shop"
-
 // Updating breadcrumb with product ID
 if (id && breadcrumbLink) {
     breadcrumbLink.href = `product.html?id=${id}`
 }
-
+/**
+ * Shows loader
+ */
 function showLoader() {
     loader.style.display = "block"
     container.style.display = "none"
 }
+/**
+ * Hides loader
+ */
 function hideLoader() {
     loader.style.display = "none"
     container.style.display = "block"
 }
-
 // authModal
 const authModal = document.getElementById("auth-modal")
 const closeModalBtn = document.getElementById("close-modal")
 authModal.setAttribute("tabindex", "-1")
 authModal.focus()
-
+/**
+ * Opens the authentication modal window and stop scrolling
+ */
 function openAuthModal() {
     authModal.style.display = "flex"
     document.body.style.overflow = "hidden"
 }
+/**
+ * Closes the authentication modal window and restores scrolling
+ */
 function closeAuthModal() {
     authModal.style.display = "none"
     document.body.style.overflow = "auto"
 }
 closeModalBtn.addEventListener("click", closeAuthModal)
 window.addEventListener("click", (e) => { if (e.target === authModal) closeAuthModal() })
-
-// Toast
+/**
+ * Shows a toast notification with a message
+ * @param {string} message the message in the toast
+ */
 function showToast(message) {
     let toast = document.createElement("div")
     toast.className = "toast"
@@ -53,8 +63,14 @@ function showToast(message) {
         setTimeout(() => toast.remove(), 300)
     }, 3000)
 }
-
-// Add to cart
+/**
+ * Adds product to the cart - stores in localStorage and shows toast
+ * @param {Object} product product to add to the cart
+ * @param {number} product.id product ID
+ * @param {string} product.title product title
+ * @param {number} product.price product price
+ * @param {Object} product.image product image object
+ */
 function addToCart(product) {
     const cart = JSON.parse(localStorage.getItem("cart")) || []
     cart.push({
@@ -66,19 +82,20 @@ function addToCart(product) {
     localStorage.setItem("cart", JSON.stringify(cart))
     showToast(`1 × ${product.title} added to cart ✅`)
 }
-
-// Render of product
+/**
+ * Fetches product data from the API and renders the product page including reviews
+ * Handles loading, errors, and empty product IDs
+ */
 async function fetchAndCreateProducts() {
     showLoader()
     //await new Promise(res => setTimeout(res, 2000)) // Check loader
     try {
-        if (!id) {
+        if (id === null) {
             errorContainer.textContent = "No product ID provided!"
             errorContainer.hidden = false
             container.innerHTML = ""
             return
         }
-
         const response = await fetch(`${API_URL}/${id}`)
         const data = await response.json()
         const product = data.data
@@ -162,7 +179,6 @@ async function fetchAndCreateProducts() {
         layoutWrapper.appendChild(productDiv)
         container.prepend(navPage)
         container.appendChild(layoutWrapper)
-
         // Reviews
         if (product.reviews && product.reviews.length > 0) {
             reviewsContainer.innerHTML = ""
@@ -185,8 +201,10 @@ async function fetchAndCreateProducts() {
         hideLoader()
     }
 }
-
-// Render of "You might also like" products
+/**
+ * Renders a list of "You might also like" products
+ * @param {Array<Object>} products array of product to render
+ */
 function renderAlsoProducts(products) {
     alsoContainer.innerHTML = ""
     products.forEach(product => {
@@ -197,11 +215,11 @@ function renderAlsoProducts(products) {
         const price = document.createElement("p")
         const anchor = document.createElement("a")
 
-        card.className = 'card'
-        image.className = 'card-image'
-        content.className = 'card-content'
-        title.className = 'card-title'
-        price.className = 'card-price'
+        card.className = "card"
+        image.className = "card-image"
+        content.className = "card-content"
+        title.className = "card-title"
+        price.className = "card-price"
 
         image.src = product.image.url
         image.alt = product.image.alt || `Image of ${product.title}`
@@ -220,7 +238,11 @@ function renderAlsoProducts(products) {
         alsoContainer.appendChild(anchor)
     })
 }
-
+/**
+ * Fetches all products from the API without the current product 
+ * selects 5 random products to display in the "You might also like" section
+ * @param {string} currentId ID of the current product to exclude from "You might also like" section
+ */
 async function loadAlsoProducts(currentId) {
     try {
         const response = await fetch(API_URL)
@@ -234,7 +256,9 @@ async function loadAlsoProducts(currentId) {
         console.error(error)
     }
 }
-
+/**
+ * Initializes the product page by fetching product data and "You might also like" products
+ */
 async function initProductPage() {
     await fetchAndCreateProducts()
     if (id) loadAlsoProducts(id)

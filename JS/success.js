@@ -1,3 +1,7 @@
+/**
+ * Displays the success page with user data retrieved from localStorage
+ * After displaying removes the data from cart
+ */
 document.addEventListener("DOMContentLoaded", () => {
     const userData = JSON.parse(localStorage.getItem("userData"))
 

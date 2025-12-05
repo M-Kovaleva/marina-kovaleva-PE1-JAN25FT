@@ -287,6 +287,11 @@ hr{
   .product-info {
     order: 2;
   }
+  .product-info{
+    margin-top: var(--spacing-32);
+  }
+
+ 
 }
 
 @media (max-width: 480px) {
@@ -294,10 +299,7 @@ hr{
     margin-top: 40px;
   }
 
-  .product-info{
-    margin-top: var(--spacing-32);
-  }
-
+ 
   .product-title{
     margin-bottom: var(--spacing-24);
   }

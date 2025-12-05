@@ -58,7 +58,6 @@
   align-items: center;
 }
 
-
 @media (max-width: 768px) {
  .success-hero{
   padding: var(--spacing-0) var(--spacing-55) var(--spacing-64) var(--spacing-55);
@@ -74,7 +73,6 @@
   margin: var(--spacing-0) var(--spacing-55) var(--spacing-32) var(--spacing-55);
 }
 }
-
 
 @media (max-width: 480px) {
 .conf-container {

@@ -2,13 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("login-form")
     const emailInput = document.getElementById("login-email")
     const passwordInput = document.getElementById("login-password")
-   
-
     // Validation
+    /**
+     * Shows error message for the input query
+     * @param {string} id - The ID of the span element where the error will be shown
+     * @param {string} message error message 
+     */
     function showError(id, message) {
         const span = document.getElementById(id)
         span.textContent = message
     }
+    /**
+     * Clears all error messages and removes error styling for input fields
+     */
     function clearErrors() {
         document.querySelectorAll(".login-error-message").forEach(el => el.textContent = "")
         document.querySelectorAll(".login-form-input").forEach(el => el.classList.remove("login-input-error"))
@@ -51,54 +57,55 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json()
 
             if (response.ok) {
-    localStorage.setItem("accessToken", data.data.accessToken || "")
-    localStorage.setItem("user", JSON.stringify({
-        id: data.data.id,
-        name: data.data.name,
-        email: data.data.email
-    }))
-
-    showLoginToast()
-
-    setTimeout(() => {
-        window.location.href = "index.html"
-    }, 2500)
-
-} else {
-    // User not found or incorrect password
-    openAuthModal()
-}
-
+                localStorage.setItem("accessToken", data.data.accessToken || "")
+                localStorage.setItem("user", JSON.stringify({
+                    id: data.data.id,
+                    name: data.data.name,
+                    email: data.data.email
+            }))
+            showLoginToast()
+            setTimeout(() => {
+                window.location.href = "index.html"
+            }, 2500)
+            } else {
+                // User not found or incorrect password
+                openAuthModal()
+            }
         } catch (error) {
             console.error("Network error:", error)
             alert("Network error, please try again later.")
         }
     })
+    /**
+     * Displays toast notification after successful login
+     */
     function showLoginToast() {
-    const toast = document.getElementById("login-toast-success")
-    
-    toast.classList.add("show")
-
-    setTimeout(() => {
-        toast.classList.remove("show")
-    }, 2000)
-}
-// authModal
+        const toast = document.getElementById("login-toast-success")
+        toast.classList.add("show")
+        setTimeout(() => {
+            toast.classList.remove("show")
+        }, 2000)
+    }
+// Modal window
 const authModal = document.getElementById("auth-modal")
 const closeModalBtn = document.getElementById("close-modal")
-
+/**
+ * Opens the authentication modal window
+ * Locks scrolling while the modal is open
+ */
 function openAuthModal() {
   authModal.style.display = "flex"
   document.body.style.overflow = "hidden"
 }
-
+/**
+ * Closes the authentication modal window
+ * Restores scrolling 
+ */
 function closeAuthModal() {
   authModal.style.display = "none"
   document.body.style.overflow = "auto"
 }
-
 closeModalBtn.addEventListener("click", closeAuthModal)
-
 window.addEventListener("click", (e) => {
   if (e.target === authModal) closeAuthModal()
 })
