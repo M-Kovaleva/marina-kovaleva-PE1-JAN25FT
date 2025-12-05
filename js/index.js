@@ -218,9 +218,9 @@ function initLatestCarousel() {
     ]
 
     const customImages = [
-        "Images/slide-1-4-bag-red.jpng-removebg-preview.png",
-        "Images/slide-2-12-toy-car.png",
-        "Images/slide-3-15-watch-black-removebg-preview.png"
+        "images/slide-1-4-bag-red.jpng-removebg-preview.png",
+        "images/slide-2-12-toy-car.png",
+        "images/slide-3-15-watch-black-removebg-preview.png"
     ]
 
     selectedProducts.forEach((product, index) => {

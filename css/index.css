@@ -7,7 +7,7 @@
 .hero-carousel-wrapper {
   padding: var(--spacing-0) var(--spacing-70);
   box-sizing: border-box; 
-  background-image: url("/Images/Hero-background.png");
+  background-image: url("../images/hero-background.png");
   background-size: cover;
 }
 
