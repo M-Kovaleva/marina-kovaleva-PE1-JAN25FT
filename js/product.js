@@ -1,3 +1,8 @@
+import { initAuthLink } from "./authlink.js"
+
+// Initialisation Login/Logout
+initAuthLink()
+
 const container = document.querySelector("#product-container")
 const loader = document.querySelector("#loader")
 const errorContainer = document.querySelector("#products-error")

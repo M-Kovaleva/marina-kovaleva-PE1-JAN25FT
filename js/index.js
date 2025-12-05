@@ -1,3 +1,8 @@
+import { initAuthLink } from "./authlink.js"
+
+// Initialisation Login/Logout
+initAuthLink()
+
 const container = document.querySelector("#container")
 const loader = document.querySelector("#loader")
 const categoryMap = {
@@ -163,40 +168,6 @@ function hideLoader() {
     loader.style.display = "none"
     container.style.display = "grid"
 }
-//Login/Logout in the Header
-document.addEventListener("DOMContentLoaded", () => {
-    
-    const authLink = document.getElementById("auth-link")
-    /**
-     * Updates the authentication link in the header based on loged in/not logged in state
-     * Shows logout icon if the user is logged in
-     */
-    function updateAuthLink() {
-        const token = localStorage.getItem("accessToken")
-
-        if (token) {
-            authLink.innerHTML = `<i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>`
-            authLink.href = "#"
-            authLink.setAttribute("title", "Logout")
-            authLink.addEventListener("click", logout)
-        }
-    }
-    /**
-     * Logs out with removing all authentication info and cart data
-     * @param {Event} e - The click event
-     */
-    function logout(e) {
-        e.preventDefault()
-
-        // Remove all auth data & cart
-        localStorage.removeItem("accessToken")
-        localStorage.removeItem("user")
-        localStorage.removeItem("cart")
-        // Reload page
-        window.location.reload()
-    }
-    updateAuthLink()
-})
 // Carusell
 /**
  * Initializes the carousel with the  products
