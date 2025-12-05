@@ -7,7 +7,7 @@
 
 }
 .cart-hero{
-  background-image: url("/Images/Hero-background.png");
+  background-image: url("../images/hero-background.png");
   background-size: cover;
   padding: var(--spacing-0) var(--spacing-70) var(--spacing-64) var(--spacing-70);
   margin-bottom: var(--spacing-48);
