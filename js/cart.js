@@ -1,3 +1,7 @@
+import { initAuthLink } from "./authlink.js"
+
+// Initialisation Login/Logout
+initAuthLink()
 const cartItemsContainer = document.querySelector("#cart-list")
 const cartCount = document.querySelector("#cart-count")
 const cartTotal = document.querySelector("#cart-total")

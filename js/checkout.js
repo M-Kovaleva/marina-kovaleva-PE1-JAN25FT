@@ -1,3 +1,7 @@
+import { initAuthLink } from "./authlink.js"
+
+// Initialisation Login/Logout
+initAuthLink()
 document.addEventListener("DOMContentLoaded", () => {
     const loader = document.querySelector("#loader") 
     const emailField = document.querySelector("#email")

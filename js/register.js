@@ -1,3 +1,7 @@
+import { initAuthLink } from "./authlink.js"
+
+// Initialisation Login/Logout
+initAuthLink()
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("register-form")
   const nameInput = document.getElementById("register-name")
