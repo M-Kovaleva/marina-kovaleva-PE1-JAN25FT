@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       toast.classList.remove("show")
       window.location.href = "login.html" // Redirect after registration
-    }, 2000)
+    }, 1000)
   }
   /**
    * Opens the authentication modal window and stop scrolling

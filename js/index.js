@@ -380,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         toast.classList.remove("show")
         setTimeout(() => toast.remove(), 300)
-    }, 3000)
+    }, 1000)
     }
 
     signupButton.addEventListener("click", (e) => {

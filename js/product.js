@@ -66,7 +66,7 @@ function showToast(message) {
     setTimeout(() => {
         toast.classList.remove("show")
         setTimeout(() => toast.remove(), 300)
-    }, 3000)
+    }, 1000)
 }
 /**
  * Adds product to the cart - stores in localStorage and shows toast
@@ -104,7 +104,6 @@ async function fetchAndCreateProducts() {
         const response = await fetch(`${API_URL}/${id}`)
         const data = await response.json()
         const product = data.data
-
         const productDiv = document.createElement("div")
         const imageWrapper = document.createElement("div")
         const infoWrapper = document.createElement("div")

@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         toast.classList.add("show")
         setTimeout(() => {
             toast.classList.remove("show")
-        }, 2000)
+        }, 1000)
     }
 // Modal window
 const authModal = document.getElementById("auth-modal")

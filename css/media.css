@@ -653,13 +653,12 @@
     }
 
     .checkout-info-content {
-        margin-top: var(--spacing-48);
         gap: var(--spacing-32);
     }
 
     .cart-hero{
         padding: var(--spacing-48) var(--spacing-35) var(--spacing-64) var(--spacing-35);
-        margin-bottom: var(--spacing-0);
+        margin-bottom: var(--spacing-48);
     }
 
     .cart-hero h2{
