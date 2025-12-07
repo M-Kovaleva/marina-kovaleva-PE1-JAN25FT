@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let subtotal = 0
 
-            cart.forEach((item, index) => {
+            cart.forEach(item => {
                 const itemDiv = document.createElement("div")
                 itemDiv.className = "cart-item"
 
