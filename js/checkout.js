@@ -57,12 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     /**
      * Renders the cart on the page: list of products, subtotal and total price
-     * @async
      * @returns {Promise<void>}
      */
     async function renderCart() {
         showLoader()
-        //await new Promise(res => setTimeout(res, 2000)) // Check loader
         const cart = getCart()
         cartItemsContainer.innerHTML = ""
         let subtotal = 0
@@ -77,21 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         cart.forEach(item => {
-            const div = document.createElement("div")
-            div.className = "cart-item"
-            div.innerHTML = `
-                <img src="${item.image.url}" class="cart-item-image" alt="${item.image.alt || item.title}">
-                <h4 class="cart-item-title">${item.title}</h4>
-                <p class="cart-item-price">$${item.price}</p>
-            `
-            cartItemsContainer.appendChild(div)
+            const element = createCartItemElement(item)
+            cartItemsContainer.appendChild(element)
             subtotal += item.price
         })
+
         cartCount.textContent = cart.length
         cartTotal.textContent = subtotal.toFixed(2)
-        checkoutTotals.forEach(el =>
+
+        checkoutTotals.forEach(el => {
             el.textContent = `$${(subtotal + DELIVERY_PRICE).toFixed(2)}`
-        )
+        })
+
         hideLoader()
     }
 
@@ -166,9 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 showError(id, "Required field")
             }
         })
-        // Email
+       // Email
         const email = document.querySelector("#email").value.trim()
-        if (email && !/^[^\s@]+@stud\.noroff\.no$/.test(email)) {
+        if (email && !/^[^\s@]+@(stud\.noroff\.no|noroff\.no)$/.test(email)) {
             isValid = false
             showError("email", "Email must be @noroff.no or @stud.noroff.no")
         }
