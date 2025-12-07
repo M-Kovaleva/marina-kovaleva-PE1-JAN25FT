@@ -345,8 +345,7 @@ body:has(.menu-toggle:checked) {
 
 /* Footer */
 .page-footer{
-  background-color: var(--color-primary);
-  padding: var(--spacing-0) var(--spacing-70);
+  background-color: var(--color-backround);
   margin-top: var(--spacing-0);
 }
 
@@ -359,6 +358,7 @@ body:has(.menu-toggle:checked) {
   justify-content: space-between;
   align-items: center;
   height: 84px;
+  padding: var(--spacing-0) var(--spacing-70);
 }
 
 .footer-container p{
@@ -386,7 +386,6 @@ body:has(.menu-toggle:checked) {
   display: flex;
   gap: var(--spacing-24);
 }
-
 
 /* CTA-button */
 .cta-button {

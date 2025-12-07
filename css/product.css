@@ -238,6 +238,7 @@ hr{
   scroll-snap-type: x mandatory;
   gap: var(--spacing-24);
   padding-top: var(--spacing-16);
+  overflow-y: visible;
 }
 
 #also-container > a {
@@ -259,7 +260,21 @@ hr{
   background: transparent;
 }
 
+
 .also-container h3{
   margin-top: var(--spacing-24);
   margin-bottom: 19px;
+}
+
+#products-also, 
+#also-container { 
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.also-container{
+  margin: 0 58px;
+}
+
+#also-container .card:first-child {
+    margin-left: 12px;
 }
