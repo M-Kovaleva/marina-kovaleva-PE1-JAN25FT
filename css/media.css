@@ -222,9 +222,15 @@
     }
 
     .sign-up-form-group{
-        flex-direction: column;
-        align-items: start;
+        flex-direction: column-reverse;
     }
+
+    .sign-up-error-message {
+        display: block; 
+        color: var(--color-button-cta);
+        font-size: 0.85rem;
+        margin: 0; 
+        }
 
     .sign-up-form-group input {
         margin-right: var(--spacing-0);
@@ -232,10 +238,12 @@
         margin-bottom: 4px;
     }
 
-    .sign-up-form-group .cta-button {
-        margin-top: var(--spacing-16);
+    .input-button-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
     }
-    
+
     .card-image {
         max-width: 300px;
     }
@@ -492,6 +500,14 @@
         margin-top: var(--spacing-48);
     }
 
+    .sign-up-item-content {
+        gap: var(--spacing-24)
+    }
+
+    .sign-up-form-group {
+        margin-top: var(--spacing-0);
+    }
+
     .sign-up-form-group input {
         max-width: 100%;
         min-height: 36px;
@@ -706,6 +722,8 @@
     .success-hero p{
         margin-bottom: var(--spacing-0);
     }
+
+    
     /* Login */
     .login-hero{
         padding: var(--spacing-0) var(--spacing-35) var(--spacing-48) var(--spacing-35);
