@@ -57,78 +57,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     /**
      * Renders the cart on the page: list of products, subtotal and total price
-     * @async
      * @returns {Promise<void>}
      */
-   /* async function renderCart() {
+    async function renderCart() {
         showLoader()
-        //await new Promise(res => setTimeout(res, 2000)) // Check loader
-        const cart = getCart()
-        cartItemsContainer.innerHTML = ""
-        let subtotal = 0
+        try {
+            const cart = getCart()
+            cartItemsContainer.querySelectorAll(".cart-item").forEach(item => item.remove())
 
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = "<p>Your cart is empty</p>"
-            cartCount.textContent = "0"
-            cartTotal.textContent = "0"
-            checkoutTotals.forEach(el => el.textContent = "$0")
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = "<p>Your cart is empty</p>"
+                cartCount.textContent = "0"
+                cartTotal.textContent = "0"
+                checkoutTotals.forEach(el => el.textContent = "$0")
+                return
+            }
+
+            let subtotal = 0
+
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement("div")
+                itemDiv.className = "cart-item"
+
+                const img = document.createElement("img")
+                img.src = item.image.url
+                img.alt = item.image.alt || item.title
+                img.className = "cart-item-image"
+
+                const title = document.createElement("h4")
+                title.textContent = item.title
+                title.className = "cart-item-title"
+
+                const price = document.createElement("p")
+                price.textContent = `$${item.price}`
+                price.className = "cart-item-price"
+
+                itemDiv.append(img, title, price)
+                cartItemsContainer.appendChild(itemDiv)
+
+                subtotal += item.price
+            })
+
+            cartCount.textContent = cart.length
+            cartTotal.textContent = subtotal.toFixed(2)
+            checkoutTotals.forEach(el =>
+                el.textContent = `$${(subtotal + DELIVERY_PRICE).toFixed(2)}`
+            )
+
+        } finally {
             hideLoader()
-            return
         }
-
-        cart.forEach(item => {
-            const div = document.createElement("div")
-            div.className = "cart-item"
-            div.innerHTML = `
-                <img src="${item.image.url}" class="cart-item-image" alt="${item.image.alt || item.title}">
-                <h4 class="cart-item-title">${item.title}</h4>
-                <p class="cart-item-price">$${item.price}</p>
-            `
-            cartItemsContainer.appendChild(div)
-            subtotal += item.price
-        })
-        cartCount.textContent = cart.length
-        cartTotal.textContent = subtotal.toFixed(2)
-        checkoutTotals.forEach(el =>
-            el.textContent = `$${(subtotal + DELIVERY_PRICE).toFixed(2)}`
-        )
-        hideLoader()
-    }*/
-   /**
- * Renders cart items and totals
- * @returns {Promise<void>}
- */
-async function renderCart() {
-    showLoader()
-    const cart = getCart()
-    cartItemsContainer.innerHTML = ""
-    let subtotal = 0
-
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = "<p>Your cart is empty</p>"
-        cartCount.textContent = "0"
-        cartTotal.textContent = "0"
-        checkoutTotals.forEach(el => el.textContent = "$0")
-        hideLoader()
-        return
     }
-
-    cart.forEach(item => {
-        const div = document.createElement("div")
-        cartItemsContainer.appendChild(div)
-        subtotal += item.price
-    })
-
-    cartCount.textContent = cart.length
-    cartTotal.textContent = subtotal.toFixed(2)
-
-    checkoutTotals.forEach(el => {
-        el.textContent = `$${(subtotal + DELIVERY_PRICE).toFixed(2)}`
-    })
-
-    hideLoader()
-}
-
     renderCart()
     // Duplicate contact info into delivery section
     const fields = {
