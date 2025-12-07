@@ -43,5 +43,5 @@ Link to deployed web application: https://m-kovaleva.github.io/marina-kovaleva-P
 MIT License
 
 ## Contact
-
+Marina Kovaleva - markov04899@stud.noroff.no
 Project Link: [https://github.com/M-Kovaleva/marina-kovaleva-PE1-JAN25FT](https://github.com/M-Kovaleva/marina-kovaleva-PE1-JAN25FT)
