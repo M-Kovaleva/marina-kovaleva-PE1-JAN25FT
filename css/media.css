@@ -348,11 +348,6 @@
 
 @media (max-width: 552px) {
     /* Cart */
-    .cart-item {
-        flex-direction: row;
-        align-items: center;
-    }
-
     .cart-item-image {
         order: 1;
     }
@@ -364,7 +359,6 @@
 
     .cart-item-price {
         order: 3;
-        width: 100%;
         margin: var(--spacing-0);
     }
 
@@ -673,7 +667,7 @@
     .checkout-content {
         padding: var(--spacing-0) var(--spacing-35);
     }
-  
+
     .price-total {
         font-size: var(--font-price-2-mobile); 
     }
@@ -880,6 +874,10 @@
 
     .checkout-content {
         padding: var(--spacing-0) var(--spacing-20);
+    }
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
     }
     /* Success */
     .success-hero{
