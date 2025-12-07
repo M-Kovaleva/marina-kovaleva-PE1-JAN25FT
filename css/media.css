@@ -77,6 +77,14 @@
     }
 }
 
+@media (max-width: 911px) {
+ /* Cart */
+   .cart-box {
+        flex-direction: column-reverse;
+        gap: var(--spacing-32);
+    }
+}
+
 @media (max-width: 900px) {
     /* Index */
     .sign-up {
@@ -112,11 +120,6 @@
     .carousel-slide .cta-button {
         margin: var(--spacing-24) var(--spacing-0) var(--spacing-24) var(--spacing-0);
     }     
-    /* Cart */
-   .cart-box {
-        flex-direction: column-reverse;
-        gap: var(--spacing-32);
-    }
 
     .cart-summary {
         margin: var(--spacing-0); 
