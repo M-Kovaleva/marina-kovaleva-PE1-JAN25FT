@@ -1,8 +1,6 @@
 @import url("variables.css");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-
-
 /* Carusell */
 .hero-carousel-wrapper {
   padding: var(--spacing-0) var(--spacing-70);
@@ -213,14 +211,12 @@
   padding: var(--spacing-8) var(--spacing-16);
   width: 100%;
   outline: none;
- 
 }
 
 .search-btn:hover {
   background-color: var(--color-accent);
   color: var(--color-backround);
 }
-
 
 /* Products grid */
 .card {
@@ -231,7 +227,6 @@
   justify-content: space-between;
   align-items: center;
   transition: transform 0.3s, box-shadow 0.3s;
-
 }
 
 .card:hover {
@@ -373,216 +368,3 @@
   color: var(--color-button-cta);
   font-size: 0.85rem;
 }
-
-
-@media (max-width: 1150px) {
-  .carousel-hero-title {
-    font-size: var(--spacing-48);
-  }
-}
-
-@media (max-width: 900px) {
-  .sign-up {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .sign-up-item-content{
-    margin-top: var(--spacing-32);
-  }
-
-  .carousel-btn {
-    display: none;
-  }
-
-  .carousel-slide-wrapper{
-    flex-direction: column;
-    gap: var(--spacing-16);
-  }
-  
-  .carousel-content{
-    margin-top: var(--spacing-16);
-  }
-
-  .carousel-slide img, .carousel-content {
-    max-width: 100%;
-  }
-
-  .latest-carousel{
-    padding: var(--spacing-48) var(--spacing-0);
-  }
-
-  .carousel-slide .cta-button {
-    margin: var(--spacing-24) var(--spacing-0) var(--spacing-24) var(--spacing-0);
-  }
-}
-
-@media (max-width: 768px) {
-  .products,.filter{
-    padding: var(--spacing-0) var(--spacing-55);
-}
-  .hero-carousel-wrapper{
-    padding: var(--spacing-0) var(--spacing-55);
-  }
-
-  .carousel-dot {
-    width: 8px;
-    height: 8px;
-  }
-
-  .category {
-    grid-template-columns: repeat(3, 1fr); 
-  }
-
- .filter-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .category,
-  .search-bar {
-    width: 100%;
-  }
-
-  .search-bar {
-    box-sizing: border-box;
-  }
-
-  .search-bar input {
-    flex: 1;
-  }
-  .sign-up {
-    padding: var(--spacing-24) var(--spacing-0);
-  }
-
-   .sign-up-image-wrapper{
-    margin: var(--spacing-0) var(--spacing-55);
-  }
-
-  .sign-up-item-content{
-    margin: var(--spacing-32) var(--spacing-55) 40px var(--spacing-55);
-  }
-
-    .sign-up-form-group{
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .sign-up-form-group input {
-    margin-right: var(--spacing-0);
-    margin-top: 4px;
-    margin-bottom: 4px;
-  }
-  .sign-up-form-group .cta-button {
-    margin-top: var(--spacing-16);
-  }
-   .card-image {
-    max-width: 300px;
-  }
-
-}
-@media (max-width: 615px){
-  .card-image {
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-   .products, .filter{
-  padding: var(--spacing-0) var(--spacing-35);
-  }
-
-  .hero-carousel-wrapper{
-    padding: var(--spacing-0) var(--spacing-35);
-  }
-
-   .sign-up {
-    margin-top: var(--spacing-48);
-  }
-
-  .sign-up-form-group input {
-    max-width: 100%;
-    min-height: 36px;
-  }
-
-  .sign-up-form-group .cta-button {
-    height: 36px;
-    width: 124px;
-  }
-
-  .sign-up-item-content h2{
-    font-size: var(--font-size-mobile-h2);
-  }
-
-  .carousel-hero-title {
-    font-size: var( --font-size-mobile-h1);
-  }
-
-  .filter-container {
-    align-items: stretch;
-  }
-
-  .category-btn,
-  .search-btn{
-    font-size: var(--font-size-button-links-mobile) ;
-  }
-
-  #container {
-    grid-template-columns: repeat(1, 1fr);
-    margin-top: var(--spacing-48);
-  }
-
-  .sign-up-image-wrapper{
-    margin: var(--spacing-0) var(--spacing-35);
-  }
-
-  .sign-up-item-content{
-    margin: var(--spacing-32) var(--spacing-35) 40px var(--spacing-35);
-  }
-}
-
-@media (max-width: 370px) {
-  .category {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-
-@media (max-width: 350px){
-    .products,.filter{
-  padding: var(--spacing-0) var(--spacing-20);
-}
-
-  .hero-carousel-wrapper{
-    padding: var(--spacing-0) var(--spacing-20);
-  }
-
-  .search-bar {
-    width: 100%;
-  }
-
-  .search-bar input {
-    flex: 1 1 auto; 
-    min-width: 0;   
-  }
-
-  .search-btn {
-    flex-shrink: 0;
-  }
-
-  .sign-up-image-wrapper{
-    margin: var(--spacing-0) var(--spacing-20);
-  }
-
-  .sign-up-item-content{
-    margin: var(--spacing-32) var(--spacing-20) 40px var(--spacing-20);
-  }
-}
-
-
-
-
-  
-
-
-
-

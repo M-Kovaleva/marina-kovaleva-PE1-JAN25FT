@@ -82,47 +82,8 @@
   border-radius: var(--button-border-radius);
   cursor: pointer;
   transition: 0.3s ease;
-
 }
 
 .register-form-body button:hover {
   color: var(--color-accent);
-}
-
-
-
-@media (max-width: 480px) {
-.register-hero{
-  padding: var(--spacing-0) var(--spacing-35) var(--spacing-48) var(--spacing-35);
-}
-
-.register-form-body button {
-  height: 36px;
-  width: 124px;
-}
-
-.register-content{
-  padding: var(--spacing-0) var(--spacing-35);
-}
-
-.register-hero h2{
-  padding-top: var(--spacing-48);
-  margin-top: var(--spacing-0);
-  margin-bottom: var(--spacing-0);
-}
-
-.register-card {
-  background: var(--color-backround);
-  padding: var(--spacing-0) var(--spacing-0) var(--spacing-64) var(--spacing-0);
-}
-}
-
-@media (max-width: 350px) {
-.register-hero{
-  padding: var(--spacing-0) var(--spacing-20) var(--spacing-48) var(--spacing-20);
-}
-
-.register-content{
-  padding: var(--spacing-0) var(--spacing-20);
-}
 }

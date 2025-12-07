@@ -1,22 +1,24 @@
 @import url("variables.css");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap");
 
-
 .login-hero{
   background-image: url("../images/hero-background.png");
   background-size: cover;
   padding: var(--spacing-0) var(--spacing-70) var(--spacing-80) var(--spacing-70);
   margin-bottom: var(--spacing-48);
 }
+
 .login-hero h2{
   text-align: center;
   margin-top: 5px;
   margin-bottom: var(--spacing-16);
 }
+
 .login-card {
   background: var(--color-backround);
   padding: var(--spacing-0) var(--spacing-0) var(--spacing-80) var(--spacing-0);
 }
+
 .login-content{
   margin: 0 auto;
   display: flex;
@@ -84,51 +86,4 @@
 
 .sign-up-form-group button:hover {
   color: var(--color-accent);
-}
-
-
-@media (max-width: 768px) {
- .login-hero{
-  padding: var(--spacing-0) var(--spacing-55) var(--spacing-80) var(--spacing-55);
-}
-
-  .login-content{
-    padding: var(--spacing-0) var(--spacing-55);
-}
-}
-
-@media (max-width: 480px) {
-.login-hero{
-  padding: var(--spacing-0) var(--spacing-35) var(--spacing-48) var(--spacing-35);
-}
-
-.login-form-body button {
-  height: 36px;
-  width: 124px;
-}
-
-.login-content{
-  padding: var(--spacing-0) var(--spacing-35);
-}
-
-.login-hero h2{
-  padding-top: var(--spacing-48);
-  margin-top: var(--spacing-0);
-  margin-bottom: var(--spacing-0);
-
-}
-.login-card {
-    background: var(--color-backround);
-    padding: var(--spacing-0) var(--spacing-0) var(--spacing-64) var(--spacing-0);
-}
-}
-
-@media (max-width: 350px) {
-  .login-hero{
-    padding: var(--spacing-0) var(--spacing-48) var(--spacing-35);
-}
-  .login-content{
-    padding: var(--spacing-0) var(--spacing-20);
-}
-
 }

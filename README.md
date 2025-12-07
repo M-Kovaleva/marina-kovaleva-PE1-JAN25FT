@@ -1,5 +1,5 @@
 # Project Title
-🎁Exclusive Gifts Shop - Front-End E-Commerce Interface
+🎁 Exclusive Gifts Shop - Front-End E-Commerce Interface
 A client-side website for an online store selling exclusive gifts. 
 The project implements a fully functional user interface that integrates with the existing e-commerce API.
 ---
@@ -36,8 +36,7 @@ Follow these steps to get a copy of the project running locally:
    ```
 3. Run Live Server
 
-
-Use hyperlink https://m-kovaleva.github.io/marina-kovaleva-PE1-JAN25FT/
+Link to deployed web application: https://m-kovaleva.github.io/marina-kovaleva-PE1-JAN25FT/
 
 ## License
 
@@ -46,5 +45,3 @@ MIT License
 ## Contact
 
 Project Link: [https://github.com/M-Kovaleva/marina-kovaleva-PE1-JAN25FT](https://github.com/M-Kovaleva/marina-kovaleva-PE1-JAN25FT)
-
-

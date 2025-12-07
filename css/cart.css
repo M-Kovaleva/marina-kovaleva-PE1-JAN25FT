@@ -23,7 +23,6 @@
   padding: var(--spacing-0) var(--spacing-70);
 }
 
-
 .cart-box {
   display: flex;
   max-width: 1100px;
@@ -50,8 +49,8 @@
 }
 
 .cart-list, .cart-summary {
-    width: 100%;
-    box-sizing: border-box;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cart-item {
@@ -73,7 +72,6 @@
   object-fit: cover;
   display: block;
 }
-
 
 .cart-item-title {
   margin: var(--spacing-0);
@@ -109,14 +107,13 @@
   margin: var(--spacing-0);
 }
 
-
 .cart-total {
   font-size: var(--font-price-2-mobile);
   font-weight: var(--font-weight-bold);
 }
 
 #cart-total{
-    color: var(--color-button-cta);
+  color: var(--color-button-cta);
 }
 
 .cart-empty-inside {
@@ -127,85 +124,3 @@
 .cart-empty-inside .cta-button{
   margin-top: var(--spacing-24) ;
 }
-
-
-@media (max-width: 900px) {
-   .cart-box {
-      flex-direction: column-reverse;
-      gap: var(--spacing-32);
-    }
-
-    .cart-summary {
-      margin: var(--spacing-0); 
-    }
-}
-
-
-@media (max-width: 768px) {
-  .cart-content{
-  padding: var(--spacing-0) var(--spacing-55);
-}
-.cart-hero{
-  padding: var(--spacing-0) var(--spacing-55) var(--spacing-64) var(--spacing-55);
-}
-}
-
-@media (max-width: 552px) {
-  .cart-item {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .cart-item-image {
-    order: 1;
-  }
-
-  .cart-item-title {
-    order: 2;
-    width: calc(100% - 120px);
-  }
-
-  .cart-item-price {
-    order: 3;
-    width: 100%;
-    margin: var(--spacing-0);
-  }
-
-  .cart-item .active-link {
-    order: 4;
-    width: 100%;
-    margin: var(--spacing-0);
-  }
-}
-
-@media (max-width: 480px) {
-  .cart-container {
-
-  padding: var(--spacing-0) var(--spacing-0) var(--spacing-64) var(--spacing-0);
-}
-  .cart-content{
-    padding: var(--spacing-0) var(--spacing-35);
-}
-
-.cart-hero h2{
-  margin-top: var(--spacing-0);
-  margin-bottom: var(--spacing-0);
-  }
-  .cart-hero {
-    padding-top: var(--spacing-48);
-    padding-bottom: var(--spacing-48);
-  }
-}
-
-@media (max-width: 350px) {
-   .cart-content{
-  padding: var(--spacing-0) var(--spacing-20);
-}
-.cart-hero{
-  padding: var(--spacing-48) var(--spacing-20) var(--spacing-64) var(--spacing-20);
-
-}
-}
-
-
-
