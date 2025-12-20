@@ -1,7 +1,7 @@
 # Project Title
 🎁 MODO - Exclusive Gifts Shop
 
-## 📸 Screenshot
+## Screenshot
 ![Project Screenshot](./images/project-screenshot.png)
 
 Exclusive Gifts Shop - Front-End E-Commerce Interface
@@ -11,7 +11,7 @@ The project implements a fully functional user interface that integrates with th
 Figma design: [https://www.figma.com/design/jnildWIY9ummnVuSFHQdWc/Untitled?node-id=26-9&t=BLBoelXAaSWCtVgS-1](https://www.figma.com/design/jnildWIY9ummnVuSFHQdWc/Untitled?node-id=26-9&t=BLBoelXAaSWCtVgS-1)
 
 ## Description
-MODO Exclusive Gifts Shop – Front‑End E‑Commerce Interface. This is the frontend of an online store selling exclusive gifts. It is web site developed using HTML, CSS, and JavaScript, including:
+MODO Exclusive Gifts Shop – Front‑End E‑Commerce Interface. This is the frontend of an online store selling exclusive gifts. It is a responsive web site developed using HTML, CSS, and JavaScript, including:
 - Home page with 
    - interactive banner carousel showing the 3 latest products;
    - catalog with categories;
@@ -43,7 +43,7 @@ MODO Exclusive Gifts Shop – Front‑End E‑Commerce Interface. This is the fr
 - Coming soon page 
 ---
 
-## 🛠️ Built With
+## Built With
 List the main tools and technologies used in this project:
 
 - HTML
